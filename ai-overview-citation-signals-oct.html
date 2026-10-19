@@ -1,0 +1,1005 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Google&#x27;s AI Overview Cites for Software Searches | AUQ Study</title>
+<meta name="description" content="We ran 100 “best software” searches through Google’s AI Overview three times each and logged every source cited. What earns a citation, and what never does.">
+<link rel="canonical" href="https://auq.io/research/ai-overview-citation-signals-oct.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AUQ">
+<meta property="og:title" content="What Google&#x27;s AI Overview Cites for Software Searches | AUQ Study">
+<meta property="og:description" content="We ran 100 “best software” searches through Google’s AI Overview three times each and logged every source cited. What earns a citation, and what never does.">
+<meta property="og:url" content="https://auq.io/research/ai-overview-citation-signals-oct.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What Google&#x27;s AI Overview Cites for Software Searches | AUQ Study">
+<meta name="twitter:description" content="We ran 100 “best software” searches through Google’s AI Overview three times each and logged every source cited. What earns a citation, and what never does.">
+
+<!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NCFX8NJ');</script><!-- End Google Tag Manager -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* Every rule is scoped under .auq-root so the page can be embedded in a CMS without collisions. */
+.auq-root {
+  --auq-bg: #090E12;
+  --auq-panel: #111A21;
+  --auq-panel-2: #131E26;
+  --auq-cyan: #00FFF8;
+  --auq-cyan-2: #10CAE2;
+  --auq-orange: #ED702D;
+  --auq-text: #FFFFFF;
+  --auq-muted: rgba(255, 255, 255, 0.7);
+  --auq-faint: rgba(255, 255, 255, 0.62);
+  --auq-line: rgba(255, 255, 255, 0.12);
+  --auq-teal-line: rgba(16, 202, 226, 0.35);
+  --auq-sans: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --auq-body: "Fira Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --auq-mono: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --auq-notch: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px));
+
+  background-color: var(--auq-bg);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1.2px);
+  background-size: 22px 22px;
+  color: var(--auq-text);
+  font-family: var(--auq-body);
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+.auq-root *, .auq-root *::before, .auq-root *::after { box-sizing: border-box; }
+.auq-root a { color: var(--auq-cyan-2); }
+.auq-root :focus-visible { outline: 2px solid var(--auq-cyan); outline-offset: 3px; }
+
+.auq-wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+.auq-section { padding: 88px 0; }
+.auq-section + .auq-section { border-top: 1px solid var(--auq-line); }
+
+.auq-eyebrow {
+  font-family: var(--auq-sans);
+  font-size: 15px;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: var(--auq-cyan);
+  margin: 0 0 16px;
+}
+.auq-h2 {
+  font-family: var(--auq-sans);
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 44px);
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin: 0 0 20px;
+}
+.auq-lede { color: var(--auq-muted); font-weight: 300; max-width: 720px; margin: 0; }
+
+/* Notched panel (matches the case-study cards on auq.io). Outer layer draws the 1px teal border. */
+.auq-notch { background: var(--auq-teal-line); clip-path: var(--auq-notch); padding: 1px; }
+.auq-notch-in { background: var(--auq-panel); clip-path: var(--auq-notch); height: 100%; }
+
+/* Buttons: orange trapezoid, as on the auq.io hero. Shape is drawn on ::before so focus outlines aren't clipped. */
+.auq-btn {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 14px 34px;
+  font-family: var(--auq-mono);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2.1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #0B0F12 !important;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.auq-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--auq-orange);
+  clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 100%, 0 100%);
+  transition: background-color 0.15s ease;
+}
+.auq-btn:hover::before { background: #F5874A; }
+.auq-btn-arrow { margin-left: 10px; font-family: var(--auq-sans); font-weight: 500; }
+
+/* Tags */
+.auq-tag {
+  display: inline-block;
+  font-family: var(--auq-mono);
+  font-size: 12.5px;
+  line-height: 1.4;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.auq-tag-g { background: rgba(16, 202, 226, 0.14); color: var(--auq-cyan-2); }
+.auq-tag-c { background: rgba(237, 112, 45, 0.16); color: var(--auq-orange); }
+
+/* ---------- Hero ---------- */
+.auq-hero { padding: 96px 0 88px; }
+.auq-hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr); gap: 56px; align-items: center; }
+.auq-hero h1 {
+  font-family: var(--auq-sans);
+  font-weight: 400;
+  font-size: clamp(40px, 6vw, 68px);
+  line-height: 1.06;
+  letter-spacing: -1px;
+  margin: 0 0 24px;
+}
+.auq-hero h1 span { color: var(--auq-cyan); }
+.auq-hero-sub { font-weight: 300; font-size: 20px; color: rgba(255, 255, 255, 0.82); margin: 0 0 18px; max-width: 640px; }
+.auq-hero-meta { font-family: var(--auq-mono); font-size: 13px; letter-spacing: 1px; color: var(--auq-faint); margin: 0 0 36px; }
+.auq-stats { padding: 32px 32px 36px; }
+.auq-stats-head { display: flex; align-items: center; gap: 12px; font-family: var(--auq-sans); font-size: 17px; color: rgba(255, 255, 255, 0.85); margin: 0 0 22px; }
+.auq-stats-head svg { flex: none; }
+.auq-stats dl { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 26px 20px; }
+.auq-stats dt { font-family: var(--auq-sans); font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--auq-cyan-2); line-height: 1.4; margin-top: 6px; }
+.auq-stats dd { margin: 0; font-family: var(--auq-sans); font-size: 44px; line-height: 1; color: var(--auq-cyan-2); }
+.auq-stats div { display: flex; flex-direction: column; justify-content: flex-start; }
+.auq-stats dd { order: -1; }
+.auq-stats-foot { margin: 24px 0 0; padding-top: 18px; border-top: 1px solid var(--auq-line); display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* ---------- Findings ---------- */
+.auq-findings { list-style: none; margin: 40px 0 0; padding: 0; display: grid; gap: 0; counter-reset: auq-f; }
+.auq-findings li {
+  counter-increment: auq-f;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 16px;
+  padding: 22px 0;
+  border-top: 1px solid var(--auq-line);
+  font-size: 19px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+}
+.auq-findings li:last-child { border-bottom: 1px solid var(--auq-line); }
+.auq-findings li::before { content: counter(auq-f, decimal-leading-zero); font-family: var(--auq-mono); font-size: 14px; color: var(--auq-cyan-2); padding-top: 4px; }
+.auq-findings strong { font-weight: 500; color: #fff; }
+.auq-findings .auq-hl { color: var(--auq-cyan); font-weight: 400; }
+
+.auq-kf-title { font-family: var(--auq-sans); font-weight: 400; font-size: 24px; margin: 64px 0 18px; }
+.auq-kf { width: 100%; border-collapse: collapse; }
+.auq-kf thead th {
+  font-family: var(--auq-mono);
+  font-weight: 400;
+  font-size: 12.5px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--auq-faint);
+  text-align: left;
+  padding: 0 20px 14px;
+  border-bottom: 1px solid var(--auq-line);
+}
+.auq-kf thead th:first-child { padding-left: 0; }
+.auq-kf tbody th, .auq-kf tbody td { padding: 20px; border-bottom: 1px solid var(--auq-line); vertical-align: top; text-align: left; }
+.auq-kf tbody th { padding-left: 0; font-weight: 400; width: 46%; }
+.auq-kf-name { display: block; font-family: var(--auq-sans); font-size: 19px; color: #fff; }
+.auq-kf-measured { display: block; font-size: 15px; font-weight: 300; color: var(--auq-muted); margin-top: 4px; }
+.auq-kf-note { display: block; font-family: var(--auq-mono); font-size: 12px; color: var(--auq-faint); margin-top: 8px; line-height: 1.5; }
+.auq-kf-val { font-family: var(--auq-sans); font-size: 22px; line-height: 1.3; white-space: nowrap; }
+.auq-kf-g { color: var(--auq-cyan); }
+.auq-kf-c { color: #fff; }
+
+/* ---------- Explore ---------- */
+.auq-explore-panel { margin-top: 40px; }
+.auq-explore-in { padding: 8px 28px 32px; }
+.auq-tabs { display: flex; gap: 28px; border-bottom: 1px solid var(--auq-line); margin-bottom: 26px; flex-wrap: wrap; }
+.auq-tab {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  padding: 20px 0 14px;
+  font-family: var(--auq-mono);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--auq-faint);
+  cursor: pointer;
+}
+.auq-tab:hover { color: #fff; }
+.auq-tab[aria-selected="true"] { color: var(--auq-cyan); border-bottom-color: var(--auq-cyan); }
+.auq-tab-count { font-weight: 400; color: inherit; opacity: 0.75; margin-left: 6px; }
+
+.auq-filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px 16px; align-items: end; }
+.auq-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.auq-field-wide { grid-column: span 2; }
+.auq-label { font-family: var(--auq-mono); font-size: 11.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--auq-faint); }
+.auq-select, .auq-input {
+  width: 100%;
+  min-height: 44px;
+  font-family: var(--auq-sans);
+  font-size: 15px;
+  color: #fff;
+  background-color: var(--auq-panel-2);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  padding: 9px 12px;
+}
+.auq-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 34px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23ffffff' stroke-opacity='.8' stroke-width='1.6' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  cursor: pointer;
+}
+.auq-select option { background: var(--auq-panel-2); color: #fff; }
+.auq-select.auq-active, .auq-input.auq-active { border-color: var(--auq-cyan-2); background-color: rgba(0, 255, 248, 0.06); }
+.auq-input::placeholder { color: rgba(255, 255, 255, 0.5); }
+.auq-select:hover, .auq-input:hover { border-color: rgba(255, 255, 255, 0.32); }
+
+.auq-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin: 18px 0 16px; }
+.auq-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  padding: 8px 14px;
+  font-family: var(--auq-sans);
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.85);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.auq-toggle:hover { border-color: rgba(255, 255, 255, 0.32); }
+.auq-toggle-sw { width: 30px; height: 18px; border-radius: 9px; background: rgba(255, 255, 255, 0.18); position: relative; flex: none; transition: background-color 0.15s ease; }
+.auq-toggle-sw::after { content: ""; position: absolute; top: 3px; left: 3px; width: 12px; height: 12px; border-radius: 50%; background: #fff; transition: transform 0.15s ease; }
+.auq-toggle[aria-pressed="true"] { border-color: var(--auq-cyan-2); color: #fff; background: rgba(0, 255, 248, 0.06); }
+.auq-toggle[aria-pressed="true"] .auq-toggle-sw { background: var(--auq-cyan-2); }
+.auq-toggle[aria-pressed="true"] .auq-toggle-sw::after { transform: translateX(12px); background: #0B0F12; }
+.auq-reset {
+  margin-left: auto;
+  min-height: 40px;
+  padding: 8px 4px;
+  background: none;
+  border: 0;
+  font-family: var(--auq-mono);
+  font-size: 12.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--auq-orange);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.auq-reset:hover { color: #F5874A; }
+.auq-count { font-family: var(--auq-mono); font-size: 13px; color: var(--auq-muted); margin: 0; }
+.auq-count b { color: var(--auq-cyan); font-weight: 400; }
+
+.auq-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--auq-line); border-radius: 8px; background: rgba(9, 14, 18, 0.55); }
+.auq-table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.auq-table th, .auq-table td { padding: 12px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--auq-line); }
+.auq-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--auq-panel-2);
+  font-family: var(--auq-mono);
+  font-weight: 400;
+  font-size: 11.5px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  vertical-align: bottom;
+  white-space: normal;
+  min-width: 96px;
+}
+.auq-table tbody tr:hover td { background: rgba(255, 255, 255, 0.03); }
+.auq-table tbody tr:last-child td { border-bottom: 0; }
+.auq-table td { color: rgba(255, 255, 255, 0.88); }
+.auq-table td.auq-num, .auq-table th.auq-num { text-align: right; font-variant-numeric: tabular-nums; }
+.auq-table td.auq-num { font-family: var(--auq-mono); font-size: 14px; }
+.auq-table td.auq-strong { color: #fff; font-family: var(--auq-sans); font-size: 15px; min-width: 200px; }
+.auq-table td.auq-type { min-width: 170px; color: var(--auq-muted); }
+.auq-table td.auq-dim { color: var(--auq-muted); }
+.auq-table td.auq-title { min-width: 280px; max-width: 420px; }
+.auq-table td.auq-domain { font-family: var(--auq-mono); font-size: 13px; color: var(--auq-muted); white-space: nowrap; }
+.auq-table td a { color: #fff; text-decoration: underline; text-decoration-color: rgba(16, 202, 226, 0.55); text-underline-offset: 3px; }
+.auq-table td a:hover { color: var(--auq-cyan); text-decoration-color: var(--auq-cyan); }
+.auq-na { color: rgba(255, 255, 255, 0.45); font-family: var(--auq-mono); font-size: 12px; }
+.auq-sort {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+.auq-sort:hover { color: #fff; }
+.auq-sort-ind { display: inline-block; width: 9px; opacity: 0.4; font-family: var(--auq-sans); }
+th[aria-sort="ascending"] .auq-sort, th[aria-sort="descending"] .auq-sort { color: var(--auq-cyan); }
+th[aria-sort="ascending"] .auq-sort-ind, th[aria-sort="descending"] .auq-sort-ind { opacity: 1; }
+
+.auq-dot { display: inline-flex; align-items: center; gap: 7px; font-size: 13.5px; color: var(--auq-muted); white-space: nowrap; }
+.auq-dot::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: rgba(255, 255, 255, 0.22); }
+.auq-dot.auq-yes { color: #fff; }
+.auq-dot.auq-yes::before { background: var(--auq-cyan); }
+
+.auq-empty { padding: 40px 16px; text-align: center; color: var(--auq-muted); }
+
+.auq-tip-wrap { position: relative; display: inline-flex; align-items: flex-end; gap: 6px; }
+.auq-tip-btn {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: none;
+  color: #fff;
+  font-family: var(--auq-sans);
+  font-size: 11px;
+  line-height: 1;
+  padding: 0;
+  cursor: help;
+  flex: none;
+}
+.auq-tip {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 260px;
+  padding: 12px 14px;
+  background: #1A2731;
+  border: 1px solid var(--auq-teal-line);
+  border-radius: 6px;
+  font-family: var(--auq-body);
+  font-size: 13.5px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #fff;
+  z-index: 5;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+.auq-tip-wrap:hover .auq-tip, .auq-tip-btn:focus-visible + .auq-tip, .auq-tip-wrap.auq-tip-open .auq-tip { visibility: visible; opacity: 1; }
+
+.auq-pager { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+.auq-pager-btns { display: flex; align-items: center; gap: 10px; }
+.auq-page-btn {
+  min-height: 40px;
+  padding: 8px 16px;
+  font-family: var(--auq-mono);
+  font-size: 12.5px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.auq-page-btn:hover:not(:disabled) { border-color: var(--auq-cyan-2); color: var(--auq-cyan); }
+.auq-page-btn:disabled { opacity: 0.35; cursor: default; }
+.auq-page-of { font-family: var(--auq-mono); font-size: 12.5px; color: var(--auq-muted); }
+.auq-hidden { display: none !important; }
+.auq-sr { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* ---------- CTA block ---------- */
+.auq-cta-in { padding: 56px 48px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; background: linear-gradient(120deg, #13232C 0%, var(--auq-panel) 60%); }
+.auq-cta-in .auq-h2 { margin-bottom: 12px; }
+
+/* ---------- Method ---------- */
+.auq-method { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
+.auq-method li { position: relative; padding: 18px 0 18px 28px; border-top: 1px solid var(--auq-line); font-weight: 300; font-size: 17px; color: rgba(255, 255, 255, 0.85); }
+.auq-method li::before { content: ""; position: absolute; left: 0; top: 29px; width: 8px; height: 8px; border-radius: 2px; background: var(--auq-cyan); }
+
+/* ---------- Footer ---------- */
+.auq-footer { border-top: 1px solid var(--auq-line); padding: 40px 0 48px; }
+.auq-footer .auq-wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.auq-footer a.auq-logo { display: inline-flex; color: #fff; }
+.auq-footer-meta { font-family: var(--auq-mono); font-size: 12.5px; letter-spacing: 1px; color: var(--auq-faint); display: flex; gap: 20px; }
+.auq-footer-meta a { color: var(--auq-faint); text-decoration: none; }
+.auq-footer-meta a:hover { color: #fff; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .auq-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .auq-cta-in { grid-template-columns: 1fr; padding: 40px 28px; }
+  .auq-method { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .auq-root { font-size: 17px; }
+  .auq-wrap { padding: 0 16px; }
+  .auq-section { padding: 64px 0; }
+  .auq-hero { padding: 56px 0 64px; }
+  .auq-hero-sub { font-size: 18px; }
+  .auq-stats { padding: 26px 22px 28px; }
+  .auq-stats dd { font-size: 36px; }
+  .auq-findings li { grid-template-columns: 1fr; gap: 6px; font-size: 17.5px; }
+  .auq-explore-in { padding: 4px 16px 24px; }
+  .auq-tabs { gap: 16px; flex-wrap: nowrap; }
+  .auq-tab { font-size: 11.5px; letter-spacing: 1px; padding: 16px 0 12px; white-space: nowrap; }
+  .auq-tab-count { display: none; }
+  .auq-filters { grid-template-columns: 1fr; }
+  .auq-field-wide { grid-column: auto; }
+  .auq-toolbar { flex-direction: column; align-items: stretch; }
+  .auq-toggle { justify-content: flex-start; }
+  .auq-reset { margin-left: 0; align-self: flex-start; }
+  .auq-btn { width: 100%; }
+  .auq-tip { right: auto; left: -200px; width: 230px; }
+  /* Key findings collapse to stacked cards */
+  .auq-kf thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .auq-kf, .auq-kf tbody, .auq-kf tr, .auq-kf tbody th, .auq-kf tbody td { display: block; width: 100%; }
+  .auq-kf tr { padding: 18px 0; border-bottom: 1px solid var(--auq-line); display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+  .auq-kf tbody th { grid-column: 1 / -1; padding: 0; border: 0; }
+  .auq-kf tbody td { padding: 0; border: 0; }
+  .auq-kf tbody td::before { content: attr(data-label); display: block; font-family: var(--auq-mono); font-size: 11px; letter-spacing: 1.3px; text-transform: uppercase; color: var(--auq-faint); margin-bottom: 4px; }
+  .auq-kf-val { font-size: 19px; white-space: normal; }
+}
+</style>
+
+<style>
+/* ---- additions for this study: stat cards, distribution bars, callout ---- */
+.auq-root .auq-domlist{font-family:var(--auq-mono);font-size:12.5px;line-height:1.7;color:var(--auq-muted)}
+.auq-root .auq-domlist b{color:#fff;font-weight:400}
+.auq-root .auq-doms{min-width:200px;max-width:280px}
+.auq-root .auq-typelist{font-size:13px;line-height:1.7;color:var(--auq-muted);min-width:128px}
+.auq-root .auq-stablecell{white-space:nowrap}
+.auq-root .auq-panelviz{display:grid;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));gap:24px;margin-top:40px}
+.auq-root .auq-pv{padding:26px 26px 28px}
+.auq-root .auq-pv h4{font-family:var(--auq-sans);font-weight:400;font-size:17px;margin:0 0 4px;color:#fff}
+.auq-root .auq-pv p{margin:0;font-size:14.5px;font-weight:300;color:var(--auq-muted)}
+.auq-root .auq-pv-num{font-family:var(--auq-sans);font-size:52px;line-height:1;color:var(--auq-cyan-2);margin:0 0 10px}
+.auq-root .auq-pv-num small{font-size:20px;color:var(--auq-faint)}
+.auq-root .auq-dist{list-style:none;margin:18px 0 0;padding:0;font-family:var(--auq-mono);font-size:12.5px}
+.auq-root .auq-dist li{display:grid;grid-template-columns:66px 1fr 48px;align-items:center;gap:10px;padding:3px 0;color:var(--auq-muted)}
+.auq-root .auq-dist li em{font-style:normal}
+.auq-root .auq-dist span{display:block;height:10px;background:var(--auq-cyan-2);border-radius:2px;min-width:2px}
+.auq-root .auq-dist li.auq-peak span{background:var(--auq-cyan)}
+.auq-root .auq-dist li.auq-peak{color:#fff}
+.auq-root .auq-callout{margin:36px 0 0;padding:24px 26px;border-left:3px solid var(--auq-orange);background:rgba(237,112,45,.07)}
+.auq-root .auq-callout p{margin:0;font-size:16.5px;font-weight:300;color:rgba(255,255,255,.88)}
+.auq-root .auq-callout strong{color:#fff;font-weight:500}
+.auq-root .auq-srcnote{font-family:var(--auq-mono);font-size:12px;color:var(--auq-faint);margin:14px 0 0;line-height:1.7}
+.auq-root .auq-srcnote a{color:var(--auq-cyan-2)}
+.auq-root .auq-mini{width:100%;border-collapse:collapse;margin-top:28px;font-size:15px}
+.auq-root .auq-mini th{font-family:var(--auq-mono);font-weight:400;font-size:11.5px;letter-spacing:1.3px;text-transform:uppercase;color:var(--auq-faint);text-align:left;padding:0 16px 12px;border-bottom:1px solid var(--auq-line)}
+.auq-root .auq-mini th:first-child{padding-left:0}
+.auq-root .auq-mini th.auq-num,.auq-root .auq-mini td.auq-num{text-align:right;font-variant-numeric:tabular-nums}
+.auq-root .auq-mini td{padding:14px 16px;border-bottom:1px solid var(--auq-line);color:rgba(255,255,255,.88)}
+.auq-root .auq-mini td:first-child{padding-left:0;color:#fff}
+.auq-root .auq-mini td.auq-num{font-family:var(--auq-mono);font-size:14px}
+@media (max-width:720px){
+  .auq-root .auq-pv-num{font-size:40px}
+  .auq-root .auq-dist li{grid-template-columns:56px 1fr 42px}
+  .auq-root .auq-mini{font-size:14px}
+  .auq-root .auq-mini td,.auq-root .auq-mini th{padding-left:8px;padding-right:8px}
+}
+</style>
+</head>
+<body style="margin:0;background:#090E12"><!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCFX8NJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+<!-- ===== AUQ STUDY: EMBED START (everything inside .auq-root is self-contained) ===== -->
+<div class="auq-root" id="auq-study">
+
+  <header class="auq-hero">
+    <div class="auq-wrap auq-hero-grid">
+      <div>
+        <p class="auq-eyebrow">AUQ Study &middot; 100 software searches</p>
+        <h1>What AI Overviews <span>Cite for Software Searches</span></h1>
+        <p class="auq-hero-sub">We ran 100 &ldquo;best software&rdquo; searches through Google&rsquo;s AI Overview &mdash; three times each &mdash; and logged every source it cited: 3,685 citations in all. Here is what earns a place in the citation panel, and what never does.</p>
+        <p class="auq-hero-meta">Data pulled October 2026 &middot; US &middot; desktop</p>
+        <a class="auq-btn" href="#auq-cta-h" data-auq-cta="hero">Get a free content audit<span class="auq-btn-arrow" aria-hidden="true">&rarr;</span></a>
+      </div>
+      <aside class="auq-notch" aria-label="Study at a glance">
+        <div class="auq-notch-in auq-stats">
+          <p class="auq-stats-head">
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="#00FFF8" stroke-width="1.8"/><path d="M3 10h18M9 10v10" stroke="#00FFF8" stroke-width="1.8"/></svg>
+            The dataset
+          </p>
+          <dl>
+            <div><dt>Software searches</dt><dd>100</dd></div>
+            <div><dt>Pulls per search</dt><dd>3</dd></div>
+            <div><dt>Citations logged</dt><dd>3,685</dd></div>
+            <div><dt>Cited videos profiled</dt><dd>174</dd></div>
+          </dl>
+          <p class="auq-stats-foot"><span class="auq-tag auq-tag-g">Google AI Overviews</span><span class="auq-tag auq-tag-c">October 2026</span></p>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section class="auq-section" aria-labelledby="auq-found-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">Key findings</p>
+        <h2 class="auq-h2" id="auq-found-h">What we found</h2>
+        <ul class="auq-findings">
+          <li><span>The citation panel is almost always exactly three sources. <span class="auq-hl">259 of 290</span> AI Overviews showed three references &mdash; no more, no fewer.</span></li>
+          <li><span><strong>Vendor blogs and listicles are more than half of everything cited.</strong> They take <span class="auq-hl">53%</span> of top-3 citations &mdash; more than three times the share of any other source type.</span></li>
+          <li><span>Reddit holds the opening slot in about a third of all answers: <span class="auq-hl">33</span> first-position citations across ~97 panels, more than any other domain.</span></li>
+          <li><span>Review aggregators are effectively absent. <span class="auq-hl">89 of ~97</span> searches have no G2, Capterra or TrustRadius citation in the top 3 &mdash; and Forrester and IDC were cited <span class="auq-hl">zero</span> times.</span></li>
+          <li><span>YouTube has huge reach but little prime position: cited somewhere in <span class="auq-hl">68 of ~97</span> panels, yet inside the top 3 for only <span class="auq-hl">20</span>.</span></li>
+          <li><span>And audience size is a weak gate &mdash; the smallest video holding a top-3 citation had <span class="auq-hl">87 views</span>.</span></li>
+        </ul>
+
+        <h3 class="auq-kf-title">What gets cited, by source type</h3>
+        <table class="auq-kf">
+          <caption class="auq-sr">Top-3 AI Overview citations by source type, October 2026.</caption>
+          <thead><tr><th scope="col">Source type</th><th scope="col">Citations per pull</th><th scope="col">Share of top 3</th></tr></thead>
+          <tbody>
+          <tr>
+            <th scope="row"><span class="auq-kf-name">Vendor blog or listicle</span>
+              <span class="auq-kf-measured">Round-ups and “best X” posts published by software vendors.</span></th>
+            <td data-label="Citations per pull"><span class="auq-kf-val auq-kf-c">148</span></td>
+            <td data-label="Share of top 3"><span class="auq-kf-val auq-kf-g">53%</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="auq-kf-name">Forum or community</span>
+              <span class="auq-kf-measured">Almost entirely Reddit, with a handful of Quora threads.</span></th>
+            <td data-label="Citations per pull"><span class="auq-kf-val auq-kf-c">42</span></td>
+            <td data-label="Share of top 3"><span class="auq-kf-val auq-kf-g">15%</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="auq-kf-name">Vendor product page</span>
+              <span class="auq-kf-measured">A vendor’s own homepage, product page or category page.</span></th>
+            <td data-label="Citations per pull"><span class="auq-kf-val auq-kf-c">24</span></td>
+            <td data-label="Share of top 3"><span class="auq-kf-val auq-kf-g">8%</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="auq-kf-name">Video</span>
+              <span class="auq-kf-measured">YouTube — reviews, walkthroughs and “I tested N tools” comparisons.</span></th>
+            <td data-label="Citations per pull"><span class="auq-kf-val auq-kf-c">22</span></td>
+            <td data-label="Share of top 3"><span class="auq-kf-val auq-kf-g">8%</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="auq-kf-name">News or media</span>
+              <span class="auq-kf-measured">Mainstream and trade press: PCMag, Forbes, TechRadar, CNBC.</span></th>
+            <td data-label="Citations per pull"><span class="auq-kf-val auq-kf-c">19</span></td>
+            <td data-label="Share of top 3"><span class="auq-kf-val auq-kf-g">7%</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="auq-kf-name">Analyst</span>
+              <span class="auq-kf-measured">Gartner only. Forrester and IDC were not cited once.</span></th>
+            <td data-label="Citations per pull"><span class="auq-kf-val auq-kf-c">15</span></td>
+            <td data-label="Share of top 3"><span class="auq-kf-val auq-kf-g">5%</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="auq-kf-name">Review aggregator</span>
+              <span class="auq-kf-measured">G2, Capterra, TrustRadius, Software Advice and peers.</span></th>
+            <td data-label="Citations per pull"><span class="auq-kf-val auq-kf-c">7</span></td>
+            <td data-label="Share of top 3"><span class="auq-kf-val auq-kf-g">3%</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="auq-kf-name">Professional, org or gov</span>
+              <span class="auq-kf-measured">Trade bodies, professional associations and government sites.</span></th>
+            <td data-label="Citations per pull"><span class="auq-kf-val auq-kf-c">4</span></td>
+            <td data-label="Share of top 3"><span class="auq-kf-val auq-kf-g">1%</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="auq-kf-name">Social or pro network</span>
+              <span class="auq-kf-measured">LinkedIn, Medium and similar.</span></th>
+            <td data-label="Citations per pull"><span class="auq-kf-val auq-kf-c">1</span></td>
+            <td data-label="Share of top 3"><span class="auq-kf-val auq-kf-g">0%</span></td>
+          </tr>
+          </tbody>
+        </table>
+        <p class="auq-srcnote">Based on 282 top-3 citations per pull across ~97 searches that returned an AI Overview. Figures are the mean of three pulls.</p>
+      </div>
+    </section>
+
+    <section class="auq-section" aria-labelledby="auq-panel-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">The shape of the panel</p>
+        <h2 class="auq-h2" id="auq-panel-h">Three slots, and only three</h2>
+        <p class="auq-lede">Google shows a near-fixed set of three references beside its AI Overview. That is the entire shortlist a buyer sees, which makes the third slot the whole game.</p>
+        <div class="auq-panelviz">
+          <div class="auq-notch"><div class="auq-notch-in auq-pv">
+            <p class="auq-pv-num">3</p>
+            <h4>References shown per panel</h4>
+            <p>Median across every search that returned an AI Overview.</p>
+          </div></div>
+          <div class="auq-notch"><div class="auq-notch-in auq-pv">
+            <p class="auq-pv-num">6.4</p>
+            <h4>Distinct sources per search</h4>
+            <p>Counting the per-section citations inside the answer as well as the visible list.</p>
+          </div></div>
+          <div class="auq-notch"><div class="auq-notch-in auq-pv">
+            <p class="auq-pv-num">97<small>/100</small></p>
+            <h4>Searches with an AI Overview</h4>
+            <p>Per pull. All 100 returned one on at least one of the three pulls.</p>
+          </div></div>
+        </div>
+
+        <h3 class="auq-kf-title">How many references each panel showed</h3>
+        <ul class="auq-dist" aria-label="Distribution of reference-list length across all pulls">
+          <li class=""><em>0 refs</em><span style="width:2%"></span>4</li><li class=""><em>2 refs</em><span style="width:5%"></span>12</li><li class="auq-peak"><em>3 refs</em><span style="width:100%"></span>259</li><li class=""><em>4 refs</em><span style="width:3%"></span>9</li><li class=""><em>5 refs</em><span style="width:2%"></span>2</li><li class=""><em>6 refs</em><span style="width:2%"></span>1</li><li class=""><em>17 refs</em><span style="width:2%"></span>3</li>
+        </ul>
+        <div class="auq-callout">
+          <p><strong>Three is an editorial choice, not a technical limit.</strong> One search &mdash; <em>best product analytics software</em> &mdash; returned 17 references on all three pulls. For everything else, Google settles on three. The panel is also not fixed in time: <strong>41% of these searches returned a different top 3</strong> when we simply asked again, so treat any single snapshot, including this one, as having an error bar.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="auq-section" aria-labelledby="auq-yt-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">The video signal</p>
+        <h2 class="auq-h2" id="auq-yt-h">YouTube is everywhere, and cheap to enter</h2>
+        <p class="auq-lede">YouTube is the most-cited domain after Reddit, appearing somewhere in roughly 68 of ~97 panels. We profiled all 174 cited videos across 119 channels to see what separates the ones Google puts in the top three from the ones it buries.</p>
+        <div class="auq-panelviz">
+          <div class="auq-notch"><div class="auq-notch-in auq-pv">
+            <p class="auq-pv-num">4.1&times;</p>
+            <h4>View advantage</h4>
+            <p>Median 4,476 views for videos reaching the top 3, against 1,093 for those cited further down.</p>
+          </div></div>
+          <div class="auq-notch"><div class="auq-notch-in auq-pv">
+            <p class="auq-pv-num">87<small> views</small></p>
+            <h4>Smallest video in a top-3 slot</h4>
+            <p>8 of 31 top-3 videos have under 1,000 views. Audience size is a weak gate.</p>
+          </div></div>
+          <div class="auq-notch"><div class="auq-notch-in auq-pv">
+            <p class="auq-pv-num">2.2&times;</p>
+            <h4>Subscriber advantage</h4>
+            <p>Median 25,600 subscribers in the top 3 against 11,700 below it &mdash; a weaker signal than views.</p>
+          </div></div>
+        </div>
+
+        <h3 class="auq-kf-title">The channels supplying the most cited videos</h3>
+        <table class="auq-mini">
+          <thead><tr><th scope="col">Channel</th><th scope="col" class="auq-num">Videos cited</th><th scope="col" class="auq-num">Median views</th></tr></thead>
+          <tbody><tr><td>CodeLucky</td><td class='auq-num'>8</td><td class='auq-num'>224</td></tr><tr><td>Business Solution</td><td class='auq-num'>8</td><td class='auq-num'>1,517</td></tr><tr><td>OneHourProfessor</td><td class='auq-num'>5</td><td class='auq-num'>1,422</td></tr><tr><td>Software Connect</td><td class='auq-num'>5</td><td class='auq-num'>17,246</td></tr><tr><td>Team Collaboration Solution</td><td class='auq-num'>4</td><td class='auq-num'>96</td></tr><tr><td>HR Toolbox</td><td class='auq-num'>4</td><td class='auq-num'>6,665</td></tr><tr><td>Uplatz</td><td class='auq-num'>3</td><td class='auq-num'>57</td></tr></tbody>
+        </table>
+        <p class="auq-srcnote">Several of the most-cited channels are high-volume uploaders whose videos average only a few hundred views. Publishing a dedicated video per software category appears to matter more than any single video performing well. 18 of 174 cited videos are Shorts.</p>
+      </div>
+    </section>
+
+    <section class="auq-section" id="auq-explore" aria-labelledby="auq-explore-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">Full dataset</p>
+        <h2 class="auq-h2" id="auq-explore-h">Explore the data</h2>
+        <p class="auq-lede">Every search, every cited domain and every cited video. Find your category and see exactly what Google put in front of buyers.</p>
+
+        <div class="auq-notch auq-explore-panel">
+          <div class="auq-notch-in auq-explore-in">
+            <div class="auq-tabs" role="tablist" aria-label="Dataset views">
+              <button class="auq-tab" role="tab" id="auq-tab-searches" aria-controls="auq-panel-searches" aria-selected="true" data-tab="searches">Searches<span class="auq-tab-count">100</span></button>
+              <button class="auq-tab" role="tab" id="auq-tab-domains" aria-controls="auq-panel-domains" aria-selected="false" tabindex="-1" data-tab="domains">Cited domains<span class="auq-tab-count">233</span></button>
+              <button class="auq-tab" role="tab" id="auq-tab-videos" aria-controls="auq-panel-videos" aria-selected="false" tabindex="-1" data-tab="videos">Cited videos<span class="auq-tab-count">174</span></button>
+            </div>
+
+            <noscript><p class="auq-lede">Turn on JavaScript to filter and explore the full dataset.</p></noscript>
+
+            <div role="tabpanel" id="auq-panel-searches" aria-labelledby="auq-tab-searches">
+              <div class="auq-filters">
+                <div class="auq-field"><label class="auq-label" for="auq-s-c1">Type in the first slot</label><select class="auq-select" id="auq-s-c1" data-f="c1"></select></div>
+                <div class="auq-field auq-field-wide"><label class="auq-label" for="auq-s-q">Search keywords</label><input class="auq-input" id="auq-s-q" type="search" placeholder="e.g. crm, hr, security" autocomplete="off" data-q="k"></div>
+              </div>
+              <div class="auq-toolbar">
+                <button type="button" class="auq-toggle" aria-pressed="false" data-t="rd"><span class="auq-toggle-sw" aria-hidden="true"></span>Cited Reddit</button>
+                <button type="button" class="auq-toggle" aria-pressed="false" data-t="yt"><span class="auq-toggle-sw" aria-hidden="true"></span>Cited YouTube</button>
+                <button type="button" class="auq-toggle" aria-pressed="false" data-t="st"><span class="auq-toggle-sw" aria-hidden="true"></span>Same top 3 every pull</button>
+                <button type="button" class="auq-reset" data-reset>Reset filters</button>
+              </div>
+              <p class="auq-count" id="auq-searches-count" aria-live="polite"></p>
+              <div class="auq-table-scroll" style="margin-top:12px" tabindex="0" role="region" aria-label="Searches table, scrolls horizontally">
+                <table class="auq-table" id="auq-searches-table">
+                  <thead><tr>
+                    <th scope="col"><button class="auq-sort" data-s="k">Search<span class="auq-sort-ind"></span></button></th>
+                    <th scope="col">Top 3 cited</th>
+                    <th scope="col">Source types</th>
+                    <th scope="col" class="auq-num"><button class="auq-sort" data-s="ps">Refs<span class="auq-sort-ind"></span></button></th>
+                    <th scope="col">Repeatable</th>
+                  </tr></thead>
+                  <tbody></tbody>
+                </table>
+                <p class="auq-empty auq-hidden">No searches match these filters.</p>
+              </div>
+              <div class="auq-pager"><p class="auq-page-of"></p><div class="auq-pager-btns"><button class="auq-page-btn" data-pg="-1">&larr; Prev</button><button class="auq-page-btn" data-pg="1">Next &rarr;</button></div></div>
+            </div>
+
+            <div role="tabpanel" id="auq-panel-domains" aria-labelledby="auq-tab-domains" class="auq-hidden">
+              <div class="auq-filters">
+                <div class="auq-field"><label class="auq-label" for="auq-d-c">Source type</label><select class="auq-select" id="auq-d-c" data-f="c"></select></div>
+                <div class="auq-field auq-field-wide"><label class="auq-label" for="auq-d-q">Search domains</label><input class="auq-input" id="auq-d-q" type="search" placeholder="e.g. reddit, g2, zapier" autocomplete="off" data-q="d"></div>
+              </div>
+              <div class="auq-toolbar"><button type="button" class="auq-reset" data-reset>Reset filters</button></div>
+              <p class="auq-count" id="auq-domains-count" aria-live="polite"></p>
+              <div class="auq-table-scroll" style="margin-top:12px" tabindex="0" role="region" aria-label="Cited domains table, scrolls horizontally">
+                <table class="auq-table" id="auq-domains-table">
+                  <thead><tr>
+                    <th scope="col"><button class="auq-sort" data-s="d">Domain<span class="auq-sort-ind"></span></button></th>
+                    <th scope="col">Source type</th>
+                    <th scope="col" class="auq-num"><button class="auq-sort" data-s="o">Top-3 citations<span class="auq-sort-ind"></span></button></th>
+                    <th scope="col" class="auq-num"><button class="auq-sort" data-s="k">Searches<span class="auq-sort-ind"></span></button></th>
+                    <th scope="col" class="auq-num"><button class="auq-sort" data-s="f">First slot<span class="auq-sort-ind"></span></button></th>
+                  </tr></thead>
+                  <tbody></tbody>
+                </table>
+                <p class="auq-empty auq-hidden">No domains match these filters.</p>
+              </div>
+              <div class="auq-pager"><p class="auq-page-of"></p><div class="auq-pager-btns"><button class="auq-page-btn" data-pg="-1">&larr; Prev</button><button class="auq-page-btn" data-pg="1">Next &rarr;</button></div></div>
+            </div>
+
+            <div role="tabpanel" id="auq-panel-videos" aria-labelledby="auq-tab-videos" class="auq-hidden">
+              <div class="auq-filters">
+                <div class="auq-field"><label class="auq-label" for="auq-v-p">Placement</label><select class="auq-select" id="auq-v-p" data-f="p"></select></div>
+                <div class="auq-field"><label class="auq-label" for="auq-v-sh">Format</label><select class="auq-select" id="auq-v-sh" data-f="sh"></select></div>
+                <div class="auq-field auq-field-wide"><label class="auq-label" for="auq-v-q">Search titles and channels</label><input class="auq-input" id="auq-v-q" type="search" placeholder="e.g. crm, tested, review" autocomplete="off" data-q="t,ch"></div>
+              </div>
+              <div class="auq-toolbar"><button type="button" class="auq-reset" data-reset>Reset filters</button></div>
+              <p class="auq-count" id="auq-videos-count" aria-live="polite"></p>
+              <div class="auq-table-scroll" style="margin-top:12px" tabindex="0" role="region" aria-label="Cited videos table, scrolls horizontally">
+                <table class="auq-table" id="auq-videos-table">
+                  <thead><tr>
+                    <th scope="col"><button class="auq-sort" data-s="t">Video<span class="auq-sort-ind"></span></button></th>
+                    <th scope="col"><button class="auq-sort" data-s="ch">Channel<span class="auq-sort-ind"></span></button></th>
+                    <th scope="col" class="auq-num"><button class="auq-sort" data-s="v">Views<span class="auq-sort-ind"></span></button></th>
+                    <th scope="col" class="auq-num"><button class="auq-sort" data-s="s">Subscribers<span class="auq-sort-ind"></span></button></th>
+                    <th scope="col">Reached top 3</th>
+                  </tr></thead>
+                  <tbody></tbody>
+                </table>
+                <p class="auq-empty auq-hidden">No videos match these filters.</p>
+              </div>
+              <div class="auq-pager"><p class="auq-page-of"></p><div class="auq-pager-btns"><button class="auq-page-btn" data-pg="-1">&larr; Prev</button><button class="auq-page-btn" data-pg="1">Next &rarr;</button></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="auq-section" aria-labelledby="auq-cta-h">
+      <div class="auq-wrap">
+        <div class="auq-notch">
+          <div class="auq-notch-in auq-cta-in">
+            <div>
+              <p class="auq-eyebrow">Free content audit</p>
+              <h2 class="auq-h2" id="auq-cta-h">Want to know what AI cites for your own keywords?</h2>
+              <p class="auq-lede">Three slots per search is a brutal shortlist. We&rsquo;ll check which sources Google&rsquo;s AI Overview cites for the searches that matter to your product &mdash; including the Reddit threads and vendor listicles doing the work &mdash; and show you where your content can realistically earn one.</p>
+            </div>
+            <a class="auq-btn" href="https://auq.io/contact-us/" data-auq-cta="after_data">Get a free content audit<span class="auq-btn-arrow" aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="auq-section" aria-labelledby="auq-method-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">How we ran it</p>
+        <h2 class="auq-h2" id="auq-method-h">Method and limitations</h2>
+        <ul class="auq-method">
+          <li>100 &ldquo;best &lt;software&gt;&rdquo; keywords with real US search volume, spanning sales, marketing, HR, finance, security, dev tools, AI/ML and vertical SaaS.</li><li>Pulled through DataForSEO&rsquo;s SERP API (<code>/v3/serp/google/organic/live/advanced</code> with <code>load_async_ai_overview=true</code>) on 19 October 2026, US, English, desktop.</li><li>Each search was pulled three times. Every figure is the mean across those three pulls, so one unlucky snapshot cannot drive a headline.</li><li>&ldquo;Top 3&rdquo; means the first three entries of the AI Overview&rsquo;s reference list, in the order Google returns them, not de-duplicated.</li><li>Citations appear in two places in Google&rsquo;s response: a short top-level reference list and per-section lists inside the answer. The top-3 analysis uses the top-level list; the distinct-sources figure counts unique domains across both.</li><li>Source types are assigned by rule from the domain, with vendor pages split into listicle/blog and product/category by URL and title. Checked at 97.6% agreement against a manually labelled set.</li><li>YouTube metrics come from DataForSEO&rsquo;s YouTube API and are point-in-time as of 19 October, not as of the moment each video was cited.</li><li>Limitations: US desktop only, and a single day. AI Overviews are non-deterministic &mdash; 41% of these searches returned a different top 3 across our own three pulls, so treat any single snapshot as having an error bar.</li>
+        </ul>
+        <p class="auq-srcnote">This repeats the design of our earlier work on AI Overview citations: <a href="https://auq.io/blog/ai-overview-citations-what-appears-for-best-product-searches-original-data/">AI Overview citations for &ldquo;best product&rdquo; searches</a> and <a href="https://auq.io/blog/how-youtube-affects-ai-overviews-for-saas-a-259-view-youtube-video-can-win-the-ai-overview-citation-panel/">how YouTube affects AI Overviews for SaaS</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="auq-footer">
+    <div class="auq-wrap">
+      <a class="auq-logo" href="https://auq.io/" aria-label="AUQ.IO home">
+        <svg width="119" height="31" viewBox="0 0 119 31" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="none" fill-rule="evenodd"><rect fill="#00FFF8" x="14" y="18" width="7" height="7" rx="2"></rect><path d="M21 13.631a1 1 0 1 1-2 0V12a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v8a3 3 0 0 0 2.824 2.995L6 23a1 1 0 0 1 0 2 5 5 0 0 1-5-5v-8a5 5 0 0 1 5-5h10a5 5 0 0 1 5 5v1.631zM6 25a1 1 0 0 1 0-2h4.492a1 1 0 0 1 0 2H6z" fill="#FFF" fill-rule="nonzero"></path><path d="M45.028 25c.19 0 .364-.035.52-.104.468-.19.702-.494.702-.91 0-.19-.035-.364-.104-.52L39.854 8.23c-.19-.537-.572-.823-1.144-.858h-.052c-.555 0-.962.286-1.222.858l-6.188 15.236c-.07.156-.104.33-.104.52 0 .433.243.737.728.91.156.07.32.104.494.104.416 0 .72-.234.91-.702l1.352-3.406h8.086l1.404 3.406c.19.468.494.702.91.702zm-3.198-6.292h-6.344l3.094-7.878 3.25 7.878zM58.704 25c1.993 0 3.462-.472 4.407-1.417.945-.945 1.417-2.414 1.417-4.407V8.464c0-.728-.364-1.092-1.092-1.092-.728 0-1.092.364-1.092 1.092v10.712c0 .953-.113 1.686-.338 2.197-.225.511-.594.88-1.105 1.105-.511.225-1.244.338-2.197.338h-3.12c-.953 0-1.686-.113-2.197-.338a2.088 2.088 0 0 1-1.105-1.105c-.225-.511-.338-1.244-.338-2.197V8.464c0-.728-.364-1.092-1.092-1.092-.728 0-1.092.364-1.092 1.092v10.712c0 1.993.472 3.462 1.417 4.407.945.945 2.414 1.417 4.407 1.417h3.12zm24.284 2.132c.19 0 .399-.095.624-.286.225-.208.338-.433.338-.676a.822.822 0 0 0-.26-.598l-1.612-1.690c1.161-.953 1.742-2.522 1.742-4.706v-5.98c0-1.993-.472-3.462-1.417-4.407-.945-.945-2.414-1.417-4.407-1.417h-3.12c-1.976-.017-3.44.446-4.394 1.391-.953.945-1.43 2.414-1.43 4.407v6.006c0 1.993.472 3.462 1.417 4.407.945.945 2.414 1.417 4.407 1.417h3.12c.936 0 1.716-.095 2.34-.286l1.976 2.106c.243.208.468.312.676.312zm-4.472-4.316h-3.64c-.953 0-1.686-.113-2.197-.338a2.088 2.088 0 0 1-1.105-1.105c-.225-.511-.338-1.244-.338-2.197V13.17c0-.936.113-1.664.338-2.184.225-.52.598-.893 1.118-1.118.52-.225 1.248-.33 2.184-.312h3.12c.936 0 1.664.113 2.184.338.52.225.893.598 1.118 1.118.225.52.338 1.248.338 2.184v5.98c0 .815-.082 1.469-.247 1.963-.165.494-.438.871-.819 1.131l-1.378-1.430c-.26-.225-.485-.338-.676-.338-.225 0-.442.104-.65.312-.208.208-.312.425-.312.65 0 .225.095.433.286.624l.676.728zM89.878 25c.33 0 .576-.091.741-.273.165-.182.247-.438.247-.767v-.65c0-.676-.33-1.014-.988-1.014h-.624c-.33 0-.585.087-.767.26-.182.173-.273.425-.273.754v.65c0 .33.091.585.273.767.182.182.438.273.767.273h.624zm6.968 0c.381 0 .659-.087.832-.26.173-.173.26-.45.26-.832V8.49c0-.381-.087-.659-.26-.832-.173-.173-.45-.26-.832-.26-.381 0-.659.087-.832.26-.173.173-.26.45-.26.832v15.418c0 .381.087.659.26.832.173.173.45.26.832.26zm14.82 0c1.993 0 3.462-.472 4.407-1.417.945-.945 1.417-2.414 1.417-4.407v-5.98c0-1.993-.472-3.462-1.417-4.407-.945-.945-2.414-1.417-4.407-1.417h-3.12c-1.976-.017-3.44.446-4.394 1.391-.953.945-1.43 2.414-1.43 4.407v6.006c0 1.993.472 3.462 1.417 4.407.945.945 2.414 1.417 4.407 1.417h3.12zm0-2.184h-3.12c-.953 0-1.686-.113-2.197-.338a2.088 2.088 0 0 1-1.105-1.105c-.225-.511-.338-1.244-.338-2.197V13.17c0-.936.113-1.664.338-2.184.225-.52.598-.893 1.118-1.118.52-.225 1.248-.33 2.184-.312h3.12c.936 0 1.664.113 2.184.338.52.225.893.598 1.118 1.118.225.52.338 1.248.338 2.184v5.98c0 .953-.113 1.686-.338 2.197-.225.511-.594.88-1.105 1.105-.511.225-1.244.338-2.197.338z" fill="#FFF" fill-rule="nonzero"></path></g></svg>
+      </a>
+      <div class="auq-footer-meta"><a href="https://auq.io/">auq.io</a><a href="https://auq.io/research/">Research</a><span>&copy; AUQ</span></div>
+    </div>
+  </footer>
+
+</div>
+<!-- ===== AUQ STUDY: EMBED END ===== -->
+
+<script>
+(function(){
+"use strict";
+var D = {"searches":[{"k":"best ab testing tools","d":["reddit.com","coursera.org","cxl.com"],"c":["Forum","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Forum"},{"k":"best accounting software","d":["pcmag.com","forbes.com","youtube.com"],"c":["News","News","Video"],"ps":3,"ap":3,"st":0,"rd":0,"yt":1,"c1":"News"},{"k":"best accounting software for small business","d":["quickbooks.intuit.com","pcmag.com","youtube.com"],"c":["Vendor blog","News","Video"],"ps":3,"ap":3,"st":0,"rd":0,"yt":1,"c1":"Vendor blog"},{"k":"best age verification software","d":["withpersona.com","beverified.org","idenfy.com"],"c":["Product page","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":0,"rd":0,"yt":0,"c1":"Product page"},{"k":"best ai coding assistants","d":["augmentcode.com","axify.io","hivel.ai"],"c":["Vendor blog","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best ai voice agent platform","d":["cekura.ai","synthflow.ai","lindy.ai"],"c":["Vendor blog","Product page","Vendor blog"],"ps":3,"ap":3,"st":0,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best aml software","d":["didit.me","globalperformance.ma","knowyourcustomer.com"],"c":["Vendor blog","Vendor blog","Vendor blog"],"ps":4,"ap":3,"st":0,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best api monitoring tools","d":["motadata.com","splunk.com","postman.com"],"c":["Vendor blog","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":0,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best applicant tracking system","d":["reddit.com","vendordirectory.shrm.org","g2.com"],"c":["Forum","Org / Gov","Review site"],"ps":3,"ap":3,"st":0,"rd":1,"yt":0,"c1":"Forum"},{"k":"best application performance monitoring tools","d":["reddit.com","blazemeter.com","reddit.com"],"c":["Forum","Vendor blog","Forum"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Forum"},{"k":"best background check software","d":["reddit.com","money.com","mitratech.com"],"c":["Forum","Vendor blog","Vendor blog"],"ps":3,"ap":2,"st":1,"rd":1,"yt":0,"c1":"Forum"},{"k":"best billing software","d":["cnbc.com","salesforce.com","squareup.com"],"c":["News","Vendor blog","Product page"],"ps":3,"ap":3,"st":1,"rd":0,"yt":0,"c1":"News"},{"k":"best brand management software","d":["bynder.com","gartner.com","brandworkz.com"],"c":["Product page","Analyst","Product page"],"ps":2,"ap":3,"st":1,"rd":0,"yt":0,"c1":"Product page"},{"k":"best business intelligence software","d":["gartner.com","ovaledge.com","mopinion.com"],"c":["Analyst","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":0,"yt":0,"c1":"Analyst"},{"k":"best church management software","d":["theleadpastor.com","churchtrac.com","reddit.com"],"c":["Vendor blog","Product page","Forum"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Vendor blog"},{"k":"best ci cd tools","d":["reddit.com","orca.security","atlassian.com"],"c":["Forum","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Forum"},{"k":"best clm software for startups","d":["reddit.com","checkbox.ai","worksuite.com"],"c":["Forum","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":0,"rd":1,"yt":0,"c1":"Forum"},{"k":"best cold email software","d":["zapier.com","youtube.com","leadsmonky.com"],"c":["Vendor blog","Video","Vendor blog"],"ps":3,"ap":3,"st":0,"rd":0,"yt":1,"c1":"Vendor blog"},{"k":"best content marketing platform","d":["tryordinal.com","eesel.ai","socialbee.com"],"c":["Vendor blog","Vendor blog","Vendor blog"],"ps":3.7,"ap":3,"st":0,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best contract lifecycle management software","d":["gartner.com","reddit.com","sirion.ai"],"c":["Analyst","Forum","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Analyst"},{"k":"best contract management software","d":["reddit.com","sirion.ai","gartner.com"],"c":["Forum","Vendor blog","Analyst"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Forum"},{"k":"best crm for real estate","d":["reddit.com","wiseagent.com","housingwire.com"],"c":["Forum","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Forum"},{"k":"best crm for small business","d":["reddit.com","uschamber.com","zoho.com"],"c":["Forum","Org / Gov","Vendor blog"],"ps":3,"ap":3,"st":0,"rd":1,"yt":0,"c1":"Forum"},{"k":"best crm software","d":["salesforce.com","solutionsreview.com","zapier.com"],"c":["Vendor blog","Vendor blog","Vendor blog"],"ps":2.7,"ap":3,"st":0,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best customer data platform","d":["gartner.com","youtube.com","cdp.com"],"c":["Analyst","Video","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":0,"yt":1,"c1":"Analyst"},{"k":"best customer feedback tools","d":["typeform.com","youtube.com","nextiva.com"],"c":["Vendor blog","Video","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":0,"yt":1,"c1":"Vendor blog"},{"k":"best customer identity management software","d":["pcmag.com","gartner.com","fivetran.com"],"c":["News","Analyst","Vendor blog"],"ps":3,"ap":3,"st":0,"rd":0,"yt":0,"c1":"News"},{"k":"best customer onboarding software","d":["onramp.ai","dock.us","mitti.com"],"c":["Vendor blog","Product page","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best customer service software","d":["zapier.com","g2.com","youtube.com"],"c":["Vendor blog","Review site","Video"],"ps":3,"ap":2,"st":1,"rd":0,"yt":1,"c1":"Vendor blog"},{"k":"best data warehouse software","d":["domo.com","reddit.com","future-processing.com"],"c":["Vendor blog","Forum","Vendor blog"],"ps":3,"ap":3,"st":0,"rd":1,"yt":0,"c1":"Vendor blog"},{"k":"best dental practice management software","d":["medixdental.com","reddit.com","revupdental.com"],"c":["Vendor blog","Forum","Product page"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Vendor blog"},{"k":"best document ai software","d":["gamma.app","reddit.com","korixinc.com"],"c":["Product page","Forum","Vendor blog"],"ps":3,"ap":2,"st":0,"rd":1,"yt":0,"c1":"Product page"},{"k":"best e signature software","d":["pandadoc.com","zapier.com","docusign.com"],"c":["Vendor blog","Vendor blog","Product page"],"ps":3,"ap":3,"st":1,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best ecommerce platform","d":["forbes.com","zapier.com","ecomm.design"],"c":["News","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":0,"rd":0,"yt":0,"c1":"News"},{"k":"best ehr software","d":["praxisemr.com","ehrinpractice.com","ehrinpractice.com"],"c":["Vendor blog","Product page","Product page"],"ps":3,"ap":3,"st":1,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best email deliverability tools","d":["inboxarmy.com","youtube.com","scopicstudios.com"],"c":["Vendor blog","Video","Vendor blog"],"ps":3,"ap":3,"st":0,"rd":0,"yt":1,"c1":"Vendor blog"},{"k":"best email marketing software","d":["reddit.com","ventureharbour.com","zapier.com"],"c":["Forum","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Forum"},{"k":"best employee onboarding software","d":["zapier.com","bamboohr.com"],"c":["Vendor blog","Product page"],"ps":2,"ap":3,"st":1,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best error tracking software","d":["youtube.com","featuredcustomers.com","tracekit.dev"],"c":["Video","Product page","Vendor blog"],"ps":3,"ap":3,"st":0,"rd":0,"yt":1,"c1":"Video"},{"k":"best expense management software","d":["reddit.com","gartner.com"],"c":["Forum","Analyst"],"ps":2.7,"ap":3,"st":0,"rd":1,"yt":0,"c1":"Forum"},{"k":"best feature flag software","d":["harness.io","getunleash.io","launchdarkly.com"],"c":["Vendor blog","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best fraud prevention software","d":["amlwatcher.com","shadowdragon.io","gartner.com"],"c":["Vendor blog","Vendor blog","Analyst"],"ps":3,"ap":3,"st":1,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best graphic design software for business","d":["adobe.com","pcmag.com","dsigns.com.au"],"c":["Vendor blog","News","Vendor blog"],"ps":3,"ap":2,"st":0,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best gym management software","d":["reddit.com","pushpress.com","startwoven.com"],"c":["Forum","Product page","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Forum"},{"k":"best help desk software","d":["reddit.com","pcmag.com","alloysoftware.com"],"c":["Forum","News","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Forum"},{"k":"best hr software","d":["forbes.com","techtarget.com","hackernoon.com"],"c":["News","News","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":0,"yt":0,"c1":"News"},{"k":"best identity verification software","d":["gartner.com","checkout.com","identity.clearme.com"],"c":["Analyst","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":0,"yt":0,"c1":"Analyst"},{"k":"best infrastructure as code tools","d":["apiiro.com","octopus.com","youtube.com"],"c":["Vendor blog","Product page","Video"],"ps":3,"ap":3,"st":1,"rd":0,"yt":1,"c1":"Vendor blog"},{"k":"best intelligent document processing software","d":["parseur.com","fluenterp.com","artificio.ai"],"c":["Product page","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":0,"rd":0,"yt":0,"c1":"Product page"},{"k":"best internal communication software","d":["reddit.com","g2.com","gartner.com"],"c":["Forum","Review site","Analyst"],"ps":3,"ap":3,"st":0,"rd":1,"yt":0,"c1":"Forum"},{"k":"best inventory management software","d":["reddit.com","forbes.com","sortly.com"],"c":["Forum","News","Product page"],"ps":3,"ap":3,"st":0,"rd":1,"yt":0,"c1":"Forum"},{"k":"best invoicing software","d":["zoho.com","waveapps.com","cnbc.com"],"c":["Vendor blog","Vendor blog","News"],"ps":3,"ap":1,"st":1,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best knowledge base software","d":["reddit.com","slack.com","clickhelp.com"],"c":["Forum","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Forum"},{"k":"best kyc software","d":["reddit.com","amlyze.com","penbox.io"],"c":["Forum","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Forum"},{"k":"best lead generation software","d":["salesforce.com","zendesk.com","salesforce.com"],"c":["Vendor blog","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best legal billing software","d":["lawpay.com","clio.com","gartner.com"],"c":["Vendor blog","Vendor blog","Analyst"],"ps":3,"ap":3,"st":1,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best live chat software","d":["reddit.com","zapier.com","zendesk.com"],"c":["Forum","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Forum"},{"k":"best llm observability tools","d":["reddit.com","langchain.com","firecrawl.dev"],"c":["Forum","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Forum"},{"k":"best log management tools","d":["signoz.io","mezmo.com","youtube.com"],"c":["Vendor blog","Vendor blog","Video"],"ps":3,"ap":3,"st":1,"rd":0,"yt":1,"c1":"Vendor blog"},{"k":"best marketing automation software","d":["reddit.com","g2.com","ventureharbour.com"],"c":["Forum","Review site","Vendor blog"],"ps":3,"ap":3,"st":0,"rd":1,"yt":0,"c1":"Forum"},{"k":"best mfa software","d":["gartner.com","miniorange.com","aimultiple.com"],"c":["Analyst","Vendor blog","Product page"],"ps":3,"ap":3,"st":0,"rd":0,"yt":0,"c1":"Analyst"},{"k":"best note taking app for business","d":["zapier.com","pcmag.com","evernote.com"],"c":["Vendor blog","News","Product page"],"ps":3,"ap":3,"st":1,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best ocr software for developers","d":["stepper.io","reddit.com","sign.dropbox.com"],"c":["Vendor blog","Forum","Vendor blog"],"ps":3,"ap":3,"st":0,"rd":1,"yt":0,"c1":"Vendor blog"},{"k":"best okr software","d":["gartner.com","okrstool.com","tability.io"],"c":["Analyst","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":0,"yt":0,"c1":"Analyst"},{"k":"best payroll software","d":["hibob.com","onpay.com","youtube.com"],"c":["Vendor blog","Vendor blog","Video"],"ps":3,"ap":3,"st":0,"rd":0,"yt":1,"c1":"Vendor blog"},{"k":"best pdf editor software","d":["pcworld.com","pcmag.com","techcommunity.microsoft.com"],"c":["Vendor blog","News","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best performance management software","d":["forbes.com","vendordirectory.shrm.org","g2.com"],"c":["News","Org / Gov","Review site"],"ps":3,"ap":3,"st":1,"rd":0,"yt":0,"c1":"News"},{"k":"best pos software","d":["forbes.com","squareup.com"],"c":["News","Product page"],"ps":2,"ap":3,"st":0,"rd":0,"yt":0,"c1":"News"},{"k":"best practice management software for law firms","d":["reddit.com","lawyerist.com","gartner.com"],"c":["Forum","Vendor blog","Analyst"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Forum"},{"k":"best procurement software","d":["procurementmag.com","rippling.com","centerpointgroup.com"],"c":["Vendor blog","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best product analytics software","d":["fullstory.com","unwrap.ai","omniconvert.com"],"c":["Vendor blog","Vendor blog","Product page"],"ps":17,"ap":3,"st":1,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best project management software","d":["teamwork.com","paymoapp.com","forbes.com"],"c":["Vendor blog","Vendor blog","News"],"ps":4.3,"ap":3,"st":0,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best prompt management tools","d":["cadence.withremote.ai","guideflow.com","g2.com"],"c":["Vendor blog","Vendor blog","Review site"],"ps":3,"ap":3,"st":0,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best property management software","d":["reddit.com","youtube.com","baselane.com"],"c":["Forum","Video","Vendor blog"],"ps":2.7,"ap":3,"st":0,"rd":1,"yt":1,"c1":"Forum"},{"k":"best restaurant pos software","d":["youtube.com","youtube.com","business.com"],"c":["Video","Video","Review site"],"ps":3,"ap":2,"st":1,"rd":0,"yt":1,"c1":"Video"},{"k":"best returns management software","d":["reddit.com","returnlogic.com","returnbear.com"],"c":["Forum","Product page","Vendor blog"],"ps":3,"ap":3,"st":0,"rd":1,"yt":0,"c1":"Forum"},{"k":"best reverse etl tools","d":["hightouch.com","reddit.com","skyvia.com"],"c":["Vendor blog","Forum","Vendor blog"],"ps":3,"ap":3,"st":0,"rd":1,"yt":0,"c1":"Vendor blog"},{"k":"best sales engagement platform","d":["reddit.com","salesforce.com","nooks.ai"],"c":["Forum","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Forum"},{"k":"best sales intelligence software","d":["youtube.com","youtube.com","storylane.io"],"c":["Video","Video","Vendor blog"],"ps":3,"ap":3,"st":0,"rd":0,"yt":1,"c1":"Video"},{"k":"best secrets management tools","d":["hashicorp.com","infisical.com","medium.com"],"c":["Vendor blog","Vendor blog","Social"],"ps":3,"ap":3,"st":0,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best seo software","d":["reddit.com","zapier.com","gartner.com"],"c":["Forum","Vendor blog","Analyst"],"ps":3,"ap":3,"st":0,"rd":1,"yt":0,"c1":"Forum"},{"k":"best shopify apps for conversion","d":["apps.shopify.com","youtube.com","apps.shopify.com"],"c":["Vendor blog","Video","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":0,"yt":1,"c1":"Vendor blog"},{"k":"best siem tools","d":["reddit.com","manageengine.com","youtube.com"],"c":["Forum","Vendor blog","Video"],"ps":3,"ap":3,"st":1,"rd":1,"yt":1,"c1":"Forum"},{"k":"best soc 2 compliance software","d":["reddit.com","vanta.com","secureframe.com"],"c":["Forum","Product page","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Forum"},{"k":"best social media management tools","d":["reddit.com","zapier.com","techradar.com"],"c":["Forum","Vendor blog","News"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Forum"},{"k":"best speech to text api","d":["reddit.com","gladia.io","youtube.com"],"c":["Forum","Vendor blog","Video"],"ps":3,"ap":3,"st":1,"rd":1,"yt":1,"c1":"Forum"},{"k":"best subscription ecommerce platform","d":["reddit.com","youtube.com","crystallize.com"],"c":["Forum","Video","Vendor blog"],"ps":3,"ap":3,"st":0,"rd":1,"yt":1,"c1":"Forum"},{"k":"best subscription management software","d":["reddit.com","youtube.com","turnstile.ai"],"c":["Forum","Video","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":1,"yt":1,"c1":"Forum"},{"k":"best task management software","d":["reddit.com","pcmag.com","youtube.com"],"c":["Forum","News","Video"],"ps":3,"ap":3,"st":0,"rd":1,"yt":1,"c1":"Forum"},{"k":"best team chat software","d":["zapier.com","brytdesigns.com"],"c":["Vendor blog","Vendor blog"],"ps":2.3,"ap":3,"st":0,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best time tracking software","d":["youtube.com","zapier.com","kickidler.com"],"c":["Video","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":0,"rd":0,"yt":1,"c1":"Video"},{"k":"best transactional email service","d":[],"c":[],"ps":0,"ap":3,"st":0,"rd":0,"yt":0,"c1":""},{"k":"best ui ux design tools","d":["reddit.com","figma.com","medium.muz.li"],"c":["Forum","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Forum"},{"k":"best vector database","d":["zenml.io","encore.dev","liveblocks.io"],"c":["Vendor blog","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best video conferencing software","d":["pcmag.com","vibe.us","jabra.com"],"c":["News","Vendor blog","Vendor blog"],"ps":4,"ap":3,"st":1,"rd":0,"yt":0,"c1":"News"},{"k":"best video editing software for marketing","d":["2pointagency.com","boolv.video","plainlyvideos.com"],"c":["Vendor blog","Vendor blog","Vendor blog"],"ps":3,"ap":1,"st":1,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best vulnerability management software","d":["gartner.com","reddit.com","accuknox.com"],"c":["Analyst","Forum","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Analyst"},{"k":"best web analytics software","d":["reddit.com","wpmailsmtp.com","wpvip.com"],"c":["Forum","Vendor blog","Vendor blog"],"ps":3,"ap":3,"st":1,"rd":1,"yt":0,"c1":"Forum"},{"k":"best webinar software","d":["ventureharbour.com","livestorm.co","zapier.com"],"c":["Vendor blog","Vendor blog","Vendor blog"],"ps":4,"ap":3,"st":1,"rd":0,"yt":0,"c1":"Vendor blog"},{"k":"best whiteboard software","d":["zapier.com","reddit.com","miro.com"],"c":["Vendor blog","Forum","Product page"],"ps":3,"ap":2,"st":1,"rd":1,"yt":0,"c1":"Vendor blog"}],"domains":[{"d":"reddit.com","c":"Forum","o":41.7,"k":48,"f":33.0},{"d":"youtube.com","c":"Video","o":22.0,"k":27,"f":3.3},{"d":"gartner.com","c":"Analyst","o":15.0,"k":18,"f":7.7},{"d":"zapier.com","c":"Vendor blog","o":14.0,"k":16,"f":5.3},{"d":"pcmag.com","c":"News","o":8.0,"k":10,"f":2.7},{"d":"forbes.com","c":"News","o":6.3,"k":8,"f":3.7},{"d":"salesforce.com","c":"Vendor blog","o":5.0,"k":5,"f":1.3},{"d":"g2.com","c":"Review site","o":5.0,"k":8,"f":0.3},{"d":"ventureharbour.com","c":"Vendor blog","o":3.3,"k":4,"f":1.0},{"d":"apps.shopify.com","c":"Vendor blog","o":2.0,"k":1,"f":1.0},{"d":"techradar.com","c":"News","o":2.0,"k":3,"f":0.3},{"d":"ehrinpractice.com","c":"Product page","o":2.0,"k":1,"f":0.0},{"d":"sirion.ai","c":"Vendor blog","o":2.0,"k":2,"f":0.0},{"d":"vendordirectory.shrm.org","c":"Org / Gov","o":2.0,"k":2,"f":0.0},{"d":"zendesk.com","c":"Vendor blog","o":2.0,"k":2,"f":0.0},{"d":"amlwatcher.com","c":"Vendor blog","o":1.7,"k":2,"f":1.7},{"d":"squareup.com","c":"Product page","o":1.7,"k":2,"f":0.0},{"d":"uschamber.com","c":"Org / Gov","o":1.7,"k":2,"f":0.0},{"d":"cnbc.com","c":"News","o":1.3,"k":2,"f":1.0},{"d":"apiiro.com","c":"Vendor blog","o":1.0,"k":1,"f":1.0},{"d":"augmentcode.com","c":"Vendor blog","o":1.0,"k":1,"f":1.0},{"d":"domo.com","c":"Vendor blog","o":1.0,"k":1,"f":1.0},{"d":"fullstory.com","c":"Vendor blog","o":1.0,"k":1,"f":1.0},{"d":"harness.io","c":"Vendor blog","o":1.0,"k":1,"f":1.0},{"d":"hibob.com","c":"Vendor blog","o":1.0,"k":1,"f":1.0},{"d":"lawpay.com","c":"Vendor blog","o":1.0,"k":1,"f":1.0},{"d":"medixdental.com","c":"Vendor blog","o":1.0,"k":1,"f":1.0},{"d":"onramp.ai","c":"Vendor blog","o":1.0,"k":1,"f":1.0},{"d":"pandadoc.com","c":"Vendor blog","o":1.0,"k":1,"f":1.0},{"d":"pcworld.com","c":"Vendor blog","o":1.0,"k":1,"f":1.0},{"d":"praxisemr.com","c":"Vendor blog","o":1.0,"k":1,"f":1.0},{"d":"procurementmag.com","c":"Vendor blog","o":1.0,"k":1,"f":1.0},{"d":"signoz.io","c":"Vendor blog","o":1.0,"k":1,"f":1.0},{"d":"teamwork.com","c":"Vendor blog","o":1.0,"k":1,"f":1.0},{"d":"theleadpastor.com","c":"Vendor blog","o":1.0,"k":1,"f":1.0},{"d":"typeform.com","c":"Vendor blog","o":1.0,"k":1,"f":1.0},{"d":"zenml.io","c":"Vendor blog","o":1.0,"k":1,"f":1.0},{"d":"fluenterp.com","c":"Vendor blog","o":1.0,"k":1,"f":0.7},{"d":"parseur.com","c":"Product page","o":1.0,"k":1,"f":0.3},{"d":"accuknox.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"alloysoftware.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"amlyze.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"atlassian.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"axify.io","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"bamboohr.com","c":"Product page","o":1.0,"k":1,"f":0.0},{"d":"blazemeter.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"cdp.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"centerpointgroup.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"checkout.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"churchtrac.com","c":"Product page","o":1.0,"k":1,"f":0.0},{"d":"clickhelp.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"clio.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"coursera.org","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"crystallize.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"cxl.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"dock.us","c":"Product page","o":1.0,"k":1,"f":0.0},{"d":"docusign.com","c":"Product page","o":1.0,"k":1,"f":0.0},{"d":"encore.dev","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"evernote.com","c":"Product page","o":1.0,"k":1,"f":0.0},{"d":"featuredcustomers.com","c":"Product page","o":1.0,"k":2,"f":0.0},{"d":"figma.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"firecrawl.dev","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"getunleash.io","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"gladia.io","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"guideflow.com","c":"Vendor blog","o":1.0,"k":3,"f":0.0},{"d":"hackernoon.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"hivel.ai","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"housingwire.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"identity.clearme.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"jabra.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"langchain.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"launchdarkly.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"lawyerist.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"liveblocks.io","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"livestorm.co","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"manageengine.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"medium.muz.li","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"mezmo.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"mitti.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"mopinion.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"nextiva.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"nooks.ai","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"octopus.com","c":"Product page","o":1.0,"k":1,"f":0.0},{"d":"okrstool.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"omniconvert.com","c":"Product page","o":1.0,"k":1,"f":0.0},{"d":"orca.security","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"ovaledge.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"paymoapp.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"penbox.io","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"pushpress.com","c":"Product page","o":1.0,"k":1,"f":0.0},{"d":"revupdental.com","c":"Product page","o":1.0,"k":1,"f":0.0},{"d":"rippling.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"secureframe.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"shadowdragon.io","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"slack.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"startwoven.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"tability.io","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"techcommunity.microsoft.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"techtarget.com","c":"News","o":1.0,"k":1,"f":0.0},{"d":"turnstile.ai","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"unwrap.ai","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"vanta.com","c":"Product page","o":1.0,"k":1,"f":0.0},{"d":"vibe.us","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"wiseagent.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"wpmailsmtp.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"wpvip.com","c":"Vendor blog","o":1.0,"k":1,"f":0.0},{"d":"bynder.com","c":"Product page","o":0.7,"k":1,"f":0.7},{"d":"hightouch.com","c":"Vendor blog","o":0.7,"k":1,"f":0.7},{"d":"inboxarmy.com","c":"Vendor blog","o":0.7,"k":1,"f":0.7},{"d":"quickbooks.intuit.com","c":"Vendor blog","o":0.7,"k":2,"f":0.7},{"d":"reverselogix.com","c":"Vendor blog","o":0.7,"k":1,"f":0.7},{"d":"withpersona.com","c":"Product page","o":0.7,"k":1,"f":0.7},{"d":"cekura.ai","c":"Vendor blog","o":0.7,"k":1,"f":0.3},{"d":"eesel.ai","c":"Vendor blog","o":0.7,"k":1,"f":0.3},{"d":"langfuse.com","c":"Product page","o":0.7,"k":1,"f":0.3},{"d":"motadata.com","c":"Vendor blog","o":0.7,"k":1,"f":0.3},{"d":"siit.io","c":"Vendor blog","o":0.7,"k":1,"f":0.3},{"d":"solutionsreview.com","c":"Vendor blog","o":0.7,"k":1,"f":0.3},{"d":"tryordinal.com","c":"Vendor blog","o":0.7,"k":1,"f":0.3},{"d":"zoho.com","c":"Vendor blog","o":0.7,"k":2,"f":0.3},{"d":"agenta.ai","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"baselane.com","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"beverified.org","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"brandworkz.com","c":"Product page","o":0.7,"k":1,"f":0.0},{"d":"business.com","c":"Review site","o":0.7,"k":1,"f":0.0},{"d":"checkbox.ai","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"ecomm.design","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"ecommercetech.io","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"idenfy.com","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"infisical.com","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"korixinc.com","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"leadsmonky.com","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"medium.com","c":"Social","o":0.7,"k":1,"f":0.0},{"d":"miniorange.com","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"miro.com","c":"Product page","o":0.7,"k":1,"f":0.0},{"d":"mitratech.com","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"money.com","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"onpay.com","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"pango.ai","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"scopicstudios.com","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"sign.dropbox.com","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"skyvia.com","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"sortly.com","c":"Product page","o":0.7,"k":1,"f":0.0},{"d":"sourceforge.net","c":"Review site","o":0.7,"k":1,"f":0.0},{"d":"sphinxhq.com","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"symphonyai.com","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"technologycounter.com","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"worksuite.com","c":"Vendor blog","o":0.7,"k":1,"f":0.0},{"d":"2pointagency.com","c":"Vendor blog","o":0.3,"k":1,"f":0.3},{"d":"99designs.com","c":"Vendor blog","o":0.3,"k":1,"f":0.3},{"d":"adobe.com","c":"Vendor blog","o":0.3,"k":1,"f":0.3},{"d":"apps365.com","c":"Vendor blog","o":0.3,"k":1,"f":0.3},{"d":"arahi.ai","c":"Vendor blog","o":0.3,"k":1,"f":0.3},{"d":"cadence.withremote.ai","c":"Vendor blog","o":0.3,"k":1,"f":0.3},{"d":"capterra.com","c":"Review site","o":0.3,"k":1,"f":0.3},{"d":"didit.me","c":"Vendor blog","o":0.3,"k":1,"f":0.3},{"d":"euvic.com","c":"Vendor blog","o":0.3,"k":1,"f":0.3},{"d":"fusionauth.io","c":"Vendor blog","o":0.3,"k":1,"f":0.3},{"d":"gamma.app","c":"Product page","o":0.3,"k":1,"f":0.3},{"d":"hashicorp.com","c":"Vendor blog","o":0.3,"k":1,"f":0.3},{"d":"lister.ai","c":"Vendor blog","o":0.3,"k":1,"f":0.3},{"d":"mailtrap.io","c":"Vendor blog","o":0.3,"k":1,"f":0.3},{"d":"moesif.com","c":"Vendor blog","o":0.3,"k":1,"f":0.3},{"d":"ox.security","c":"Vendor blog","o":0.3,"k":1,"f":0.3},{"d":"rudderstack.com","c":"Vendor blog","o":0.3,"k":1,"f":0.3},{"d":"safeguard.sh","c":"Vendor blog","o":0.3,"k":1,"f":0.3},{"d":"softwareworld.co","c":"Vendor blog","o":0.3,"k":1,"f":0.3},{"d":"stepper.io","c":"Vendor blog","o":0.3,"k":1,"f":0.3},{"d":"yoti.com","c":"Product page","o":0.3,"k":1,"f":0.3},{"d":"zuplo.com","c":"Product page","o":0.3,"k":1,"f":0.3},{"d":"aiflowreview.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"aimultiple.com","c":"Product page","o":0.3,"k":1,"f":0.0},{"d":"artificio.ai","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"aws.amazon.com","c":"Product page","o":0.3,"k":1,"f":0.0},{"d":"blog.zumvu.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"boolv.video","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"brytdesigns.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"checkthat.ai","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"contracts365.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"devopsschool.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"dsigns.com.au","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"dzone.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"entrust.com","c":"Product page","o":0.3,"k":1,"f":0.0},{"d":"esoftplanner.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"etlclub.net","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"facebook.com","c":"Social","o":0.3,"k":1,"f":0.0},{"d":"fivetran.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"future-processing.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"globalperformance.ma","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"ibm.com","c":"Product page","o":0.3,"k":1,"f":0.0},{"d":"icagile.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"infomsp.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"junglstudio.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"kickidler.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"knowyourcustomer.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"lindy.ai","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"linkedin.com","c":"Social","o":0.3,"k":1,"f":0.0},{"d":"logicmonitor.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"messagedesk.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"monday.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"nearform.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"nerdwallet.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"oloid.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"ondato.com","c":"Product page","o":0.3,"k":1,"f":0.0},{"d":"paycor.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"plainlyvideos.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"posthog.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"postman.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"rackwave.io","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"returnbear.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"returnlogic.com","c":"Product page","o":0.3,"k":1,"f":0.0},{"d":"roboflow.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"saasworthy.com","c":"Review site","o":0.3,"k":1,"f":0.0},{"d":"searchatlas.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"skrapp.io","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"snov.io","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"socialbee.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"splunk.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"storylane.io","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"synthflow.ai","c":"Product page","o":0.3,"k":1,"f":0.0},{"d":"targetinternet.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"teleskope.io","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"tenantcloud.com","c":"Product page","o":0.3,"k":1,"f":0.0},{"d":"topo.io","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"tracekit.dev","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"treblle.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"trustifi.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"trustradius.com","c":"Review site","o":0.3,"k":1,"f":0.0},{"d":"uipath.com","c":"Product page","o":0.3,"k":1,"f":0.0},{"d":"vendorpick.ai","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"waveapps.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"workvivo.com","c":"Vendor blog","o":0.3,"k":1,"f":0.0},{"d":"zdnet.com","c":"News","o":0.3,"k":1,"f":0.0}],"videos":[{"t":"Want the best gym management software? Get Mindbody","ch":"Mindbody","v":896439,"s":6680,"p":0,"sh":0},{"t":"Top 3 Really Free PDF Editors in 2025: Edit PDFs Without Spending a Dime","ch":"Teacher's Tech","v":328913,"s":1190000,"p":0,"sh":0},{"t":"Best OCR Models to Extract Text from Images (EasyOCR, PyTesseract, Idefics2, Claude, GPT-4, Gemini)","ch":"Kevin Wood | Robotics & AI","v":147248,"s":0,"p":0,"sh":0},{"t":"My TOP 5 CRM Software | Free vs Paid CRMs for Small Business","ch":"Stewart Gauld","v":133481,"s":389000,"p":0,"sh":0},{"t":"Best Project Management Software for Small Teams in 2026","ch":"Layla at ProcessDriven","v":116921,"s":152000,"p":0,"sh":0},{"t":"Best To-Do List Apps for 2026","ch":"Tool Finder","v":110091,"s":453000,"p":0,"sh":0},{"t":"What’s the Best Two-Factor App?","ch":"Ask Leo!","v":99408,"s":299000,"p":0,"sh":0},{"t":"5 Best Graphic Design Software in 2024","ch":"Elegant Themes","v":80850,"s":225000,"p":0,"sh":0},{"t":"ProProfs Knowledge Base Review | Best Knowledge Base Software","ch":"Dr. Nellie Deutsch","v":71579,"s":191000,"p":0,"sh":0},{"t":"The Best POS Systems of 2025 [Retail & Restaurant]","ch":"Dave Allred TheRealBarman (Bar Patrol)","v":63191,"s":85700,"p":1,"sh":0},{"t":"3 Best Free CRM Tools (2026) I Moved My Whole Team Off Spreadsheets","ch":"Daniel | Tech & Data","v":52980,"s":633000,"p":0,"sh":0},{"t":"Free Inventory Management Software for Small Businesses (2026)","ch":"Software Connect","v":38280,"s":11900,"p":0,"sh":0},{"t":"Top 5 Accounting Software for Small Business (2026 Guide)","ch":"Stewart Gauld","v":35249,"s":389000,"p":1,"sh":0},{"t":"Best Free Note-Taking Apps for Work & School","ch":"Benjamin Preston","v":35233,"s":12700,"p":0,"sh":0},{"t":"Best Property Management Software: Our Top 5 Recommendations","ch":"Software Connect","v":34869,"s":11900,"p":1,"sh":0},{"t":"Top SIEM Tools Ranked: Splunk, Wazuh & More!","ch":"LufSec Cyber Security","v":34290,"s":44500,"p":1,"sh":1},{"t":"5 Best Performance Review Software for 2026","ch":"Teamflect TV","v":28173,"s":1450,"p":0,"sh":0},{"t":"I Tested 8 AI Voice Agent Platforms","ch":"AI with PortilloBoss","v":26423,"s":618000,"p":0,"sh":0},{"t":"I Tested 5 Accounting Software So You Don't Have To","ch":"Noel Lorenzana, CPA","v":25690,"s":77800,"p":0,"sh":0},{"t":"Best Observability Tools Ranked (2026)","ch":"KodeKloud","v":23803,"s":475000,"p":1,"sh":1},{"t":"BEST CRM Software | Tested 15 CRMs for 2026 (HONEST Opinion)","ch":"Consumer Desire","v":22100,"s":8730,"p":0,"sh":0},{"t":"New AI UX/UI Design Tools You Can't Miss! – Moltbot, Claud & Figma & More!","ch":"Punit Chawla","v":21051,"s":179000,"p":0,"sh":0},{"t":"Send Bulk Emails Using Gmail Gsuite | 2000 Emails Per Day","ch":"w3 academy","v":20913,"s":28900,"p":0,"sh":0},{"t":"The Most Accurate Speech-to-text APIs in 2025","ch":"Efficient NLP","v":20711,"s":21200,"p":1,"sh":0},{"t":"Top 4 Inventory Management Software for 2026","ch":"Software Connect","v":17246,"s":11900,"p":1,"sh":0},{"t":"Top 5 Best FREE PDF Editors (Acrobat Alternatives) 2026","ch":"Brett In Tech","v":17115,"s":1420000,"p":0,"sh":0},{"t":"Best Invoicing Software | Top 2026 Pick for Small Business & Freelancers","ch":"Consumer Reviews","v":16614,"s":24200,"p":0,"sh":0},{"t":"I Reviewed 13 Best Time Trackers of 2024 (so you don't have to)","ch":"Layla at ProcessDriven","v":15344,"s":152000,"p":1,"sh":0},{"t":"Infrastructure as Code (IaC) Explained: Types, Tools, and Best Practices | KodeKloud","ch":"KodeKloud","v":14124,"s":475000,"p":1,"sh":0},{"t":"Top 4 AI Voice Agents in 2026 (No Dev Team Needed)","ch":"CloudTalk","v":14099,"s":4590,"p":1,"sh":0},{"t":"5 Best Gym Management Software Systems (Full Demo)","ch":"Business Solution","v":13792,"s":25600,"p":0,"sh":0},{"t":"Comparison of 11 Industry-Leading Customer Data Platforms (CDPs)","ch":"Behavioural Response","v":12247,"s":461,"p":0,"sh":0},{"t":"Top 5 Intranet Software for Your Team","ch":"HR Toolbox","v":11104,"s":897,"p":0,"sh":0},{"t":"Top 5 AI Tools For UI/UX Design In 2026 | Best AI Tools For UI/UX Designers In 2026 | Simplilearn","ch":"Simplilearn","v":10851,"s":6740000,"p":0,"sh":0},{"t":"7 Best Webinar Platforms to Host a Webinar | WebinarNinja, Zoom & More","ch":"Tool Talk","v":10738,"s":14100,"p":0,"sh":0},{"t":"The Best Infrastructure as Code Tool","ch":"KodeKloud","v":9986,"s":475000,"p":0,"sh":1},{"t":"Best Authenticator Apps of 2024","ch":"SaaS Inspection","v":9847,"s":6800,"p":0,"sh":0},{"t":"Top 5 HRM Software in 2026","ch":"HR Toolbox","v":9208,"s":897,"p":0,"sh":0},{"t":"Best PDF Editor in 2026 - I Tested 7 Tools","ch":"George Vlasyev","v":9144,"s":42500,"p":0,"sh":0},{"t":"Top 5 AI Native Helpdesk Software","ch":"Be Productive","v":8048,"s":58000,"p":0,"sh":0},{"t":"TOP 3 BEST PDF OCR SOFTWARE - OCR Tool Review (2026)","ch":"PDNob Official","v":7977,"s":1830,"p":1,"sh":0},{"t":"6 Vector Databases Compared: Which One Should You Use?","ch":"Analytics Vidhya","v":6663,"s":154000,"p":0,"sh":1},{"t":"New UX/UI Tools + AI Tools You NEED Now! - Figma Bud, Animos, Free Ebook & More","ch":"Punit Chawla","v":6458,"s":179000,"p":0,"sh":0},{"t":"I Tested 8 AI Voice Agent Platforms So You Don't Have To","ch":"Tommy Chryst","v":6233,"s":5720,"p":1,"sh":0},{"t":"5 Best Free Authenticator Apps (2026) - The Top 2FA Apps Right Now","ch":"MK Loves Tech","v":6220,"s":43500,"p":0,"sh":0},{"t":"5 Best OKR Softwares","ch":"SaaS Inspection","v":6195,"s":6800,"p":0,"sh":0},{"t":"3 Shopify Apps to 4x Your Conversion Rate - Shopify Marketing Tutorial","ch":"Shopify Success","v":5601,"s":85300,"p":1,"sh":0},{"t":"Best Invoicing Software for Small Businesses in 2026","ch":"Software Connect","v":5263,"s":11900,"p":0,"sh":0},{"t":"Top 3 POS Systems for Independent Restaurants","ch":"Dave Allred TheRealBarman (Bar Patrol)","v":4912,"s":85700,"p":1,"sh":0},{"t":"7 Best Chatbot Software for Customer Support | ProProfs Chat, Tidio and More","ch":"Justin Cener","v":4511,"s":42000,"p":1,"sh":0},{"t":"Best CRM for Small Business | Top 5 Options! (2026)","ch":"Secure Online","v":4484,"s":718,"p":0,"sh":0},{"t":"I Tested Every Cold Email Outreach Tool So You Don't Have To","ch":"Hoani Taylor","v":4476,"s":6180,"p":1,"sh":0},{"t":"WebinarNinja Review | Best Webinar Software for Lead Generation","ch":"Justin Cener","v":4446,"s":42000,"p":0,"sh":0},{"t":"Best Expense Management Software Tool 2026 (Full Comparison)","ch":"Travis Marziani","v":4185,"s":498000,"p":1,"sh":0},{"t":"Top 5 Applicant Tracking Software in 2026","ch":"HR Toolbox","v":4122,"s":897,"p":0,"sh":0},{"t":"5 Best Performance Management Software of 2026","ch":"HR Toolbox","v":4101,"s":897,"p":0,"sh":0},{"t":"Top 5 Best Virtual Meeting Apps | Best Video Conferencing Software","ch":"Team Collaboration Solution","v":4016,"s":171,"p":0,"sh":0},{"t":"15. Pinecone vs. Weaviate vs. Milvus vs. Qdrant: Best Vector Database for 2025?","ch":"SH AI Academy","v":3903,"s":3670,"p":0,"sh":0},{"t":"I tested every Voice AI platform. Here is the BEST.","ch":"Hugo Pod","v":3899,"s":4610,"p":1,"sh":0},{"t":"Top 5 Project Management Software in 2026","ch":"SaaS Inspection","v":3868,"s":6800,"p":0,"sh":0},{"t":"7 Best Social Media Management Tools for Marketing Agencies | 2026 Full Review","ch":"Leadsie","v":3370,"s":2070,"p":0,"sh":0},{"t":"HRIS Explained: Streamlining HR for Success ✨","ch":"TechnologyAdvice","v":3248,"s":34900,"p":0,"sh":1},{"t":"Best Ecommerce Platform | Top 5 All-in-One Options Ranked for 2026","ch":"Merchant Mind","v":3214,"s":29300,"p":1,"sh":0},{"t":"Top 5 Best Support Ticket Systems in 2025","ch":"Speak About Digital","v":3176,"s":35900,"p":0,"sh":0},{"t":"Top Helpdesk Ticketing Software for 2026","ch":"Hiver","v":2952,"s":3010,"p":0,"sh":0},{"t":"5 Best PDF Editors 2026 | 30+ Alternatives Tested That Are Cheaper Than Adobe","ch":"Thebusinessdive","v":2884,"s":1010,"p":0,"sh":0},{"t":"SignNow Full Review: The Best Electronic Signature Tool 2026","ch":"David Alex","v":2868,"s":27500,"p":0,"sh":0},{"t":"Best Email Marketing Platforms – Our Picks After Testing 30+ Tools","ch":"EmailTooltester","v":2769,"s":4300,"p":0,"sh":0},{"t":"Best CRM Software | Top 5 Excellent Options! (2025)","ch":"Consumer Desire","v":2685,"s":8730,"p":0,"sh":0},{"t":"Best Payroll Software for Small Business (Watch BEFORE Buying)","ch":"OneHourProfessor","v":2660,"s":25500,"p":0,"sh":0},{"t":"15 Best Time Tracking Software That Fit Any Team and Budget","ch":"Jibble","v":2536,"s":1350,"p":0,"sh":0},{"t":"Clio vs MyCase Comparison 2025 | Best Law Practice Management Software","ch":"Jake's Tech Lab","v":2478,"s":2840,"p":0,"sh":0},{"t":"5 Best CRM Software for Sales Teams","ch":"CRM Central","v":2374,"s":746,"p":0,"sh":0},{"t":"Best Small Business POS Systems: Fast Checkout & Low Fees","ch":"OneHourProfessor","v":2231,"s":25500,"p":0,"sh":0},{"t":"Top 4 Inventory Software You’ll Actually Use","ch":"Software Connect","v":2230,"s":11900,"p":0,"sh":1},{"t":"5 Best Customer Feedback Management Tools (Full Demo & Comparison)","ch":"Business Solution","v":2099,"s":25600,"p":1,"sh":0},{"t":"Xero vs. Quickbooks vs. Spreadsheets vs. Wave vs. Sage vs. Freshbooks #accountingsoftware","ch":"Business Finance Coach","v":2014,"s":124000,"p":0,"sh":1},{"t":"5 Best Customer Data Platforms (CDP): Ranked & Compared","ch":"Business Solution","v":1941,"s":25600,"p":1,"sh":0},{"t":"Best AI Brand Management Tool For Small Businesses","ch":"Phil Pallen","v":1939,"s":75300,"p":0,"sh":0},{"t":"Best Web Analytics for 2024? (Top 5 Web Analytics Solutions Compared & Reviewed)","ch":"Matomo","v":1932,"s":3200,"p":0,"sh":0},{"t":"Reverse ETL on Snowflake | How to set up Hightouch on Snowflake for beginners","ch":"Mastering Snowflake","v":1846,"s":11500,"p":0,"sh":0},{"t":"Best Invoicing Software For Small Business // Get Paid Faster!","ch":"Smart Finance","v":1762,"s":276,"p":0,"sh":0},{"t":"Best Payroll Software | Best Small Business Setup for 2026","ch":"Merchant Mind","v":1677,"s":29300,"p":1,"sh":0},{"t":"7 Best Sales Intelligence Software Tools [Full Demo]","ch":"Business Solution","v":1614,"s":25600,"p":1,"sh":0},{"t":"Best Project Management Software in 2026: Top 6 Tools Ranked","ch":"Businessmap","v":1581,"s":2730,"p":0,"sh":0},{"t":"What's the best dental practice management software? How to make the right choice!","ch":"Dental Claim Support","v":1478,"s":3690,"p":0,"sh":0},{"t":"Best POS Systems for Every Business Type (Lightspeed vs Clover vs Toast vs Square)","ch":"OneHourProfessor","v":1422,"s":25500,"p":0,"sh":0},{"t":"7 Best Reporting Tools 2026: Client Reports, Dashboards, BI & Data Connectors","ch":"Business Solution","v":1421,"s":25600,"p":0,"sh":0},{"t":"Best Free Property Management Software in 2026 (For Small Landlords)","ch":"MagicDoor","v":1397,"s":492,"p":0,"sh":0},{"t":"Quickbooks vs. Freshbooks vs. Wave | I Found the BEST Accounting Software so You Don't Have To","ch":"Jessica Moorhouse - Canadian Personal Finance","v":1326,"s":63600,"p":0,"sh":0},{"t":"5 Best Transactional Email Service Providers (Full Demo)","ch":"Business Solution","v":1274,"s":25600,"p":0,"sh":0},{"t":"QuickBooks vs Xero vs Wave: Which Accounting Software Is Best?","ch":"Paired Recruiting","v":1258,"s":4540,"p":0,"sh":0},{"t":"How to Choose Identity Verification Software","ch":"Regula","v":1165,"s":2150,"p":0,"sh":0},{"t":"5 Best Accounting Software for Small Business 2026 (I Tested All So You Don't Have To)","ch":"StartupWise","v":1153,"s":90100,"p":0,"sh":0},{"t":"8 Best Webinar Software (Compared) | WebinarNinja","ch":"WebinarNinja","v":1140,"s":8700,"p":0,"sh":0},{"t":"Best eCommerce Platforms for Small Business in 2026","ch":"Merchant Maverick","v":1047,"s":45600,"p":0,"sh":0},{"t":"1. The best Whiteboard Software for Writing on Computer Screen (Digital School - CCSCAT)","ch":"Digital School","v":1025,"s":5060,"p":0,"sh":0},{"t":"5 Best Applicant Tracking Systems in 2026 (AI Features Explained)","ch":"People Managing People","v":1011,"s":904,"p":0,"sh":0},{"t":"5 Best Legal Practice Management Software (Full Demo & Comparison)","ch":"Business Solution","v":1009,"s":25600,"p":0,"sh":0},{"t":"What Do Marketing Automation Tools Look Like? A Beginner’s Guide","ch":"Thalita Milan - Tech & Marketing Tips","v":942,"s":5890,"p":0,"sh":0},{"t":"LangSmith vs Langfuse vs AgentOps: Best AI Monitoring? (LLM Observability Comparison)","ch":"STARP AI","v":884,"s":686,"p":0,"sh":0},{"t":"Top 15 Vector Databases for AI Builders in 2026 | Pinecone, Milvus, Qdrant, Chroma & More","ch":"BazAI","v":875,"s":2650,"p":0,"sh":1},{"t":"Top 8 Best Vulnerability Scanning Tools (2025 Guide)","ch":"OpenExploit","v":839,"s":162,"p":0,"sh":0},{"t":"7 Best Webinar Software Platforms (UPDATED for 2026)","ch":"Business Solution","v":831,"s":25600,"p":0,"sh":0},{"t":"Comparing Free Vulnerability Assessment Tools: OpenVAS, Qualys, Nessus, and Sn1per","ch":"SecOps Insider","v":831,"s":3220,"p":0,"sh":0},{"t":"The Best Platform to Run a Subscription Box On (Why I’m All-In on Shopify & PayWhirl)","ch":"Sarah Williams - Subscription Box Business Coach","v":818,"s":98300,"p":1,"sh":0},{"t":"Top 4 free analytics tools for no code apps & websites (beyond Google Analytics)","ch":"No Code MBA","v":787,"s":44900,"p":0,"sh":0},{"t":"Best Lead Generation Tools 2025: Apollo.io vs Lusha vs Instantly.ai vs Hunter.io","ch":"Speak About Digital","v":771,"s":35900,"p":0,"sh":0},{"t":"The Best AI Voice Agent Platform in 2026  #ai #chatgpt #aivoice #aiphone","ch":"Edwin Chen | AI Automation","v":751,"s":6250,"p":0,"sh":1},{"t":"Best Ecommerce Platform for Beginners: Why Shopify Still Wins in 2026","ch":"Create WP Site","v":717,"s":88300,"p":0,"sh":0},{"t":"15 Best Team Communication Tools (2025)","ch":"Vartika Kashyap","v":696,"s":531,"p":0,"sh":0},{"t":"Top 5 CI/CD Platforms for Beginners: GitHub Actions, GitLab, Jenkins & More!","ch":"CodeLucky","v":682,"s":17100,"p":0,"sh":0},{"t":"Best Task Management Software in 2026 (AI Features Explained)","ch":"The Digital Project Manager","v":633,"s":19500,"p":1,"sh":0},{"t":"Evernote Vs Notion Vs Onenote Vs Remarkable | Which Note-Taking Application Is Better in 2025?","ch":"Tobi Teaches","v":594,"s":6960,"p":0,"sh":0},{"t":"Graylog Vs Splunk | Which Open-Source Log Management Software Is Better? (2026)","ch":"Tobi Teaches","v":563,"s":6960,"p":0,"sh":0},{"t":"The 10+ Best Cold Email Tools and Software For Businesses and Freelancers","ch":"Coach Carmine Mastropierro","v":538,"s":8390,"p":1,"sh":0},{"t":"What Is the Best AI Voice Agent for SMBs in 2026? (Tested & Reviewed)","ch":"David Alex","v":490,"s":27500,"p":0,"sh":0},{"t":"The Best Video Editing Apps For Marketers","ch":"Fixon Media Group","v":481,"s":292,"p":0,"sh":1},{"t":"Toast vs SpotOn: Which POS Should Restaurants Choose?","ch":"OneHourProfessor","v":464,"s":25500,"p":0,"sh":0},{"t":"Top 10 Gym Management Software Qualities in 2025","ch":"WellnessLiving","v":463,"s":6930,"p":0,"sh":0},{"t":"Best Easy-to-Use ATS for Small Businesses | Top 10 Affordable Applicant Tracking Systems","ch":"The Digital Merchant","v":446,"s":893,"p":1,"sh":0},{"t":"The Best DevOps Monitoring Tools (2025)","ch":"The Journey of DevOps","v":421,"s":4890,"p":0,"sh":1},{"t":"Best 2FA Authenticator Apps 2026: 5 Tested (Authy, Aegis & More)","ch":"FoneTips","v":420,"s":4030,"p":0,"sh":0},{"t":"Which CDP is right for businesses? | Salesforce Data Cloud","ch":"Salesforce Hulk","v":403,"s":154000,"p":0,"sh":0},{"t":"Best POS for Small Restaurants: Cut Order Errors Fast","ch":"OneHourProfessor","v":364,"s":25500,"p":0,"sh":0},{"t":"Best Inventory Management Software: Top 10 Picks","ch":"a2zhow (A to Z How) - Software Guide","v":350,"s":17000,"p":0,"sh":1},{"t":"I Ranked Every Major Payroll Platform - The Honest Truth","ch":"Trusted Stack","v":340,"s":25300,"p":0,"sh":0},{"t":"Best Apps for Shopify For More Conversions","ch":"Ecom Masterclass","v":329,"s":13200,"p":0,"sh":0},{"t":"Best Workforce Management Software in 2026 (5 Tools Compared)","ch":"David Alex","v":329,"s":27500,"p":0,"sh":0},{"t":"Best Project Management Software in 2026","ch":"TechRepublic","v":325,"s":17100,"p":0,"sh":0},{"t":"SOC 2 Compliance Automation - How to Cut Audit Prep from 3 Months to 3 Weeks","ch":"Sprinto","v":323,"s":5300,"p":0,"sh":0},{"t":"Episode 2.2: Power BI vs Tableau vs Looker vs QuickSight | Enterprise BI Tool Architecture","ch":"taik18 - Mohammed Adnan","v":322,"s":42500,"p":0,"sh":0},{"t":"Best CRM for Small Business 2026 | I Tested All 5 (Full Comparison)","ch":"StartupWise","v":319,"s":90100,"p":0,"sh":0},{"t":"Apollo vs. ZoomInfo vs. Uplead: Which Gives You the Best ROI?","ch":"Wiza","v":313,"s":3590,"p":0,"sh":0},{"t":"Top 5 Website Analytics Platforms 2025 (Beginner Guide)","ch":"CodeLucky","v":300,"s":17100,"p":0,"sh":0},{"t":"Top Contract Management Software Comparison 2025","ch":"CodeLucky","v":299,"s":17100,"p":0,"sh":0},{"t":"Best Email Deliverability Tools for B2B 2026: What Actually Works Now","ch":"The Digital Merchant","v":297,"s":893,"p":1,"sh":0},{"t":"Best Subscription Management Software 2025: Chargebee vs Stripe vs Recurly","ch":"CodeLucky","v":267,"s":17100,"p":1,"sh":0},{"t":"GitHub vs GitLab vs AWS: Which CI/CD Tool is Best? 🚀 #devopsinterview","ch":"Tech with Ajit","v":267,"s":11600,"p":0,"sh":1},{"t":"Top Applicant Tracking Systems for Small Businesses","ch":"The Digital Merchant","v":252,"s":893,"p":0,"sh":1},{"t":"Jenkins vs GitHub Actions: Which CI/CD Tool Is Better? | Uplatz","ch":"Uplatz","v":232,"s":18500,"p":0,"sh":0},{"t":"Clio vs. LeanLaw in 2026: Which Is Right for Your Law Firm? (Trust Accounting, Pricing & More)","ch":"Accountants Law Lab™","v":198,"s":707,"p":0,"sh":0},{"t":"Top 5 Client Onboarding Platforms of 2026","ch":"GUIDEcx","v":184,"s":709,"p":0,"sh":0},{"t":"Product Analytics Tools Guide: GA vs Amplitude vs Mixpanel","ch":"CodeLucky","v":182,"s":17100,"p":0,"sh":0},{"t":"Best Cold Email Software in 2026 (Top 5 Tested & Compared)","ch":"SmartReach.io","v":181,"s":172,"p":0,"sh":0},{"t":"Top 5 Error Tracking Tools for Developers in 2025","ch":"CodeLucky","v":178,"s":17100,"p":1,"sh":0},{"t":"The Most Underrated Open-Source BI Tool","ch":"Shantanu Khond","v":175,"s":16100,"p":0,"sh":1},{"t":"Best Tech Tools for Legal Bookkeeping in 2026: Clio, LeanLaw, QuickBooks & More Compared","ch":"Accountants Law Lab™","v":172,"s":707,"p":0,"sh":0},{"t":"10 Best Live Chat Software (Compared) | ProProfs Live Chat","ch":"ProProfsDesk","v":156,"s":1020,"p":0,"sh":0},{"t":"8 Best Expense Management Software Platforms for Midsize Companies in 2026","ch":"TechnologyAdvice","v":144,"s":34900,"p":0,"sh":0},{"t":"Top Self-Hosted Video Conferencing Apps for 2026","ch":"Team Collaboration Solution","v":138,"s":171,"p":0,"sh":1},{"t":"MyCase vs Smokeball Comparison 2025 | Which Legal Practice Management Software Is Best?","ch":"Jake's Tech Lab","v":122,"s":2840,"p":0,"sh":0},{"t":"Pick Your Sales Stack: Founder Stage vs Enterprise","ch":"Mark Colgan | Outbound Prospecting & Pipeline","v":120,"s":1480,"p":0,"sh":0},{"t":"Top 5 Cold Email Tools: 90% of People Choose Wrong","ch":"Speak About Digital","v":111,"s":35900,"p":0,"sh":0},{"t":"Top 6 Video Editing Software Tested for Creators","ch":"CodeLucky","v":108,"s":17100,"p":0,"sh":0},{"t":"Best Email Marketing Software for Content Creators — Kit, GetResponse, MailerLite, AWeber, SendPulse","ch":"Vil Vas - Software Reviews","v":105,"s":82400,"p":0,"sh":0},{"t":"7 Vector Databases Compared: Which One Fits Your AI Project?","ch":"Technical Rajni","v":100,"s":11800,"p":0,"sh":0},{"t":"Is Sender the Best Value Email Marketing Tool? I Tested it in 8 Areas.","ch":"Venture Harbour","v":95,"s":5080,"p":0,"sh":0},{"t":"Best Email Octopus Alternatives — MailerLite, Kit, Sender, Moosend, AWeber","ch":"Vil Vas - Software Reviews","v":94,"s":82400,"p":0,"sh":0},{"t":"10 Best 360 Feedback Software (Compared) With HR Expert Chicka Elloy | PeopleGoal","ch":"PeopleGoal","v":91,"s":9960,"p":0,"sh":0},{"t":"SOC 2 vs ISO 27001 vs GDPR: Which One Do You Need?","ch":"Sprinto","v":90,"s":5300,"p":0,"sh":0},{"t":"Best Sales Intelligence Platforms 2025: B2B Tools Review","ch":"CodeLucky","v":87,"s":17100,"p":1,"sh":0},{"t":"SOC 2 Compliance Companies Compared: Platforms vs Consultants (2026)","ch":"Atlant Security","v":81,"s":123,"p":0,"sh":0},{"t":"3 Best Tools for Website Analytics","ch":"Stephen Baker","v":75,"s":1640,"p":0,"sh":1},{"t":"Why the Best Data Warehouse Is a Lakehouse: Databricks SQL, Serverless and Lakebridge","ch":"Databricks Events","v":73,"s":835,"p":0,"sh":0},{"t":"Reverse ETL with Hightouch: Getting Warehouse Data Back Where People Work","ch":"DevTechie","v":63,"s":3910,"p":0,"sh":0},{"t":"CDPs 101 - Understanding the Value of Customer Data Platforms in E-Commerce","ch":"Creatuity Corp.","v":63,"s":283,"p":0,"sh":0},{"t":"SendGrid vs Mailgun | Which Email Delivery Platform Should You Choose? | Uplatz","ch":"Uplatz","v":57,"s":18500,"p":0,"sh":0},{"t":"Best Company Chat Software Platforms in 2026 | Business Messaging Apps","ch":"Team Collaboration Solution","v":55,"s":171,"p":0,"sh":0},{"t":"Best Audio Conferencing Software: Top 3 Tools","ch":"Team Collaboration Solution","v":48,"s":171,"p":0,"sh":0},{"t":"Best Enterprise HR Software? Lattice vs 15Five vs Teamflect #Shorts","ch":"Teamflect TV","v":42,"s":1450,"p":0,"sh":1},{"t":"E16 | Customer Data Platforms (CDP) in Ecommerce | Ecommerce Platforms & Systems | Uplatz","ch":"Uplatz","v":38,"s":18500,"p":0,"sh":0},{"t":"Top Tools for Monitoring API Response Times Explained","ch":"The NextGen Ai Frontier","v":31,"s":1160,"p":0,"sh":0},{"t":"Which Cloud Data Warehouse Wins? BigQuery vs Amazon Redshift vs Microsoft Fabric Compared (2026)","ch":"Mukesh Singh","v":19,"s":5550,"p":0,"sh":0}]};
+var N = function(x){ return (x===null||x===undefined||x==="") ? "" : Number(x).toLocaleString("en-US"); };
+var E = function(s){ var d=document.createElement("div"); d.textContent=(s===null||s===undefined)?"":String(s); return d.innerHTML; };
+var PER = 25;
+
+function domList(arr){
+  if(!arr || !arr.length) return '<span class="auq-na">no AI Overview</span>';
+  return '<span class="auq-domlist">' + arr.map(function(d,i){
+    return (i===0?'<b>':'') + E(d) + (i===0?'</b>':'');
+  }).join('<br>') + '</span>';
+}
+function plainList(arr){
+  if(!arr || !arr.length) return '<span class="auq-na">&mdash;</span>';
+  return arr.map(function(d){ return E(d); }).join('<br>');
+}
+
+function Table(cfg){
+  var root = document.getElementById(cfg.panel);
+  var tbody = root.querySelector("tbody");
+  var empty = root.querySelector(".auq-empty");
+  var count = document.getElementById(cfg.count);
+  var pageOf = root.querySelector(".auq-page-of");
+  var state = { f:{}, q:"", qk:null, sort:cfg.sort, dir:cfg.dir||-1, page:0 };
+
+  root.querySelectorAll("[data-f]").forEach(function(sel){
+    var key = sel.getAttribute("data-f");
+    var labels = cfg.labels && cfg.labels[key];
+    var vals = [];
+    D[cfg.data].forEach(function(r){ if(vals.indexOf(r[key])<0) vals.push(r[key]); });
+    vals.sort(function(a,b){ return (typeof a === "number") ? a-b : String(a).localeCompare(String(b)); });
+    var opts = ['<option value="">'+((cfg.allLabel&&cfg.allLabel[key])||"All")+'</option>'];
+    vals.forEach(function(v){
+      if(v==="" || v===null || v===undefined) return;
+      opts.push('<option value="'+E(v)+'">'+E(labels ? (labels[v]!==undefined?labels[v]:v) : v)+'</option>');
+    });
+    sel.innerHTML = opts.join("");
+    sel.addEventListener("change", function(){
+      state.f[key] = sel.value;
+      sel.classList.toggle("auq-active", !!sel.value);
+      state.page = 0; render();
+    });
+  });
+
+  root.querySelectorAll("[data-q]").forEach(function(inp){
+    var keys = inp.getAttribute("data-q").split(",");
+    inp.addEventListener("input", function(){
+      state.q = inp.value.trim().toLowerCase(); state.qk = keys;
+      inp.classList.toggle("auq-active", !!inp.value);
+      state.page = 0; render();
+    });
+  });
+
+  root.querySelectorAll("[data-t]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var k = btn.getAttribute("data-t");
+      var on = btn.getAttribute("aria-pressed") === "true";
+      btn.setAttribute("aria-pressed", on ? "false" : "true");
+      state.f["__t_"+k] = on ? "" : "1";
+      state.page = 0; render();
+    });
+  });
+
+  root.querySelectorAll(".auq-sort").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var k = btn.getAttribute("data-s");
+      if(state.sort === k) state.dir = -state.dir;
+      else { state.sort = k; state.dir = (typeof D[cfg.data][0][k] === "number") ? -1 : 1; }
+      state.page = 0; render();
+    });
+  });
+
+  var reset = root.querySelector("[data-reset]");
+  if(reset) reset.addEventListener("click", function(){
+    state.f = {}; state.q = ""; state.page = 0;
+    root.querySelectorAll("select").forEach(function(s){ s.value=""; s.classList.remove("auq-active"); });
+    root.querySelectorAll("input").forEach(function(i){ i.value=""; i.classList.remove("auq-active"); });
+    root.querySelectorAll("[data-t]").forEach(function(b){ b.setAttribute("aria-pressed","false"); });
+    render();
+  });
+
+  root.querySelectorAll("[data-pg]").forEach(function(b){
+    b.addEventListener("click", function(){
+      state.page += parseInt(b.getAttribute("data-pg"),10); render();
+      root.querySelector(".auq-table-scroll").scrollIntoView({block:"nearest"});
+    });
+  });
+
+  function rows(){
+    return D[cfg.data].filter(function(r){
+      for(var k in state.f){
+        var v = state.f[k];
+        if(!v) continue;
+        if(k.indexOf("__t_")===0){ if(!r[k.slice(4)]) return false; continue; }
+        if(String(r[k]) !== String(v)) return false;
+      }
+      if(state.q){
+        var hit = (state.qk||[cfg.qk]).some(function(kk){
+          return String(r[kk]||"").toLowerCase().indexOf(state.q) >= 0;
+        });
+        if(!hit) return false;
+      }
+      return true;
+    }).sort(function(a,b){
+      var x=a[state.sort], y=b[state.sort];
+      if(typeof x === "number" && typeof y === "number") return (x-y)*state.dir;
+      return String(x).localeCompare(String(y))*state.dir;
+    });
+  }
+
+  function render(){
+    var rs = rows();
+    var pages = Math.max(1, Math.ceil(rs.length/PER));
+    state.page = Math.max(0, Math.min(state.page, pages-1));
+    tbody.innerHTML = rs.slice(state.page*PER, state.page*PER+PER).map(cfg.row).join("");
+    if(empty) empty.classList.toggle("auq-hidden", rs.length>0);
+    if(count) count.innerHTML = "Showing <b>"+N(rs.length)+"</b> of "+N(D[cfg.data].length)+" "+cfg.noun;
+    if(pageOf) pageOf.textContent = "Page "+(state.page+1)+" of "+pages;
+    root.querySelectorAll("[data-pg]").forEach(function(b){
+      var d = parseInt(b.getAttribute("data-pg"),10);
+      b.disabled = (d<0 && state.page===0) || (d>0 && state.page>=pages-1);
+    });
+    root.querySelectorAll("th").forEach(function(th){
+      var s = th.querySelector(".auq-sort");
+      if(!s) return;
+      var on = s.getAttribute("data-s")===state.sort;
+      th.setAttribute("aria-sort", on ? (state.dir>0?"ascending":"descending") : "none");
+      s.querySelector(".auq-sort-ind").textContent = on ? (state.dir>0?"\u2191":"\u2193") : "";
+    });
+  }
+  render();
+}
+
+Table({
+  panel:"auq-panel-searches", data:"searches", count:"auq-searches-count", noun:"searches",
+  sort:"k", dir:1, qk:"k", allLabel:{c1:"All source types"},
+  row:function(r){
+    return '<tr>'
+      + '<td class="auq-strong">'+E(r.k)+'</td>'
+      + '<td class="auq-doms">'+domList(r.d)+'</td>'
+      + '<td class="auq-typelist">'+plainList(r.c)+'</td>'
+      + '<td class="auq-num">'+r.ps+'</td>'
+      + '<td class="auq-stablecell"><span class="auq-dot '+(r.st?"auq-yes":"")+'">'+(r.st?"Same all 3":(r.ap<2?"1 pull only":"Varied"))+'</span></td>'
+      + '</tr>';
+  }
+});
+
+Table({
+  panel:"auq-panel-domains", data:"domains", count:"auq-domains-count", noun:"domains",
+  sort:"o", dir:-1, qk:"d", allLabel:{c:"All source types"},
+  row:function(r){
+    return '<tr>'
+      + '<td class="auq-domain">'+E(r.d)+'</td>'
+      + '<td class="auq-type">'+E(r.c)+'</td>'
+      + '<td class="auq-num">'+r.o.toFixed(1)+'</td>'
+      + '<td class="auq-num">'+r.k+'</td>'
+      + '<td class="auq-num">'+(r.f?r.f.toFixed(1):'<span class="auq-na">0</span>')+'</td>'
+      + '</tr>';
+  }
+});
+
+Table({
+  panel:"auq-panel-videos", data:"videos", count:"auq-videos-count", noun:"videos",
+  sort:"v", dir:-1, qk:"t",
+  allLabel:{p:"All placements", sh:"All formats"},
+  labels:{p:{1:"Reached top 3",0:"Rank 4+ only"}, sh:{1:"Shorts",0:"Standard"}},
+  row:function(r){
+    return '<tr>'
+      + '<td class="auq-title">'+E(r.t)+'</td>'
+      + '<td class="auq-type">'+E(r.ch)+'</td>'
+      + '<td class="auq-num">'+N(r.v)+'</td>'
+      + '<td class="auq-num">'+(r.s?N(r.s):'<span class="auq-na">n/a</span>')+'</td>'
+      + '<td><span class="auq-dot '+(r.p?"auq-yes":"")+'">'+(r.p?"Yes":"No")+'</span></td>'
+      + '</tr>';
+  }
+});
+
+var tabs = Array.prototype.slice.call(document.querySelectorAll(".auq-tab"));
+function select(tab){
+  tabs.forEach(function(t){
+    var on = t===tab;
+    t.setAttribute("aria-selected", on?"true":"false");
+    t.tabIndex = on?0:-1;
+    document.getElementById(t.getAttribute("aria-controls")).classList.toggle("auq-hidden", !on);
+  });
+}
+tabs.forEach(function(t,i){
+  t.addEventListener("click", function(){ select(t); });
+  t.addEventListener("keydown", function(e){
+    var d = e.key==="ArrowRight"?1:(e.key==="ArrowLeft"?-1:0);
+    if(!d) return;
+    e.preventDefault();
+    var n = tabs[(i+d+tabs.length)%tabs.length];
+    n.focus(); select(n);
+  });
+});
+})();
+</script>
+</body>
+</html>
