@@ -680,12 +680,12 @@ th[aria-sort="ascending"] .auq-sort-ind, th[aria-sort="descending"] .auq-sort-in
     <section class="auq-section" aria-labelledby="auq-fan-h">
       <div class="auq-wrap">
         <p class="auq-eyebrow">Why</p>
-        <h2 class="auq-h2" id="auq-fan-h">What Claude actually searched for</h2>
-        <p class="auq-lede">The API exposes the searches Claude issued before answering. It is a direct statement of what the model is matching against &mdash; and it explains the section above.</p>
+        <h2 class="auq-h2" id="auq-fan-h">The queries behind each answer</h2>
+        <p class="auq-lede">Alongside every answer the API returns its <em>fan-out queries</em> &mdash; in DataForSEO&rsquo;s words, &ldquo;related search queries derived from the main query to provide a more comprehensive response&rdquo;. They show the shape of query each answer was assembled against, and that shape lines up closely with the pages that win.</p>
         <div class="auq-panelviz">
           <div class="auq-notch"><div class="auq-notch-in auq-pv">
             <p class="auq-pv-num">2.0</p>
-            <h4>Searches issued per answer</h4>
+            <h4>Fan-out queries per answer</h4>
             <p>Almost always exactly two: the keyword, then one reformulation.</p>
           </div></div>
           <div class="auq-notch"><div class="auq-notch-in auq-pv">
@@ -696,12 +696,12 @@ th[aria-sort="ascending"] .auq-sort-ind, th[aria-sort="descending"] .auq-sort-in
           <div class="auq-notch"><div class="auq-notch-in auq-pv auq-pv-o">
             <p class="auq-pv-num">574</p>
             <h4>Queries captured</h4>
-            <p>Across 300 answers. No other published citation study reports this.</p>
+            <p>Across 300 answers, returned by the API alongside each response.</p>
           </div></div>
         </div>
-        <h3 class="auq-kf-title">A sample of the actual queries</h3>
+        <h3 class="auq-kf-title">A sample of the fan-out queries</h3>
         <table class="auq-mini">
-          <thead><tr><th scope="col">Query Claude issued</th></tr></thead>
+          <thead><tr><th scope="col">Fan-out query</th></tr></thead>
           <tbody><tr><td class='auq-mono'>best ab testing tools 2026</td></tr><tr><td class='auq-mono'>top A/B testing software comparison</td></tr><tr><td class='auq-mono'>best A/B testing tools 2026</td></tr><tr><td class='auq-mono'>top AB testing software comparison</td></tr><tr><td class='auq-mono'>best ab testing tools 2026</td></tr><tr><td class='auq-mono'>top A/B testing software comparison</td></tr><tr><td class='auq-mono'>best accounting software 2026</td></tr><tr><td class='auq-mono'>best accounting software for small business</td></tr><tr><td class='auq-mono'>best accounting software 2026</td></tr><tr><td class='auq-mono'>best accounting software for small business</td></tr></tbody>
         </table>
         <p class="auq-srcnote">The shape is consistent: <em>&lt;keyword&gt; 2026</em> plus <em>top &lt;category&gt; comparison</em>. Which is exactly the shape of the pages that win.</p>
@@ -712,14 +712,14 @@ th[aria-sort="ascending"] .auq-sort-ind, th[aria-sort="descending"] .auq-sort-in
       <div class="auq-wrap">
         <p class="auq-eyebrow">Full dataset</p>
         <h2 class="auq-h2" id="auq-explore-h">Explore the data</h2>
-        <p class="auq-lede">Every search with both engines&rsquo; sources side by side, every cited domain tagged by which engine found it, and every query Claude issued.</p>
+        <p class="auq-lede">Every search with both engines&rsquo; sources side by side, every cited domain tagged by which engine found it, and the fan-out queries returned with each Claude answer.</p>
 
         <div class="auq-notch auq-explore-panel">
           <div class="auq-notch-in auq-explore-in">
             <div class="auq-tabs" role="tablist" aria-label="Dataset views">
               <button class="auq-tab" role="tab" id="auq-tab-searches" aria-controls="auq-panel-searches" aria-selected="true" data-tab="searches">Searches<span class="auq-tab-count">100</span></button>
               <button class="auq-tab" role="tab" id="auq-tab-domains" aria-controls="auq-panel-domains" aria-selected="false" tabindex="-1" data-tab="domains">Cited domains<span class="auq-tab-count">939</span></button>
-              <button class="auq-tab" role="tab" id="auq-tab-fanout" aria-controls="auq-panel-fanout" aria-selected="false" tabindex="-1" data-tab="fanout">Claude&rsquo;s queries<span class="auq-tab-count">574</span></button>
+              <button class="auq-tab" role="tab" id="auq-tab-fanout" aria-controls="auq-panel-fanout" aria-selected="false" tabindex="-1" data-tab="fanout">Fan-out queries<span class="auq-tab-count">574</span></button>
             </div>
 
             <noscript><p class="auq-lede">Turn on JavaScript to filter and explore the full dataset.</p></noscript>
@@ -778,11 +778,11 @@ th[aria-sort="ascending"] .auq-sort-ind, th[aria-sort="descending"] .auq-sort-in
               </div>
               <div class="auq-toolbar"><button type="button" class="auq-reset" data-reset>Reset filters</button></div>
               <p class="auq-count" id="auq-fanout-count" aria-live="polite"></p>
-              <div class="auq-table-scroll" style="margin-top:12px" tabindex="0" role="region" aria-label="Claude queries table, scrolls horizontally">
+              <div class="auq-table-scroll" style="margin-top:12px" tabindex="0" role="region" aria-label="Fan-out queries table, scrolls horizontally">
                 <table class="auq-table" id="auq-fanout-table">
                   <thead><tr>
                     <th scope="col"><button class="auq-sort" data-s="k">Search<span class="auq-sort-ind"></span></button></th>
-                    <th scope="col"><button class="auq-sort" data-s="q">Query Claude issued<span class="auq-sort-ind"></span></button></th>
+                    <th scope="col"><button class="auq-sort" data-s="q">Fan-out query<span class="auq-sort-ind"></span></button></th>
                     <th scope="col" class="auq-num"><button class="auq-sort" data-s="r">Ask<span class="auq-sort-ind"></span></button></th>
                   </tr></thead>
                   <tbody></tbody>
@@ -816,7 +816,7 @@ th[aria-sort="ascending"] .auq-sort-ind, th[aria-sort="descending"] .auq-sort-in
         <p class="auq-eyebrow">How we ran it</p>
         <h2 class="auq-h2" id="auq-method-h">Method and limitations</h2>
         <ul class="auq-method">
-          <li>The same 100 &ldquo;best &lt;software&gt;&rdquo; keywords were sent to both engines on 19 October 2026, three times each &mdash; 600 answers in total.</li><li>Claude: <code>claude-sonnet-5</code> with web search enabled, via DataForSEO&rsquo;s <code>/ai_optimization/claude/llm_responses/live</code>. The prompt is the bare keyword, so no prompt design of ours leaks into the results.</li><li>Google: DataForSEO&rsquo;s SERP API with <code>load_async_ai_overview=true</code>, US, English, desktop.</li><li><strong>Like-for-like rule.</strong> Claude has no citation panel &mdash; it cites inline, per sentence. So every comparison here counts <em>distinct domains cited per answer</em>, and counts Google across all of its citation surfaces rather than just the three visible in the panel. Using Google&rsquo;s visible top 3 instead sharpens the contrast; we report the more conservative reading.</li><li>Source types are assigned by the same rule-based labeller for both engines, so the comparison cannot be an artefact of different labelling. It agrees with a manually labelled set 97.6% of the time.</li><li>Claude citations are the <code>annotations</code> attached to each sentence of the answer. Position beyond order of first appearance does not exist, so no ranking is implied.</li><li>Repeatability is measured at the level of a (search, domain) pair: of the citations an engine made, how many it repeated on all three asks.</li><li>Limitations: one model, one day, US-oriented bare-keyword prompts. Opus and Haiku may cite differently, and longer real-world prompts may too &mdash; both untested. 6 of 300 Claude answers cited nothing at all.</li>
+          <li>The same 100 &ldquo;best &lt;software&gt;&rdquo; keywords were sent to both engines on 19 October 2026, three times each &mdash; 600 answers in total.</li><li>Claude: <code>claude-sonnet-5</code> with web search enabled, via DataForSEO&rsquo;s <code>/ai_optimization/claude/llm_responses/live</code>. The prompt is the bare keyword, so no prompt design of ours leaks into the results.</li><li>Google: DataForSEO&rsquo;s SERP API with <code>load_async_ai_overview=true</code>, US, English, desktop.</li><li><strong>Like-for-like rule.</strong> Claude has no citation panel &mdash; it cites inline, per sentence. So every comparison here counts <em>distinct domains cited per answer</em>, and counts Google across all of its citation surfaces rather than just the three visible in the panel. Using Google&rsquo;s visible top 3 instead sharpens the contrast; we report the more conservative reading.</li><li>Source types are assigned by the same rule-based labeller for both engines, so the comparison cannot be an artefact of different labelling. It agrees with a manually labelled set 97.6% of the time.</li><li>Claude citations are the <code>annotations</code> attached to each sentence of the answer. Position beyond order of first appearance does not exist, so no ranking is implied.</li><li>Repeatability is measured at the level of a (search, domain) pair: of the citations an engine made, how many it repeated on all three asks.</li><li><strong>On fan-out queries.</strong> DataForSEO documents this field as &ldquo;related search queries derived from the main query to provide a more comprehensive response&rdquo;. We report them as what they are documented to be. We have not independently confirmed that they are the model&rsquo;s verbatim web-search calls, so we do not claim that &mdash; though the ~14,000-token inputs on four-word prompts show substantial retrieved context behind each answer.</li><li>Limitations: one model, one day, US-oriented bare-keyword prompts. Opus and Haiku may cite differently, and longer real-world prompts may too &mdash; both untested. 6 of 300 Claude answers cited nothing at all.</li>
         </ul>
         <p class="auq-srcnote">Companion study, same keyword set: <a href="https://auq.io/research/ai-overview-citation-signals-oct.html">what Google&rsquo;s AI Overview cites for software searches</a>.</p>
       </div>
