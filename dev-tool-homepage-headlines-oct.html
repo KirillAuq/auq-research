@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Do Dev-Tool Homepages Speak to the People Who Buy Them? | AUQ Study</title>
+<meta name="description" content="We read 50 engineering-leader job posts and 100 dev-tool homepages. 94 of the homepages make a promise engineering leaders are hired to own. Only 35 lead with it in the headline.">
+<link rel="canonical" href="https://auq.io/research/dev-tool-homepage-headlines-oct.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AUQ">
+<meta property="og:title" content="Do Dev-Tool Homepages Speak to the People Who Buy Them? | AUQ Study">
+<meta property="og:description" content="We read 50 engineering-leader job posts and 100 dev-tool homepages. 94 of the homepages make a promise engineering leaders are hired to own. Only 35 lead with it in the headline.">
+<meta property="og:url" content="https://auq.io/research/dev-tool-homepage-headlines-oct.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Do Dev-Tool Homepages Speak to the People Who Buy Them? | AUQ Study">
+<meta name="twitter:description" content="We read 50 engineering-leader job posts and 100 dev-tool homepages. 94 of the homepages make a promise engineering leaders are hired to own. Only 35 lead with it in the headline.">
+
+<!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NCFX8NJ');</script><!-- End Google Tag Manager -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* Every rule is scoped under .auq-root so the page can be embedded in a CMS without collisions. */
+.auq-root {
+  --auq-bg: #090E12;
+  --auq-panel: #111A21;
+  --auq-panel-2: #131E26;
+  --auq-cyan: #00FFF8;
+  --auq-cyan-2: #10CAE2;
+  --auq-orange: #ED702D;
+  --auq-text: #FFFFFF;
+  --auq-muted: rgba(255, 255, 255, 0.7);
+  --auq-faint: rgba(255, 255, 255, 0.62);
+  --auq-line: rgba(255, 255, 255, 0.12);
+  --auq-teal-line: rgba(16, 202, 226, 0.35);
+  --auq-sans: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --auq-body: "Fira Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --auq-mono: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --auq-notch: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px));
+
+  background-color: var(--auq-bg);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1.2px);
+  background-size: 22px 22px;
+  color: var(--auq-text);
+  font-family: var(--auq-body);
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+.auq-root *, .auq-root *::before, .auq-root *::after { box-sizing: border-box; }
+.auq-root a { color: var(--auq-cyan-2); }
+.auq-root :focus-visible { outline: 2px solid var(--auq-cyan); outline-offset: 3px; }
+
+.auq-wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+.auq-section { padding: 88px 0; }
+.auq-section + .auq-section { border-top: 1px solid var(--auq-line); }
+
+.auq-eyebrow {
+  font-family: var(--auq-sans);
+  font-size: 15px;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: var(--auq-cyan);
+  margin: 0 0 16px;
+}
+.auq-h2 {
+  font-family: var(--auq-sans);
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 44px);
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin: 0 0 20px;
+}
+.auq-lede { color: var(--auq-muted); font-weight: 300; max-width: 720px; margin: 0; }
+
+/* Notched panel (matches the case-study cards on auq.io). Outer layer draws the 1px teal border. */
+.auq-notch { background: var(--auq-teal-line); clip-path: var(--auq-notch); padding: 1px; }
+.auq-notch-in { background: var(--auq-panel); clip-path: var(--auq-notch); height: 100%; }
+
+/* Buttons: orange trapezoid, as on the auq.io hero. Shape is drawn on ::before so focus outlines aren't clipped. */
+.auq-btn {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 14px 34px;
+  font-family: var(--auq-mono);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2.1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #0B0F12 !important;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.auq-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--auq-orange);
+  clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 100%, 0 100%);
+  transition: background-color 0.15s ease;
+}
+.auq-btn:hover::before { background: #F5874A; }
+.auq-btn-arrow { margin-left: 10px; font-family: var(--auq-sans); font-weight: 500; }
+
+/* Tags */
+.auq-tag {
+  display: inline-block;
+  font-family: var(--auq-mono);
+  font-size: 12.5px;
+  line-height: 1.4;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.auq-tag-g { background: rgba(16, 202, 226, 0.14); color: var(--auq-cyan-2); }
+.auq-tag-c { background: rgba(237, 112, 45, 0.16); color: var(--auq-orange); }
+
+/* ---------- Hero ---------- */
+.auq-hero { padding: 96px 0 88px; }
+.auq-hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr); gap: 56px; align-items: center; }
+.auq-hero h1 {
+  font-family: var(--auq-sans);
+  font-weight: 400;
+  font-size: clamp(40px, 6vw, 68px);
+  line-height: 1.06;
+  letter-spacing: -1px;
+  margin: 0 0 24px;
+}
+.auq-hero h1 span { color: var(--auq-cyan); }
+.auq-hero-sub { font-weight: 300; font-size: 20px; color: rgba(255, 255, 255, 0.82); margin: 0 0 18px; max-width: 640px; }
+.auq-hero-meta { font-family: var(--auq-mono); font-size: 13px; letter-spacing: 1px; color: var(--auq-faint); margin: 0 0 36px; }
+.auq-stats { padding: 32px 32px 36px; }
+.auq-stats-head { display: flex; align-items: center; gap: 12px; font-family: var(--auq-sans); font-size: 17px; color: rgba(255, 255, 255, 0.85); margin: 0 0 22px; }
+.auq-stats-head svg { flex: none; }
+.auq-stats dl { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 26px 20px; }
+.auq-stats dt { font-family: var(--auq-sans); font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--auq-cyan-2); line-height: 1.4; margin-top: 6px; }
+.auq-stats dd { margin: 0; font-family: var(--auq-sans); font-size: 44px; line-height: 1; color: var(--auq-cyan-2); }
+.auq-stats div { display: flex; flex-direction: column; justify-content: flex-start; }
+.auq-stats dd { order: -1; }
+.auq-stats-foot { margin: 24px 0 0; padding-top: 18px; border-top: 1px solid var(--auq-line); display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* ---------- Findings ---------- */
+.auq-findings { list-style: none; margin: 40px 0 0; padding: 0; display: grid; gap: 0; counter-reset: auq-f; }
+.auq-findings li {
+  counter-increment: auq-f;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 16px;
+  padding: 22px 0;
+  border-top: 1px solid var(--auq-line);
+  font-size: 19px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+}
+.auq-findings li:last-child { border-bottom: 1px solid var(--auq-line); }
+.auq-findings li::before { content: counter(auq-f, decimal-leading-zero); font-family: var(--auq-mono); font-size: 14px; color: var(--auq-cyan-2); padding-top: 4px; }
+.auq-findings strong { font-weight: 500; color: #fff; }
+.auq-findings .auq-hl { color: var(--auq-cyan); font-weight: 400; }
+
+.auq-kf-title { font-family: var(--auq-sans); font-weight: 400; font-size: 24px; margin: 64px 0 18px; }
+.auq-kf { width: 100%; border-collapse: collapse; }
+.auq-kf thead th {
+  font-family: var(--auq-mono);
+  font-weight: 400;
+  font-size: 12.5px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--auq-faint);
+  text-align: left;
+  padding: 0 20px 14px;
+  border-bottom: 1px solid var(--auq-line);
+}
+.auq-kf thead th:first-child { padding-left: 0; }
+.auq-kf tbody th, .auq-kf tbody td { padding: 20px; border-bottom: 1px solid var(--auq-line); vertical-align: top; text-align: left; }
+.auq-kf tbody th { padding-left: 0; font-weight: 400; width: 46%; }
+.auq-kf-name { display: block; font-family: var(--auq-sans); font-size: 19px; color: #fff; }
+.auq-kf-measured { display: block; font-size: 15px; font-weight: 300; color: var(--auq-muted); margin-top: 4px; }
+.auq-kf-note { display: block; font-family: var(--auq-mono); font-size: 12px; color: var(--auq-faint); margin-top: 8px; line-height: 1.5; }
+.auq-kf-val { font-family: var(--auq-sans); font-size: 22px; line-height: 1.3; white-space: nowrap; }
+.auq-kf-g { color: var(--auq-cyan); }
+.auq-kf-c { color: #fff; }
+
+/* ---------- Explore ---------- */
+.auq-explore-panel { margin-top: 40px; }
+.auq-explore-in { padding: 8px 28px 32px; }
+.auq-tabs { display: flex; gap: 28px; border-bottom: 1px solid var(--auq-line); margin-bottom: 26px; flex-wrap: wrap; }
+.auq-tab {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  padding: 20px 0 14px;
+  font-family: var(--auq-mono);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--auq-faint);
+  cursor: pointer;
+}
+.auq-tab:hover { color: #fff; }
+.auq-tab[aria-selected="true"] { color: var(--auq-cyan); border-bottom-color: var(--auq-cyan); }
+.auq-tab-count { font-weight: 400; color: inherit; opacity: 0.75; margin-left: 6px; }
+
+.auq-filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px 16px; align-items: end; }
+.auq-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.auq-field-wide { grid-column: span 2; }
+.auq-label { font-family: var(--auq-mono); font-size: 11.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--auq-faint); }
+.auq-select, .auq-input {
+  width: 100%;
+  min-height: 44px;
+  font-family: var(--auq-sans);
+  font-size: 15px;
+  color: #fff;
+  background-color: var(--auq-panel-2);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  padding: 9px 12px;
+}
+.auq-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 34px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23ffffff' stroke-opacity='.8' stroke-width='1.6' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  cursor: pointer;
+}
+.auq-select option { background: var(--auq-panel-2); color: #fff; }
+.auq-select.auq-active, .auq-input.auq-active { border-color: var(--auq-cyan-2); background-color: rgba(0, 255, 248, 0.06); }
+.auq-input::placeholder { color: rgba(255, 255, 255, 0.5); }
+.auq-select:hover, .auq-input:hover { border-color: rgba(255, 255, 255, 0.32); }
+
+.auq-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin: 18px 0 16px; }
+.auq-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  padding: 8px 14px;
+  font-family: var(--auq-sans);
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.85);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.auq-toggle:hover { border-color: rgba(255, 255, 255, 0.32); }
+.auq-toggle-sw { width: 30px; height: 18px; border-radius: 9px; background: rgba(255, 255, 255, 0.18); position: relative; flex: none; transition: background-color 0.15s ease; }
+.auq-toggle-sw::after { content: ""; position: absolute; top: 3px; left: 3px; width: 12px; height: 12px; border-radius: 50%; background: #fff; transition: transform 0.15s ease; }
+.auq-toggle[aria-pressed="true"] { border-color: var(--auq-cyan-2); color: #fff; background: rgba(0, 255, 248, 0.06); }
+.auq-toggle[aria-pressed="true"] .auq-toggle-sw { background: var(--auq-cyan-2); }
+.auq-toggle[aria-pressed="true"] .auq-toggle-sw::after { transform: translateX(12px); background: #0B0F12; }
+.auq-reset {
+  margin-left: auto;
+  min-height: 40px;
+  padding: 8px 4px;
+  background: none;
+  border: 0;
+  font-family: var(--auq-mono);
+  font-size: 12.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--auq-orange);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.auq-reset:hover { color: #F5874A; }
+.auq-count { font-family: var(--auq-mono); font-size: 13px; color: var(--auq-muted); margin: 0; }
+.auq-count b { color: var(--auq-cyan); font-weight: 400; }
+
+.auq-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--auq-line); border-radius: 8px; background: rgba(9, 14, 18, 0.55); }
+.auq-table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.auq-table th, .auq-table td { padding: 12px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--auq-line); }
+.auq-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--auq-panel-2);
+  font-family: var(--auq-mono);
+  font-weight: 400;
+  font-size: 11.5px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  vertical-align: bottom;
+  white-space: normal;
+  min-width: 96px;
+}
+.auq-table tbody tr:hover td { background: rgba(255, 255, 255, 0.03); }
+.auq-table tbody tr:last-child td { border-bottom: 0; }
+.auq-table td { color: rgba(255, 255, 255, 0.88); }
+.auq-table td.auq-num, .auq-table th.auq-num { text-align: right; font-variant-numeric: tabular-nums; }
+.auq-table td.auq-num { font-family: var(--auq-mono); font-size: 14px; }
+.auq-table td.auq-strong { color: #fff; font-family: var(--auq-sans); font-size: 15px; min-width: 200px; }
+.auq-table td.auq-type { min-width: 170px; color: var(--auq-muted); }
+.auq-table td.auq-dim { color: var(--auq-muted); }
+.auq-table td.auq-title { min-width: 280px; max-width: 420px; }
+.auq-table td.auq-domain { font-family: var(--auq-mono); font-size: 13px; color: var(--auq-muted); white-space: nowrap; }
+.auq-table td a { color: #fff; text-decoration: underline; text-decoration-color: rgba(16, 202, 226, 0.55); text-underline-offset: 3px; }
+.auq-table td a:hover { color: var(--auq-cyan); text-decoration-color: var(--auq-cyan); }
+.auq-na { color: rgba(255, 255, 255, 0.45); font-family: var(--auq-mono); font-size: 12px; }
+.auq-sort {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+.auq-sort:hover { color: #fff; }
+.auq-sort-ind { display: inline-block; width: 9px; opacity: 0.4; font-family: var(--auq-sans); }
+th[aria-sort="ascending"] .auq-sort, th[aria-sort="descending"] .auq-sort { color: var(--auq-cyan); }
+th[aria-sort="ascending"] .auq-sort-ind, th[aria-sort="descending"] .auq-sort-ind { opacity: 1; }
+
+.auq-dot { display: inline-flex; align-items: center; gap: 7px; font-size: 13.5px; color: var(--auq-muted); white-space: nowrap; }
+.auq-dot::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: rgba(255, 255, 255, 0.22); }
+.auq-dot.auq-yes { color: #fff; }
+.auq-dot.auq-yes::before { background: var(--auq-cyan); }
+
+.auq-empty { padding: 40px 16px; text-align: center; color: var(--auq-muted); }
+
+.auq-tip-wrap { position: relative; display: inline-flex; align-items: flex-end; gap: 6px; }
+.auq-tip-btn {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: none;
+  color: #fff;
+  font-family: var(--auq-sans);
+  font-size: 11px;
+  line-height: 1;
+  padding: 0;
+  cursor: help;
+  flex: none;
+}
+.auq-tip {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 260px;
+  padding: 12px 14px;
+  background: #1A2731;
+  border: 1px solid var(--auq-teal-line);
+  border-radius: 6px;
+  font-family: var(--auq-body);
+  font-size: 13.5px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #fff;
+  z-index: 5;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+.auq-tip-wrap:hover .auq-tip, .auq-tip-btn:focus-visible + .auq-tip, .auq-tip-wrap.auq-tip-open .auq-tip { visibility: visible; opacity: 1; }
+
+.auq-pager { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+.auq-pager-btns { display: flex; align-items: center; gap: 10px; }
+.auq-page-btn {
+  min-height: 40px;
+  padding: 8px 16px;
+  font-family: var(--auq-mono);
+  font-size: 12.5px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.auq-page-btn:hover:not(:disabled) { border-color: var(--auq-cyan-2); color: var(--auq-cyan); }
+.auq-page-btn:disabled { opacity: 0.35; cursor: default; }
+.auq-page-of { font-family: var(--auq-mono); font-size: 12.5px; color: var(--auq-muted); }
+.auq-hidden { display: none !important; }
+.auq-sr { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* ---------- CTA block ---------- */
+.auq-cta-in { padding: 56px 48px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; background: linear-gradient(120deg, #13232C 0%, var(--auq-panel) 60%); }
+.auq-cta-in .auq-h2 { margin-bottom: 12px; }
+
+/* ---------- Method ---------- */
+.auq-method { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
+.auq-method li { position: relative; padding: 18px 0 18px 28px; border-top: 1px solid var(--auq-line); font-weight: 300; font-size: 17px; color: rgba(255, 255, 255, 0.85); }
+.auq-method li::before { content: ""; position: absolute; left: 0; top: 29px; width: 8px; height: 8px; border-radius: 2px; background: var(--auq-cyan); }
+
+/* ---------- Footer ---------- */
+.auq-footer { border-top: 1px solid var(--auq-line); padding: 40px 0 48px; }
+.auq-footer .auq-wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.auq-footer a.auq-logo { display: inline-flex; color: #fff; }
+.auq-footer-meta { font-family: var(--auq-mono); font-size: 12.5px; letter-spacing: 1px; color: var(--auq-faint); display: flex; gap: 20px; }
+.auq-footer-meta a { color: var(--auq-faint); text-decoration: none; }
+.auq-footer-meta a:hover { color: #fff; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .auq-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .auq-cta-in { grid-template-columns: 1fr; padding: 40px 28px; }
+  .auq-method { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .auq-root { font-size: 17px; }
+  .auq-wrap { padding: 0 16px; }
+  .auq-section { padding: 64px 0; }
+  .auq-hero { padding: 56px 0 64px; }
+  .auq-hero-sub { font-size: 18px; }
+  .auq-stats { padding: 26px 22px 28px; }
+  .auq-stats dd { font-size: 36px; }
+  .auq-findings li { grid-template-columns: 1fr; gap: 6px; font-size: 17.5px; }
+  .auq-explore-in { padding: 4px 16px 24px; }
+  .auq-tabs { gap: 16px; flex-wrap: nowrap; }
+  .auq-tab { font-size: 11.5px; letter-spacing: 1px; padding: 16px 0 12px; white-space: nowrap; }
+  .auq-tab-count { display: none; }
+  .auq-filters { grid-template-columns: 1fr; }
+  .auq-field-wide { grid-column: auto; }
+  .auq-toolbar { flex-direction: column; align-items: stretch; }
+  .auq-toggle { justify-content: flex-start; }
+  .auq-reset { margin-left: 0; align-self: flex-start; }
+  .auq-btn { width: 100%; }
+  .auq-tip { right: auto; left: -200px; width: 230px; }
+  /* Key findings collapse to stacked cards */
+  .auq-kf thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .auq-kf, .auq-kf tbody, .auq-kf tr, .auq-kf tbody th, .auq-kf tbody td { display: block; width: 100%; }
+  .auq-kf tr { padding: 18px 0; border-bottom: 1px solid var(--auq-line); display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+  .auq-kf tbody th { grid-column: 1 / -1; padding: 0; border: 0; }
+  .auq-kf tbody td { padding: 0; border: 0; }
+  .auq-kf tbody td::before { content: attr(data-label); display: block; font-family: var(--auq-mono); font-size: 11px; letter-spacing: 1.3px; text-transform: uppercase; color: var(--auq-faint); margin-bottom: 4px; }
+  .auq-kf-val { font-size: 19px; white-space: normal; }
+}
+</style>
+<style>
+/* ---- additions for this study: stat cards, distribution bars, callout ---- */
+.auq-root .auq-domlist{font-family:var(--auq-mono);font-size:12.5px;line-height:1.7;color:var(--auq-muted)}
+.auq-root .auq-domlist b{color:#fff;font-weight:400}
+.auq-root .auq-doms{min-width:200px;max-width:280px}
+.auq-root .auq-typelist{font-size:13px;line-height:1.7;color:var(--auq-muted);min-width:128px}
+.auq-root .auq-stablecell{white-space:nowrap}
+.auq-root .auq-panelviz{display:grid;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));gap:24px;margin-top:40px}
+.auq-root .auq-pv{padding:26px 26px 28px}
+.auq-root .auq-pv h4{font-family:var(--auq-sans);font-weight:400;font-size:17px;margin:0 0 4px;color:#fff}
+.auq-root .auq-pv p{margin:0;font-size:14.5px;font-weight:300;color:var(--auq-muted)}
+.auq-root .auq-pv-num{font-family:var(--auq-sans);font-size:52px;line-height:1;color:var(--auq-cyan-2);margin:0 0 10px}
+.auq-root .auq-pv-num small{font-size:20px;color:var(--auq-faint)}
+.auq-root .auq-dist{list-style:none;margin:18px 0 0;padding:0;font-family:var(--auq-mono);font-size:12.5px}
+.auq-root .auq-dist li{display:grid;grid-template-columns:66px 1fr 48px;align-items:center;gap:10px;padding:3px 0;color:var(--auq-muted)}
+.auq-root .auq-dist li em{font-style:normal}
+.auq-root .auq-dist span{display:block;height:10px;background:var(--auq-cyan-2);border-radius:2px;min-width:2px}
+.auq-root .auq-dist li.auq-peak span{background:var(--auq-cyan)}
+.auq-root .auq-dist li.auq-peak{color:#fff}
+.auq-root .auq-callout{margin:36px 0 0;padding:24px 26px;border-left:3px solid var(--auq-orange);background:rgba(237,112,45,.07)}
+.auq-root .auq-callout p{margin:0;font-size:16.5px;font-weight:300;color:rgba(255,255,255,.88)}
+.auq-root .auq-callout strong{color:#fff;font-weight:500}
+.auq-root .auq-srcnote{font-family:var(--auq-mono);font-size:12px;color:var(--auq-faint);margin:14px 0 0;line-height:1.7}
+.auq-root .auq-srcnote a{color:var(--auq-cyan-2)}
+.auq-root .auq-mini{width:100%;border-collapse:collapse;margin-top:28px;font-size:15px}
+.auq-root .auq-mini th{font-family:var(--auq-mono);font-weight:400;font-size:11.5px;letter-spacing:1.3px;text-transform:uppercase;color:var(--auq-faint);text-align:left;padding:0 16px 12px;border-bottom:1px solid var(--auq-line)}
+.auq-root .auq-mini th:first-child{padding-left:0}
+.auq-root .auq-mini th.auq-num,.auq-root .auq-mini td.auq-num{text-align:right;font-variant-numeric:tabular-nums}
+.auq-root .auq-mini td{padding:14px 16px;border-bottom:1px solid var(--auq-line);color:rgba(255,255,255,.88)}
+.auq-root .auq-mini td:first-child{padding-left:0;color:#fff}
+.auq-root .auq-mini td.auq-num{font-family:var(--auq-mono);font-size:14px}
+@media (max-width:720px){
+  .auq-root .auq-pv-num{font-size:40px}
+  .auq-root .auq-dist li{grid-template-columns:56px 1fr 42px}
+  .auq-root .auq-mini{font-size:14px}
+  .auq-root .auq-mini td,.auq-root .auq-mini th{padding-left:8px;padding-right:8px}
+}
+</style>
+<style>
+.auq-root .auq-why { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:28px; }
+.auq-root .auq-why h4 { font-family:var(--auq-sans); font-weight:500; font-size:20px; margin:0 0 8px; color:#fff; }
+.auq-root .auq-why p { margin:0; font-weight:300; color:rgba(255,255,255,.78); font-size:17px; line-height:1.55; }
+.auq-root .auq-why .auq-notch-in { padding:26px 28px; }
+.auq-root .auq-ex { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:28px; }
+.auq-root .auq-ex .auq-notch-in { padding:28px 28px 30px; }
+.auq-root .auq-ex h3 { font-family:var(--auq-sans); font-weight:500; font-size:21px; line-height:1.3; margin:0 0 6px; color:#fff; }
+.auq-root .auq-ex p.auq-ex-sub { margin:0 0 16px; font-weight:300; font-size:16px; color:rgba(255,255,255,.7); }
+.auq-root .auq-ex ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+.auq-root .auq-ex li { font-family:var(--auq-sans); font-size:17px; line-height:1.4; padding:12px 14px; }
+.auq-root .auq-ex-yes li { background:rgba(16,202,226,.12); color:#7FE9F5; border-left:3px solid #10CAE2; }
+.auq-root .auq-ex-no li { background:rgba(237,112,45,.12); color:#F6B48F; border-left:3px solid #ED702D; }
+.auq-root .auq-test { margin:28px 0 0; padding:26px 30px; background:#10CAE2; color:#090E12; font-family:var(--auq-sans); font-size:24px; line-height:1.35; font-weight:500; }
+.auq-root .auq-test small { display:block; margin-top:8px; font-size:16px; font-weight:400; color:#0E2A33; }
+.auq-root .auq-steps { counter-reset:auq-step; list-style:none; margin:28px 0 0; padding:0; display:grid; gap:14px; }
+.auq-root .auq-steps li { counter-increment:auq-step; position:relative; padding:18px 22px 18px 74px; background:#111A21; border:1px solid rgba(255,255,255,.1); font-weight:300; font-size:17px; line-height:1.55; color:rgba(255,255,255,.82); }
+.auq-root .auq-steps li strong { font-weight:500; color:#fff; }
+.auq-root .auq-steps li::before { content:counter(auq-step,decimal-leading-zero); position:absolute; left:22px; top:17px; font-family:var(--auq-mono); font-size:15px; letter-spacing:1px; color:#10CAE2; }
+.auq-root .auq-rules { margin:22px 0 0; padding:0 0 0 20px; color:rgba(255,255,255,.78); font-weight:300; font-size:17px; line-height:1.6; }
+.auq-root .auq-rules li + li { margin-top:6px; }
+.auq-root .auq-pv p.auq-pv-num { font-family:var(--auq-sans); font-size:52px; line-height:1; color:var(--auq-cyan-2); margin:0 0 10px; }
+.auq-root .auq-pv p.auq-pv-num small { font-size:20px; color:var(--auq-faint); }
+.auq-root .auq-buy { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:24px; }
+.auq-root .auq-buy .auq-notch-in { padding:24px 26px 26px; }
+.auq-root .auq-buy .auq-own { font-family:var(--auq-mono); font-size:12.5px; letter-spacing:1.4px; text-transform:uppercase; color:var(--auq-cyan-2); margin:0 0 4px; }
+.auq-root .auq-buy .auq-own-n { font-family:var(--auq-mono); font-size:12.5px; color:var(--auq-faint); margin:0 0 14px; }
+.auq-root .auq-buy h4 { font-family:var(--auq-sans); font-weight:500; font-size:21px; line-height:1.3; color:#fff; margin:0 0 6px; }
+.auq-root .auq-buy p.auq-buy-promise { margin:0; font-weight:300; font-size:17px; line-height:1.5; color:rgba(255,255,255,.8); }
+.auq-root .auq-section .auq-table-scroll { margin-top:28px; }
+.auq-root .auq-ph { opacity:.6; font-style:italic; }
+.auq-root .auq-catbar { display:inline-block; vertical-align:middle; height:8px; background:#10CAE2; margin-right:10px; }
+@media (max-width:760px) {
+  .auq-root .auq-why, .auq-root .auq-ex, .auq-root .auq-buy { grid-template-columns:1fr; }
+  .auq-root .auq-test { font-size:20px; }
+  .auq-root .auq-steps li { padding-left:60px; }
+  .auq-root .auq-catbar { display:none; }
+}
+</style>
+</head>
+<body style="margin:0;background:#090E12"><!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCFX8NJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+<!-- ===== AUQ STUDY: EMBED START (everything inside .auq-root is self-contained) ===== -->
+<div class="auq-root" id="auq-study">
+
+  <header class="auq-hero">
+    <div class="auq-wrap auq-hero-grid">
+      <div>
+        <p class="auq-eyebrow">AUQ Study &middot; 100 dev-tool homepages</p>
+        <h1>Do dev-tool homepages <span>speak to the people who buy them?</span></h1>
+        <p class="auq-hero-sub">Engineering leaders are usually key decision makers when a company buys a dev tool. So we read 50 engineering-leader job posts to learn what they are hired to own, then read 100 dev-tool homepages to see whether the headline promises to help with any of it.</p>
+        <p class="auq-hero-meta">October 2026 &middot; 50 US job posts &middot; 100 dev-tool homepages</p>
+        <a class="auq-btn" href="#auq-cta-h" data-auq-cta="hero">Get a free content audit<span class="auq-btn-arrow" aria-hidden="true">&rarr;</span></a>
+      </div>
+      <aside class="auq-notch" aria-label="Study at a glance">
+        <div class="auq-notch-in auq-stats">
+          <p class="auq-stats-head">
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="#00FFF8" stroke-width="1.8"/><path d="M3 10h18M9 10v10" stroke="#00FFF8" stroke-width="1.8"/></svg>
+            The dataset
+          </p>
+          <dl>
+            <div><dt>Engineering-leader job posts</dt><dd>50</dd></div>
+            <div><dt>Dev-tool homepages</dt><dd>100</dd></div>
+            <div><dt>Dev-tool categories</dt><dd>8</dd></div>
+            <div><dt>Promises checked</dt><dd>4</dd></div>
+          </dl>
+          <p class="auq-stats-foot"><span class="auq-tag auq-tag-g">Dev-tool marketing</span><span class="auq-tag auq-tag-c">October 2026</span></p>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section class="auq-section" aria-labelledby="auq-found-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">Key findings</p>
+        <h2 class="auq-h2" id="auq-found-h">What we found</h2>
+        <ul class="auq-findings">
+          <li><span><strong>Homepages know what matters.</strong> <span class="auq-hl">94 of 100</span> make at least one of the four promises engineering leaders are hired to own somewhere on the page.</span></li>
+          <li><span><strong>Most don&rsquo;t lead with it.</strong> Only <span class="auq-hl">35 of 100</span> put one of the four promises in the headline. The other <span class="auq-hl">59</span> have the line further down and lead with something else.</span></li>
+          <li><span>Only <span class="auq-hl">6 of 100</span> headlines give the buyer a concrete promise: a number, a time frame, or another metric the buyer could hold the company to.</span></li>
+          <li><span>All four promises get buried the same way. Architecture and stack fit is on <span class="auq-hl">82</span> homepages and in <span class="auq-hl">9</span> headlines.</span></li>
+          <li><span>It depends on the category. When the product solves the buyer&rsquo;s problem directly, the headline says so: <span class="auq-hl">9 of 12</span> observability homepages and <span class="auq-hl">9 of 12</span> testing homepages lead with one of the four promises. Auth (<span class="auq-hl">0 of 12</span>) and application security (<span class="auq-hl">0 of 13</span>) never do; they lead with security, which we didn&rsquo;t score as one of the four.</span></li>
+        </ul>
+
+        <h3 class="auq-kf-title">The four promises: on the page vs in the headline</h3>
+        <table class="auq-kf">
+          <caption class="auq-sr">How often each of the four promises appears in engineering-leader job posts, on dev-tool homepages, and in homepage headlines. October 2026.</caption>
+          <thead><tr><th scope="col">Promise</th><th scope="col">Job posts that list it</th><th scope="col">On the homepage</th><th scope="col">In the headline</th></tr></thead>
+          <tbody>
+          <tr>
+            <th scope="row"><span class="auq-kf-name">Architecture and stack fit</span>
+              <span class="auq-kf-measured">The tool fits the architecture they own and the stack they already run.</span></th>
+            <td data-label="Job posts that list it"><span class="auq-kf-val auq-kf-g">86<small>%</small></span></td>
+            <td data-label="On the homepage"><span class="auq-kf-val auq-kf-c">82<small>%</small></span></td>
+            <td data-label="In the headline"><span class="auq-kf-val auq-kf-c">9<small>%</small></span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="auq-kf-name">Reliability</span>
+              <span class="auq-kf-measured">The tool helps keep production up: fewer incidents, faster recovery.</span></th>
+            <td data-label="Job posts that list it"><span class="auq-kf-val auq-kf-g">78<small>%</small></span></td>
+            <td data-label="On the homepage"><span class="auq-kf-val auq-kf-c">50<small>%</small></span></td>
+            <td data-label="In the headline"><span class="auq-kf-val auq-kf-c">11<small>%</small></span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="auq-kf-name">Quality</span>
+              <span class="auq-kf-measured">The tool helps hold the quality bar: fewer bugs reach production.</span></th>
+            <td data-label="Job posts that list it"><span class="auq-kf-val auq-kf-g">78<small>%</small></span></td>
+            <td data-label="On the homepage"><span class="auq-kf-val auq-kf-c">43<small>%</small></span></td>
+            <td data-label="In the headline"><span class="auq-kf-val auq-kf-c">9<small>%</small></span></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="auq-kf-name">Delivery speed</span>
+              <span class="auq-kf-measured">The tool helps the team ship faster, through a named step like builds or deploys.</span></th>
+            <td data-label="Job posts that list it"><span class="auq-kf-val auq-kf-g">66<small>%</small></span></td>
+            <td data-label="On the homepage"><span class="auq-kf-val auq-kf-c">33<small>%</small></span></td>
+            <td data-label="In the headline"><span class="auq-kf-val auq-kf-c">6<small>%</small></span></td>
+          </tr>
+          </tbody>
+        </table>
+        <p class="auq-srcnote">Percentages of 50 job posts and of 100 homepages. Job posts: 50 US engineering-leader roles at B2B tech companies. Homepages: 100 dev-tool companies, seed to Series C. A homepage can make several promises but leads with one.</p>
+      </div>
+    </section>
+
+    <section class="auq-section" aria-labelledby="auq-why-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">Why we ran it</p>
+        <h2 class="auq-h2" id="auq-why-h">The headline is the first impression</h2>
+        <p class="auq-lede">When a company buys a dev tool, an engineering leader is usually in the decision. Your homepage headline is often the first thing they read. If it doesn&rsquo;t speak to what they are accountable for, you&rsquo;ve lost the first impression, even when the proof sits a few scrolls down.</p>
+
+        <h3 class="auq-kf-title">Why engineering leaders buy dev tools</h3>
+        <p class="auq-lede">An engineering leader buys a dev tool to help them deliver on something they are accountable for. Their job posts spell out what that is. Four of the responsibilities that came up most are ones a tool can directly help with. When a homepage says it will help with one of them, that is what we call a promise.</p>
+        <div class="auq-buy">
+          <div class="auq-notch"><div class="auq-notch-in">
+            <p class="auq-own">They&rsquo;re accountable for</p>
+            <h4>Technical strategy and architecture</h4>
+            <p class="auq-own-n">In 86% of job posts (43 of 50)</p>
+            <p class="auq-own">So a tool can promise</p>
+            <p class="auq-buy-promise">It fits the architecture you own and the stack you already run. <span style="color:var(--auq-faint)">(architecture and stack fit)</span></p>
+          </div></div>
+          <div class="auq-notch"><div class="auq-notch-in">
+            <p class="auq-own">They&rsquo;re accountable for</p>
+            <h4>Reliability and production operations</h4>
+            <p class="auq-own-n">In 78% of job posts (39 of 50)</p>
+            <p class="auq-own">So a tool can promise</p>
+            <p class="auq-buy-promise">Production stays up: fewer incidents, faster recovery. <span style="color:var(--auq-faint)">(reliability)</span></p>
+          </div></div>
+          <div class="auq-notch"><div class="auq-notch-in">
+            <p class="auq-own">They&rsquo;re accountable for</p>
+            <h4>Engineering quality and practices</h4>
+            <p class="auq-own-n">In 78% of job posts (39 of 50)</p>
+            <p class="auq-own">So a tool can promise</p>
+            <p class="auq-buy-promise">Fewer bugs reach production. <span style="color:var(--auq-faint)">(quality)</span></p>
+          </div></div>
+          <div class="auq-notch"><div class="auq-notch-in">
+            <p class="auq-own">They&rsquo;re accountable for</p>
+            <h4>Shipping predictably</h4>
+            <p class="auq-own-n">In 66% of job posts (33 of 50)</p>
+            <p class="auq-own">So a tool can promise</p>
+            <p class="auq-buy-promise">Your team ships faster and hits its dates. <span style="color:var(--auq-faint)">(delivery speed)</span></p>
+          </div></div>
+        </div>
+        <div class="auq-why">
+          <div class="auq-notch"><div class="auq-notch-in">
+            <h4>We started with the buyer, not the homepages</h4>
+            <p>Instead of guessing what engineering leaders care about, we read what their own job posts hold them accountable for, and built the four promises from that.</p>
+          </div></div>
+          <div class="auq-notch"><div class="auq-notch-in">
+            <h4>Then we checked the homepages against that list</h4>
+            <p>For each of the 100 homepages we asked two questions. Does the page make any of the four promises? And does the headline lead with one?</p>
+          </div></div>
+        </div>
+        <div class="auq-panelviz">
+          <div class="auq-notch"><div class="auq-notch-in auq-pv">
+            <p class="auq-pv-num">94<small>/100</small></p>
+            <h4>Make one of the four promises</h4>
+            <p>Somewhere on the homepage, in the company&rsquo;s own words.</p>
+          </div></div>
+          <div class="auq-notch"><div class="auq-notch-in auq-pv">
+            <p class="auq-pv-num">35<small>/100</small></p>
+            <h4>Lead with one in the headline</h4>
+            <p>The headline and the line directly under it.</p>
+          </div></div>
+          <div class="auq-notch"><div class="auq-notch-in auq-pv">
+            <p class="auq-pv-num">6<small>/100</small></p>
+            <h4>Headlines with a concrete promise</h4>
+            <p>A number or a time frame on what the buyer gets.</p>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="auq-section" aria-labelledby="auq-ex-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">What concrete looks like</p>
+        <h2 class="auq-h2" id="auq-ex-h">Could a buyer hold you to it?</h2>
+        <p class="auq-lede">Most headlines led with a general claim, a security promise or a plain product description. A few gave the buyer something to verify. We turned real headlines into patterns, so no company can be identified; the bracketed parts are what each company filled in.</p>
+        <div class="auq-ex">
+          <div class="auq-notch"><div class="auq-notch-in auq-ex-yes">
+            <h3>Concrete: a buyer could hold you to these</h3>
+            <p class="auq-ex-sub">6 of 100 headlines did this.</p>
+            <ul>
+              <li>&ldquo;<span class="auq-ph">[N]</span>x cheaper than <span class="auq-ph">[a named competitor]</span>&rdquo;</li>
+              <li>&ldquo;<span class="auq-ph">[A feature]</span> in minutes instead of months&rdquo;</li>
+              <li>&ldquo;<span class="auq-ph">[A feature]</span> in days, not quarters&rdquo;</li>
+              <li>&ldquo;Recover from <span class="auq-ph">[an outage]</span> in minutes, not weeks&rdquo;</li>
+            </ul>
+          </div></div>
+          <div class="auq-notch"><div class="auq-notch-in auq-ex-no">
+            <h3>Generic: a buyer can&rsquo;t verify these</h3>
+            <p class="auq-ex-sub">The kind of line most headlines led with.</p>
+            <ul>
+              <li>&ldquo;The <span class="auq-ph">[category]</span> platform built for the speed of AI&rdquo;</li>
+              <li>&ldquo;The <span class="auq-ph">[noun]</span> layer for agents and apps&rdquo;</li>
+              <li>&ldquo;Ship software <span class="auq-ph">[a feeling]</span>&rdquo;</li>
+            </ul>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="auq-section" aria-labelledby="auq-cat-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">By category</p>
+        <h2 class="auq-h2" id="auq-cat-h">Some categories lead with the buyer&rsquo;s problem</h2>
+        <p class="auq-lede">Observability and testing tools sell the outcome engineering leaders own, and their headlines say so. Most auth and application-security homepages make a promise on the page, but none leads with one of the four. They lead with security, which we didn&rsquo;t score as one of the four, or with a product description.</p>
+        <div class="auq-table-scroll" tabindex="0" role="region" aria-label="Results by category, scrolls horizontally">
+          <table class="auq-mini">
+            <thead><tr><th scope="col">Category</th><th scope="col" class="auq-num">Homepages</th><th scope="col" class="auq-num">Lead with a promise</th><th scope="col" class="auq-num">Make one on the page</th></tr></thead>
+            <tbody>
+            <tr><th scope="row">Observability and incident response</th><td class="auq-num">12</td><td class="auq-num"><span class="auq-catbar" style="width:68px" aria-hidden="true"></span>9 of 12</td><td class="auq-num">12 of 12</td></tr>
+            <tr><th scope="row">Testing and QA</th><td class="auq-num">12</td><td class="auq-num"><span class="auq-catbar" style="width:68px" aria-hidden="true"></span>9 of 12</td><td class="auq-num">12 of 12</td></tr>
+            <tr><th scope="row">CI/CD and deployment</th><td class="auq-num">13</td><td class="auq-num"><span class="auq-catbar" style="width:42px" aria-hidden="true"></span>6 of 13</td><td class="auq-num">13 of 13</td></tr>
+            <tr><th scope="row">APIs and integration</th><td class="auq-num">12</td><td class="auq-num"><span class="auq-catbar" style="width:38px" aria-hidden="true"></span>5 of 12</td><td class="auq-num">12 of 12</td></tr>
+            <tr><th scope="row">Internal developer platforms and infrastructure</th><td class="auq-num">13</td><td class="auq-num"><span class="auq-catbar" style="width:28px" aria-hidden="true"></span>4 of 13</td><td class="auq-num">13 of 13</td></tr>
+            <tr><th scope="row">Databases and data infrastructure</th><td class="auq-num">13</td><td class="auq-num"><span class="auq-catbar" style="width:14px" aria-hidden="true"></span>2 of 13</td><td class="auq-num">12 of 13</td></tr>
+            <tr><th scope="row">Application and supply-chain security</th><td class="auq-num">13</td><td class="auq-num"><span class="auq-catbar" style="width:0px" aria-hidden="true"></span>0 of 13</td><td class="auq-num">11 of 13</td></tr>
+            <tr><th scope="row">Auth, identity and secrets</th><td class="auq-num">12</td><td class="auq-num"><span class="auq-catbar" style="width:0px" aria-hidden="true"></span>0 of 12</td><td class="auq-num">9 of 12</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="auq-srcnote">8 dev-tool categories, 12 or 13 homepages each. Results are reported by category only.</p>
+      </div>
+    </section>
+
+    <section class="auq-section" aria-labelledby="auq-rubric-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">The rubric</p>
+        <h2 class="auq-h2" id="auq-rubric-h">Run it on your own homepage</h2>
+        <p class="auq-lede">&ldquo;Does our homepage speak to the buyer?&rdquo; usually gets answered by gut feel. This is the rubric we used, so you can apply it the same way every time.</p>
+        <ol class="auq-steps">
+          <li><strong>Start with what your buyer is accountable for.</strong> For engineering leaders, four things a tool can help with: architecture and stack fit, reliability, quality and delivery speed. Each is a promise your homepage can make.</li>
+          <li><strong>Read only your headline and the line under it.</strong> Which of the four promises does it lead with, if any?</li>
+          <li><strong>Test that line.</strong> &ldquo;Deploys go from 30 minutes to 3&rdquo; passes. &ldquo;Ship 10x faster&rdquo; doesn&rsquo;t: faster than what? A multiplier needs a baseline the buyer can check, like a named competitor or a before-and-after.</li>
+          <li><strong>Read the whole page and mark every promise it makes.</strong> Customer quotes and case-study stats don&rsquo;t count; only your own claims do.</li>
+          <li><strong>If a stronger promise sits further down the page, that&rsquo;s the line to test in your headline.</strong></li>
+        </ol>
+        <p class="auq-test">Could a buyer hold you to the promise? If not, it isn&rsquo;t specific enough.<small>Generic AI lines (&ldquo;[X] at the speed of AI&rdquo;) don&rsquo;t pass on their own. Use them as context, not as the promise.</small></p>
+        <h3 class="auq-kf-title">Two scoring rules that settled the edge cases</h3>
+        <ul class="auq-rules">
+          <li>&ldquo;Set up in 5 minutes&rdquo; is about installing the product, so it isn&rsquo;t delivery speed.</li>
+          <li>Only the company&rsquo;s own claims count: a vendor-stated number passes, a case-study or testimonial number doesn&rsquo;t.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="auq-section" aria-labelledby="auq-cta-h">
+      <div class="auq-wrap">
+        <div class="auq-notch">
+          <div class="auq-notch-in auq-cta-in">
+            <div>
+              <p class="auq-eyebrow">Free content audit</p>
+              <h2 class="auq-h2" id="auq-cta-h">Want a second read on your homepage headline?</h2>
+              <p class="auq-lede">We&rsquo;ll run this rubric on your homepage, show you which of the four promises you already make, and point to the line we&rsquo;d test in your headline.</p>
+            </div>
+            <a class="auq-btn" href="https://auq.io/contact-us/" data-auq-cta="after_data">Get a free content audit<span class="auq-btn-arrow" aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="auq-section" aria-labelledby="auq-method-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">How we ran it</p>
+        <h2 class="auq-h2" id="auq-method-h">Method and limitations</h2>
+        <ul class="auq-method">
+          <li><strong>Job posts.</strong> 50 public LinkedIn job posts for engineering-leadership roles at B2B tech companies, US, posted 17 September to 16 October 2026: VP Engineering (16), Head or Director of Engineering (12), Head of Platform or Infrastructure (11) and Engineering Manager (11). We grouped every responsibility in them into themes, with no preset list.</li>
+          <li><strong>The four promises.</strong> Of the themes that came up most, four are promises a dev tool can make: technical strategy and architecture (43 of 50 posts), reliability (39), engineering quality (39) and shipping predictably (33). Hiring and growing the team (48) and partnering with the business (46) came up more often, but no tool can promise those, so they are not scored. Security and compliance (33 of 50 posts) is a promise a tool can make too, but it wasn&rsquo;t one of the categories we scored; 20 of the 100 headlines led with a security promise.</li>
+          <li><strong>Homepages.</strong> 100 dev-tool companies, seed to Series C, 12 or 13 in each of 8 categories. The list was drafted by our team and cross-checked against YC and G2.</li>
+          <li><strong>Definitions.</strong> &ldquo;In the headline&rdquo; means the headline and the line directly under it. &ldquo;On the homepage&rdquo; means anywhere on the homepage. Only claims in the company&rsquo;s own voice count; customer quotes, testimonials and case-study stats don&rsquo;t.</li>
+          <li><strong>Concrete promise.</strong> A headline counts as concrete when it puts a number or a time frame on what the buyer gets. Aspiration (&ldquo;the next [N] years&rdquo;), social proof (&ldquo;[N]+ teams&rdquo;), scope (&ldquo;24/7&rdquo;) and setup time (&ldquo;live in minutes&rdquo;) don&rsquo;t count.</li>
+          <li><strong>Scoring.</strong> Every homepage was scored with Claude against the same written rules, so every page was judged the same way.</li>
+          <li><strong>Limitations.</strong> One snapshot of each homepage on one day, US job posts only, a company list we drafted ourselves, and some judgment even with written rules. Results are reported by category, not by company.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="auq-footer">
+    <div class="auq-wrap">
+      <a class="auq-logo" href="https://auq.io/" aria-label="AUQ.IO home">
+        <svg width="119" height="31" viewBox="0 0 119 31" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="none" fill-rule="evenodd"><rect fill="#00FFF8" x="14" y="18" width="7" height="7" rx="2"></rect><path d="M21 13.631a1 1 0 1 1-2 0V12a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v8a3 3 0 0 0 2.824 2.995L6 23a1 1 0 0 1 0 2 5 5 0 0 1-5-5v-8a5 5 0 0 1 5-5h10a5 5 0 0 1 5 5v1.631zM6 25a1 1 0 0 1 0-2h4.492a1 1 0 0 1 0 2H6z" fill="#FFF" fill-rule="nonzero"></path><path d="M45.028 25c.19 0 .364-.035.52-.104.468-.19.702-.494.702-.91 0-.19-.035-.364-.104-.52L39.854 8.23c-.19-.537-.572-.823-1.144-.858h-.052c-.555 0-.962.286-1.222.858l-6.188 15.236c-.07.156-.104.33-.104.52 0 .433.243.737.728.91.156.07.32.104.494.104.416 0 .72-.234.91-.702l1.352-3.406h8.086l1.404 3.406c.19.468.494.702.91.702zm-3.198-6.292h-6.344l3.094-7.878 3.25 7.878zM58.704 25c1.993 0 3.462-.472 4.407-1.417.945-.945 1.417-2.414 1.417-4.407V8.464c0-.728-.364-1.092-1.092-1.092-.728 0-1.092.364-1.092 1.092v10.712c0 .953-.113 1.686-.338 2.197-.225.511-.594.88-1.105 1.105-.511.225-1.244.338-2.197.338h-3.12c-.953 0-1.686-.113-2.197-.338a2.088 2.088 0 0 1-1.105-1.105c-.225-.511-.338-1.244-.338-2.197V8.464c0-.728-.364-1.092-1.092-1.092-.728 0-1.092.364-1.092 1.092v10.712c0 1.993.472 3.462 1.417 4.407.945.945 2.414 1.417 4.407 1.417h3.12zm24.284 2.132c.19 0 .399-.095.624-.286.225-.208.338-.433.338-.676a.822.822 0 0 0-.26-.598l-1.612-1.690c1.161-.953 1.742-2.522 1.742-4.706v-5.98c0-1.993-.472-3.462-1.417-4.407-.945-.945-2.414-1.417-4.407-1.417h-3.12c-1.976-.017-3.44.446-4.394 1.391-.953.945-1.43 2.414-1.43 4.407v6.006c0 1.993.472 3.462 1.417 4.407.945.945 2.414 1.417 4.407 1.417h3.12c.936 0 1.716-.095 2.34-.286l1.976 2.106c.243.208.468.312.676.312zm-4.472-4.316h-3.64c-.953 0-1.686-.113-2.197-.338a2.088 2.088 0 0 1-1.105-1.105c-.225-.511-.338-1.244-.338-2.197V13.17c0-.936.113-1.664.338-2.184.225-.52.598-.893 1.118-1.118.52-.225 1.248-.33 2.184-.312h3.12c.936 0 1.664.113 2.184.338.52.225.893.598 1.118 1.118.225.52.338 1.248.338 2.184v5.98c0 .815-.082 1.469-.247 1.963-.165.494-.438.871-.819 1.131l-1.378-1.430c-.26-.225-.485-.338-.676-.338-.225 0-.442.104-.65.312-.208.208-.312.425-.312.65 0 .225.095.433.286.624l.676.728zM89.878 25c.33 0 .576-.091.741-.273.165-.182.247-.438.247-.767v-.65c0-.676-.33-1.014-.988-1.014h-.624c-.33 0-.585.087-.767.26-.182.173-.273.425-.273.754v.65c0 .33.091.585.273.767.182.182.438.273.767.273h.624zm6.968 0c.381 0 .659-.087.832-.26.173-.173.26-.45.26-.832V8.49c0-.381-.087-.659-.26-.832-.173-.173-.45-.26-.832-.26-.381 0-.659.087-.832.26-.173.173-.26.45-.26.832v15.418c0 .381.087.659.26.832.173.173.45.26.832.26zm14.82 0c1.993 0 3.462-.472 4.407-1.417.945-.945 1.417-2.414 1.417-4.407v-5.98c0-1.993-.472-3.462-1.417-4.407-.945-.945-2.414-1.417-4.407-1.417h-3.12c-1.976-.017-3.44.446-4.394 1.391-.953.945-1.43 2.414-1.43 4.407v6.006c0 1.993.472 3.462 1.417 4.407.945.945 2.414 1.417 4.407 1.417h3.12zm0-2.184h-3.12c-.953 0-1.686-.113-2.197-.338a2.088 2.088 0 0 1-1.105-1.105c-.225-.511-.338-1.244-.338-2.197V13.17c0-.936.113-1.664.338-2.184.225-.52.598-.893 1.118-1.118.52-.225 1.248-.33 2.184-.312h3.12c.936 0 1.664.113 2.184.338.52.225.893.598 1.118 1.118.225.52.338 1.248.338 2.184v5.98c0 .953-.113 1.686-.338 2.197-.225.511-.594.88-1.105 1.105-.511.225-1.244.338-2.197.338z" fill="#FFF" fill-rule="nonzero"></path></g></svg>
+      </a>
+      <div class="auq-footer-meta"><a href="https://auq.io/">auq.io</a><a href="https://auq.io/research/">Research</a><span>&copy; AUQ</span></div>
+    </div>
+  </footer>
+
+</div>
+<!-- ===== AUQ STUDY: EMBED END ===== -->
+</body>
+</html>
