@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where Do AI Answers Send People for Software Searches? | AUQ Study</title>
+<meta name="description" content="We ran 147 software searches 3 times each through Google AI Overviews, ChatGPT, Gemini and Perplexity and labeled all 13,958 cited pages. On alternatives searches, 70% of citations went to other software companies.">
+<link rel="canonical" href="https://auq.io/research/ai-answers-software-searches-nov-26">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AUQ">
+<meta property="og:title" content="Where Do AI Answers Send People for Software Searches? | AUQ Study">
+<meta property="og:description" content="We ran 147 software searches 3 times each through Google AI Overviews, ChatGPT, Gemini and Perplexity and labeled all 13,958 cited pages. On alternatives searches, 70% of citations went to other software companies.">
+<meta property="og:url" content="https://auq.io/research/ai-answers-software-searches-nov-26">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Where Do AI Answers Send People for Software Searches? | AUQ Study">
+<meta name="twitter:description" content="We ran 147 software searches 3 times each through Google AI Overviews, ChatGPT, Gemini and Perplexity and labeled all 13,958 cited pages. On alternatives searches, 70% of citations went to other software companies.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "Where do AI answers send people for software searches? (AUQ Study 2)", "description": "Citations from 1,764 AI answers (Google AI Overviews, ChatGPT, Gemini, Perplexity), plus 147 Claude answers, to 147 US software searches across 5 categories and 3 search types, each cited page labeled by site type. Collected Oct 31 to Nov 1, 2026.", "url": "https://auq.io/research/ai-answers-software-searches-nov-26", "creator": {"@type": "Organization", "name": "AUQ", "url": "https://auq.io/"}, "temporalCoverage": "2026-10-31/2026-11-01", "spatialCoverage": "United States", "inLanguage": "en", "keywords": ["AI search", "generative engine optimization", "AI Overviews", "ChatGPT", "Gemini", "Perplexity", "citations", "B2B SaaS"], "variableMeasured": ["Share of citations by site type", "Share of answers citing a site type", "Citation stability across runs"]}</script>
+
+<!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NCFX8NJ');</script><!-- End Google Tag Manager -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* Every rule is scoped under .auq-root so the page can be embedded in a CMS without collisions. */
+.auq-root {
+  --auq-bg: #090E12;
+  --auq-panel: #111A21;
+  --auq-panel-2: #131E26;
+  --auq-cyan: #00FFF8;
+  --auq-cyan-2: #10CAE2;
+  --auq-orange: #ED702D;
+  --auq-text: #FFFFFF;
+  --auq-muted: rgba(255, 255, 255, 0.7);
+  --auq-faint: rgba(255, 255, 255, 0.62);
+  --auq-line: rgba(255, 255, 255, 0.12);
+  --auq-teal-line: rgba(16, 202, 226, 0.35);
+  --auq-sans: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --auq-body: "Fira Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --auq-mono: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --auq-notch: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px));
+
+  background-color: var(--auq-bg);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1.2px);
+  background-size: 22px 22px;
+  color: var(--auq-text);
+  font-family: var(--auq-body);
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+.auq-root *, .auq-root *::before, .auq-root *::after { box-sizing: border-box; }
+.auq-root a { color: var(--auq-cyan-2); }
+.auq-root :focus-visible { outline: 2px solid var(--auq-cyan); outline-offset: 3px; }
+
+.auq-wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+.auq-section { padding: 88px 0; }
+.auq-section + .auq-section { border-top: 1px solid var(--auq-line); }
+
+.auq-eyebrow {
+  font-family: var(--auq-sans);
+  font-size: 15px;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: var(--auq-cyan);
+  margin: 0 0 16px;
+}
+.auq-h2 {
+  font-family: var(--auq-sans);
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 44px);
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin: 0 0 20px;
+}
+.auq-lede { color: var(--auq-muted); font-weight: 300; max-width: 720px; margin: 0; }
+
+/* Notched panel (matches the case-study cards on auq.io). Outer layer draws the 1px teal border. */
+.auq-notch { background: var(--auq-teal-line); clip-path: var(--auq-notch); padding: 1px; }
+.auq-notch-in { background: var(--auq-panel); clip-path: var(--auq-notch); height: 100%; }
+
+/* Buttons: orange trapezoid, as on the auq.io hero. Shape is drawn on ::before so focus outlines aren't clipped. */
+.auq-btn {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 14px 34px;
+  font-family: var(--auq-mono);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2.1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #0B0F12 !important;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.auq-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--auq-orange);
+  clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 100%, 0 100%);
+  transition: background-color 0.15s ease;
+}
+.auq-btn:hover::before { background: #F5874A; }
+.auq-btn-arrow { margin-left: 10px; font-family: var(--auq-sans); font-weight: 500; }
+
+/* Tags */
+.auq-tag {
+  display: inline-block;
+  font-family: var(--auq-mono);
+  font-size: 12.5px;
+  line-height: 1.4;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.auq-tag-g { background: rgba(16, 202, 226, 0.14); color: var(--auq-cyan-2); }
+.auq-tag-c { background: rgba(237, 112, 45, 0.16); color: var(--auq-orange); }
+
+/* ---------- Hero ---------- */
+.auq-hero { padding: 96px 0 88px; }
+.auq-hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr); gap: 56px; align-items: center; }
+.auq-hero h1 {
+  font-family: var(--auq-sans);
+  font-weight: 400;
+  font-size: clamp(40px, 6vw, 68px);
+  line-height: 1.06;
+  letter-spacing: -1px;
+  margin: 0 0 24px;
+}
+.auq-hero h1 span { color: var(--auq-cyan); }
+.auq-hero-sub { font-weight: 300; font-size: 20px; color: rgba(255, 255, 255, 0.82); margin: 0 0 18px; max-width: 640px; }
+.auq-hero-meta { font-family: var(--auq-mono); font-size: 13px; letter-spacing: 1px; color: var(--auq-faint); margin: 0 0 36px; }
+.auq-stats { padding: 32px 32px 36px; }
+.auq-stats-head { display: flex; align-items: center; gap: 12px; font-family: var(--auq-sans); font-size: 17px; color: rgba(255, 255, 255, 0.85); margin: 0 0 22px; }
+.auq-stats-head svg { flex: none; }
+.auq-stats dl { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 26px 20px; }
+.auq-stats dt { font-family: var(--auq-sans); font-size: 13px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--auq-cyan-2); line-height: 1.4; margin-top: 6px; }
+.auq-stats dd { margin: 0; font-family: var(--auq-sans); font-size: 44px; line-height: 1; color: var(--auq-cyan-2); }
+.auq-stats div { display: flex; flex-direction: column; justify-content: flex-start; }
+.auq-stats dd { order: -1; }
+.auq-stats-foot { margin: 24px 0 0; padding-top: 18px; border-top: 1px solid var(--auq-line); display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* ---------- Findings ---------- */
+.auq-findings { list-style: none; margin: 40px 0 0; padding: 0; display: grid; gap: 0; counter-reset: auq-f; }
+.auq-findings li {
+  counter-increment: auq-f;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 16px;
+  padding: 22px 0;
+  border-top: 1px solid var(--auq-line);
+  font-size: 19px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+}
+.auq-findings li:last-child { border-bottom: 1px solid var(--auq-line); }
+.auq-findings li::before { content: counter(auq-f, decimal-leading-zero); font-family: var(--auq-mono); font-size: 14px; color: var(--auq-cyan-2); padding-top: 4px; }
+.auq-findings strong { font-weight: 500; color: #fff; }
+.auq-findings .auq-hl { color: var(--auq-cyan); font-weight: 400; }
+
+.auq-kf-title { font-family: var(--auq-sans); font-weight: 400; font-size: 24px; margin: 64px 0 18px; }
+.auq-kf { width: 100%; border-collapse: collapse; }
+.auq-kf thead th {
+  font-family: var(--auq-mono);
+  font-weight: 400;
+  font-size: 12.5px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--auq-faint);
+  text-align: left;
+  padding: 0 20px 14px;
+  border-bottom: 1px solid var(--auq-line);
+}
+.auq-kf thead th:first-child { padding-left: 0; }
+.auq-kf tbody th, .auq-kf tbody td { padding: 20px; border-bottom: 1px solid var(--auq-line); vertical-align: top; text-align: left; }
+.auq-kf tbody th { padding-left: 0; font-weight: 400; width: 46%; }
+.auq-kf-name { display: block; font-family: var(--auq-sans); font-size: 19px; color: #fff; }
+.auq-kf-measured { display: block; font-size: 15px; font-weight: 300; color: var(--auq-muted); margin-top: 4px; }
+.auq-kf-note { display: block; font-family: var(--auq-mono); font-size: 12px; color: var(--auq-faint); margin-top: 8px; line-height: 1.5; }
+.auq-kf-val { font-family: var(--auq-sans); font-size: 22px; line-height: 1.3; white-space: nowrap; }
+.auq-kf-g { color: var(--auq-cyan); }
+.auq-kf-c { color: #fff; }
+
+/* ---------- Explore ---------- */
+.auq-explore-panel { margin-top: 40px; }
+.auq-explore-in { padding: 8px 28px 32px; }
+.auq-tabs { display: flex; gap: 28px; border-bottom: 1px solid var(--auq-line); margin-bottom: 26px; flex-wrap: wrap; }
+.auq-tab {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  padding: 20px 0 14px;
+  font-family: var(--auq-mono);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--auq-faint);
+  cursor: pointer;
+}
+.auq-tab:hover { color: #fff; }
+.auq-tab[aria-selected="true"] { color: var(--auq-cyan); border-bottom-color: var(--auq-cyan); }
+.auq-tab-count { font-weight: 400; color: inherit; opacity: 0.75; margin-left: 6px; }
+
+.auq-filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px 16px; align-items: end; }
+.auq-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.auq-field-wide { grid-column: span 2; }
+.auq-label { font-family: var(--auq-mono); font-size: 11.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--auq-faint); }
+.auq-select, .auq-input {
+  width: 100%;
+  min-height: 44px;
+  font-family: var(--auq-sans);
+  font-size: 15px;
+  color: #fff;
+  background-color: var(--auq-panel-2);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  padding: 9px 12px;
+}
+.auq-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 34px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23ffffff' stroke-opacity='.8' stroke-width='1.6' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  cursor: pointer;
+}
+.auq-select option { background: var(--auq-panel-2); color: #fff; }
+.auq-select.auq-active, .auq-input.auq-active { border-color: var(--auq-cyan-2); background-color: rgba(0, 255, 248, 0.06); }
+.auq-input::placeholder { color: rgba(255, 255, 255, 0.5); }
+.auq-select:hover, .auq-input:hover { border-color: rgba(255, 255, 255, 0.32); }
+
+.auq-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin: 18px 0 16px; }
+.auq-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  padding: 8px 14px;
+  font-family: var(--auq-sans);
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.85);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.auq-toggle:hover { border-color: rgba(255, 255, 255, 0.32); }
+.auq-toggle-sw { width: 30px; height: 18px; border-radius: 9px; background: rgba(255, 255, 255, 0.18); position: relative; flex: none; transition: background-color 0.15s ease; }
+.auq-toggle-sw::after { content: ""; position: absolute; top: 3px; left: 3px; width: 12px; height: 12px; border-radius: 50%; background: #fff; transition: transform 0.15s ease; }
+.auq-toggle[aria-pressed="true"] { border-color: var(--auq-cyan-2); color: #fff; background: rgba(0, 255, 248, 0.06); }
+.auq-toggle[aria-pressed="true"] .auq-toggle-sw { background: var(--auq-cyan-2); }
+.auq-toggle[aria-pressed="true"] .auq-toggle-sw::after { transform: translateX(12px); background: #0B0F12; }
+.auq-reset {
+  margin-left: auto;
+  min-height: 40px;
+  padding: 8px 4px;
+  background: none;
+  border: 0;
+  font-family: var(--auq-mono);
+  font-size: 12.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--auq-orange);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.auq-reset:hover { color: #F5874A; }
+.auq-count { font-family: var(--auq-mono); font-size: 13px; color: var(--auq-muted); margin: 0; }
+.auq-count b { color: var(--auq-cyan); font-weight: 400; }
+
+.auq-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--auq-line); border-radius: 8px; background: rgba(9, 14, 18, 0.55); }
+.auq-table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.auq-table th, .auq-table td { padding: 12px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--auq-line); }
+.auq-table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--auq-panel-2);
+  font-family: var(--auq-mono);
+  font-weight: 400;
+  font-size: 11.5px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  vertical-align: bottom;
+  white-space: normal;
+  min-width: 96px;
+}
+.auq-table tbody tr:hover td { background: rgba(255, 255, 255, 0.03); }
+.auq-table tbody tr:last-child td { border-bottom: 0; }
+.auq-table td { color: rgba(255, 255, 255, 0.88); }
+.auq-table td.auq-num, .auq-table th.auq-num { text-align: right; font-variant-numeric: tabular-nums; }
+.auq-table td.auq-num { font-family: var(--auq-mono); font-size: 14px; }
+.auq-table td.auq-strong { color: #fff; font-family: var(--auq-sans); font-size: 15px; min-width: 200px; }
+.auq-table td.auq-type { min-width: 170px; color: var(--auq-muted); }
+.auq-table td.auq-dim { color: var(--auq-muted); }
+.auq-table td.auq-title { min-width: 280px; max-width: 420px; }
+.auq-table td.auq-domain { font-family: var(--auq-mono); font-size: 13px; color: var(--auq-muted); white-space: nowrap; }
+.auq-table td a { color: #fff; text-decoration: underline; text-decoration-color: rgba(16, 202, 226, 0.55); text-underline-offset: 3px; }
+.auq-table td a:hover { color: var(--auq-cyan); text-decoration-color: var(--auq-cyan); }
+.auq-na { color: rgba(255, 255, 255, 0.45); font-family: var(--auq-mono); font-size: 12px; }
+.auq-sort {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+.auq-sort:hover { color: #fff; }
+.auq-sort-ind { display: inline-block; width: 9px; opacity: 0.4; font-family: var(--auq-sans); }
+th[aria-sort="ascending"] .auq-sort, th[aria-sort="descending"] .auq-sort { color: var(--auq-cyan); }
+th[aria-sort="ascending"] .auq-sort-ind, th[aria-sort="descending"] .auq-sort-ind { opacity: 1; }
+
+.auq-dot { display: inline-flex; align-items: center; gap: 7px; font-size: 13.5px; color: var(--auq-muted); white-space: nowrap; }
+.auq-dot::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: rgba(255, 255, 255, 0.22); }
+.auq-dot.auq-yes { color: #fff; }
+.auq-dot.auq-yes::before { background: var(--auq-cyan); }
+
+.auq-empty { padding: 40px 16px; text-align: center; color: var(--auq-muted); }
+
+.auq-tip-wrap { position: relative; display: inline-flex; align-items: flex-end; gap: 6px; }
+.auq-tip-btn {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: none;
+  color: #fff;
+  font-family: var(--auq-sans);
+  font-size: 11px;
+  line-height: 1;
+  padding: 0;
+  cursor: help;
+  flex: none;
+}
+.auq-tip {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 260px;
+  padding: 12px 14px;
+  background: #1A2731;
+  border: 1px solid var(--auq-teal-line);
+  border-radius: 6px;
+  font-family: var(--auq-body);
+  font-size: 13.5px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #fff;
+  z-index: 5;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+.auq-tip-wrap:hover .auq-tip, .auq-tip-btn:focus-visible + .auq-tip, .auq-tip-wrap.auq-tip-open .auq-tip { visibility: visible; opacity: 1; }
+
+.auq-pager { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+.auq-pager-btns { display: flex; align-items: center; gap: 10px; }
+.auq-page-btn {
+  min-height: 40px;
+  padding: 8px 16px;
+  font-family: var(--auq-mono);
+  font-size: 12.5px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.auq-page-btn:hover:not(:disabled) { border-color: var(--auq-cyan-2); color: var(--auq-cyan); }
+.auq-page-btn:disabled { opacity: 0.35; cursor: default; }
+.auq-page-of { font-family: var(--auq-mono); font-size: 12.5px; color: var(--auq-muted); }
+.auq-hidden { display: none !important; }
+.auq-sr { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* ---------- CTA block ---------- */
+.auq-cta-in { padding: 56px 48px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; background: linear-gradient(120deg, #13232C 0%, var(--auq-panel) 60%); }
+.auq-cta-in .auq-h2 { margin-bottom: 12px; }
+
+/* ---------- Method ---------- */
+.auq-method { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
+.auq-method li { position: relative; padding: 18px 0 18px 28px; border-top: 1px solid var(--auq-line); font-weight: 300; font-size: 17px; color: rgba(255, 255, 255, 0.85); }
+.auq-method li::before { content: ""; position: absolute; left: 0; top: 29px; width: 8px; height: 8px; border-radius: 2px; background: var(--auq-cyan); }
+
+/* ---------- Footer ---------- */
+.auq-footer { border-top: 1px solid var(--auq-line); padding: 40px 0 48px; }
+.auq-footer .auq-wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.auq-footer a.auq-logo { display: inline-flex; color: #fff; }
+.auq-footer-meta { font-family: var(--auq-mono); font-size: 12.5px; letter-spacing: 1px; color: var(--auq-faint); display: flex; gap: 20px; }
+.auq-footer-meta a { color: var(--auq-faint); text-decoration: none; }
+.auq-footer-meta a:hover { color: #fff; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .auq-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .auq-cta-in { grid-template-columns: 1fr; padding: 40px 28px; }
+  .auq-method { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .auq-root { font-size: 17px; }
+  .auq-wrap { padding: 0 16px; }
+  .auq-section { padding: 64px 0; }
+  .auq-hero { padding: 56px 0 64px; }
+  .auq-hero-sub { font-size: 18px; }
+  .auq-stats { padding: 26px 22px 28px; }
+  .auq-stats dd { font-size: 36px; }
+  .auq-findings li { grid-template-columns: 1fr; gap: 6px; font-size: 17.5px; }
+  .auq-explore-in { padding: 4px 16px 24px; }
+  .auq-tabs { gap: 16px; flex-wrap: nowrap; }
+  .auq-tab { font-size: 11.5px; letter-spacing: 1px; padding: 16px 0 12px; white-space: nowrap; }
+  .auq-tab-count { display: none; }
+  .auq-filters { grid-template-columns: 1fr; }
+  .auq-field-wide { grid-column: auto; }
+  .auq-toolbar { flex-direction: column; align-items: stretch; }
+  .auq-toggle { justify-content: flex-start; }
+  .auq-reset { margin-left: 0; align-self: flex-start; }
+  .auq-btn { width: 100%; }
+  .auq-tip { right: auto; left: -200px; width: 230px; }
+  /* Key findings collapse to stacked cards */
+  .auq-kf thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .auq-kf, .auq-kf tbody, .auq-kf tr, .auq-kf tbody th, .auq-kf tbody td { display: block; width: 100%; }
+  .auq-kf tr { padding: 18px 0; border-bottom: 1px solid var(--auq-line); display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+  .auq-kf tbody th { grid-column: 1 / -1; padding: 0; border: 0; }
+  .auq-kf tbody td { padding: 0; border: 0; }
+  .auq-kf tbody td::before { content: attr(data-label); display: block; font-family: var(--auq-mono); font-size: 11px; letter-spacing: 1.3px; text-transform: uppercase; color: var(--auq-faint); margin-bottom: 4px; }
+  .auq-kf-val { font-size: 19px; white-space: normal; }
+}
+</style>
+<style>
+/* ---- additions for this study: stat cards, distribution bars, callout ---- */
+.auq-root .auq-domlist{font-family:var(--auq-mono);font-size:12.5px;line-height:1.7;color:var(--auq-muted)}
+.auq-root .auq-domlist b{color:#fff;font-weight:400}
+.auq-root .auq-doms{min-width:200px;max-width:280px}
+.auq-root .auq-typelist{font-size:13px;line-height:1.7;color:var(--auq-muted);min-width:128px}
+.auq-root .auq-stablecell{white-space:nowrap}
+.auq-root .auq-panelviz{display:grid;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));gap:24px;margin-top:40px}
+.auq-root .auq-pv{padding:26px 26px 28px}
+.auq-root .auq-pv h4{font-family:var(--auq-sans);font-weight:400;font-size:17px;margin:0 0 4px;color:#fff}
+.auq-root .auq-pv p{margin:0;font-size:14.5px;font-weight:300;color:var(--auq-muted)}
+.auq-root .auq-pv-num{font-family:var(--auq-sans);font-size:52px;line-height:1;color:var(--auq-cyan-2);margin:0 0 10px}
+.auq-root .auq-pv-num small{font-size:20px;color:var(--auq-faint)}
+.auq-root .auq-dist{list-style:none;margin:18px 0 0;padding:0;font-family:var(--auq-mono);font-size:12.5px}
+.auq-root .auq-dist li{display:grid;grid-template-columns:66px 1fr 48px;align-items:center;gap:10px;padding:3px 0;color:var(--auq-muted)}
+.auq-root .auq-dist li em{font-style:normal}
+.auq-root .auq-dist span{display:block;height:10px;background:var(--auq-cyan-2);border-radius:2px;min-width:2px}
+.auq-root .auq-dist li.auq-peak span{background:var(--auq-cyan)}
+.auq-root .auq-dist li.auq-peak{color:#fff}
+.auq-root .auq-callout{margin:36px 0 0;padding:24px 26px;border-left:3px solid var(--auq-orange);background:rgba(237,112,45,.07)}
+.auq-root .auq-callout p{margin:0;font-size:16.5px;font-weight:300;color:rgba(255,255,255,.88)}
+.auq-root .auq-callout strong{color:#fff;font-weight:500}
+.auq-root .auq-srcnote{font-family:var(--auq-mono);font-size:12px;color:var(--auq-faint);margin:14px 0 0;line-height:1.7}
+.auq-root .auq-srcnote a{color:var(--auq-cyan-2)}
+.auq-root .auq-mini{width:100%;border-collapse:collapse;margin-top:28px;font-size:15px}
+.auq-root .auq-mini th{font-family:var(--auq-mono);font-weight:400;font-size:11.5px;letter-spacing:1.3px;text-transform:uppercase;color:var(--auq-faint);text-align:left;padding:0 16px 12px;border-bottom:1px solid var(--auq-line)}
+.auq-root .auq-mini th:first-child{padding-left:0}
+.auq-root .auq-mini th.auq-num,.auq-root .auq-mini td.auq-num{text-align:right;font-variant-numeric:tabular-nums}
+.auq-root .auq-mini td{padding:14px 16px;border-bottom:1px solid var(--auq-line);color:rgba(255,255,255,.88)}
+.auq-root .auq-mini td:first-child{padding-left:0;color:#fff}
+.auq-root .auq-mini td.auq-num{font-family:var(--auq-mono);font-size:14px}
+@media (max-width:720px){
+  .auq-root .auq-pv-num{font-size:40px}
+  .auq-root .auq-dist li{grid-template-columns:56px 1fr 42px}
+  .auq-root .auq-mini{font-size:14px}
+  .auq-root .auq-mini td,.auq-root .auq-mini th{padding-left:8px;padding-right:8px}
+}
+</style>
+<style>
+.auq-root .auq-hero h1 span { display:block; }
+.auq-root .ch { margin:30px 0 0; padding:26px 26px 22px; background:#111A21; border:1px solid rgba(255,255,255,.1); }
+.auq-root .ch-t { font-family:var(--auq-sans); font-size:18px; font-weight:500; color:#fff; margin:0 0 12px; }
+.auq-root .ch-leg { list-style:none; margin:0 0 16px; padding:0; display:flex; flex-wrap:wrap; gap:8px 18px; font-size:14px; color:rgba(255,255,255,.78); }
+.auq-root .ch-leg .sw { display:inline-block; width:12px; height:12px; border-radius:3px; margin-right:7px; vertical-align:-1px; }
+.auq-root .ch-row { display:grid; grid-template-columns:230px 1fr; gap:16px; align-items:center; padding:7px 0; }
+.auq-root .ch-l { font-size:15px; line-height:1.3; color:rgba(255,255,255,.88); white-space:pre-wrap; }
+.auq-root .ch-l small { display:block; font-family:var(--auq-mono); font-size:11.5px; color:var(--auq-faint); white-space:normal; }
+.auq-root .ch-bar { position:relative; }
+.auq-root .ch-bar svg { display:block; width:100%; height:28px; }
+.auq-root .ch-one { display:grid; grid-template-columns:1fr 64px; gap:10px; align-items:center; margin:3px 0; }
+.auq-root .ch-one svg { height:20px; }
+.auq-root .ch-one b { font-family:var(--auq-sans); font-weight:500; font-size:15px; color:#fff; text-align:right; }
+.auq-root .ch-tags { position:absolute; inset:0; pointer-events:none; }
+.auq-root .ch-tags span { position:absolute; top:0; height:28px; line-height:28px; text-align:center; font-family:var(--auq-sans); font-size:13px; font-weight:600; color:#fff; text-shadow:0 0 3px rgba(0,0,0,.6); }
+.auq-root .ch-cap { margin:14px 0 0; font-size:15px; line-height:1.5; color:rgba(255,255,255,.72); }
+.auq-root .dom { font-family:var(--auq-mono); font-size:12px; color:var(--auq-faint); margin-left:6px; }
+.auq-root .auq-takeaway { margin:24px 0 0; padding:20px 24px; border-left:3px solid #10CAE2; background:rgba(16,202,226,.08); font-size:17px; line-height:1.55; color:rgba(255,255,255,.88); }
+.auq-root .auq-takeaway strong { color:#fff; font-weight:500; }
+.auq-root .auq-steps { counter-reset:auq-step; list-style:none; margin:28px 0 0; padding:0; display:grid; gap:14px; }
+.auq-root .auq-steps li { counter-increment:auq-step; position:relative; padding:18px 22px 18px 74px; background:#111A21; border:1px solid rgba(255,255,255,.1); font-weight:300; font-size:17px; line-height:1.55; color:rgba(255,255,255,.82); }
+.auq-root .auq-steps li strong { font-weight:500; color:#fff; }
+.auq-root .auq-steps li::before { content:counter(auq-step,decimal-leading-zero); position:absolute; left:22px; top:17px; font-family:var(--auq-mono); font-size:15px; letter-spacing:1px; color:#10CAE2; }
+.auq-root .auq-pv p.auq-pv-num { font-family:var(--auq-sans); font-size:52px; line-height:1; color:var(--auq-cyan-2); margin:0 0 10px; }
+.auq-root .auq-pv p.auq-pv-num small { font-size:22px; color:var(--auq-faint); }
+.auq-root .auq-dl { display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+.auq-root .auq-dl button { cursor:pointer; }
+.auq-root .ex-share b { display:inline-block; min-width:52px; }
+.auq-root .ex-bar { display:inline-block; height:8px; background:#3987e5; border-radius:2px; vertical-align:middle; margin-right:10px; }
+@media (max-width:760px) {
+  .auq-root .ch { padding:18px 14px; }
+  .auq-root .ch-row { grid-template-columns:1fr; gap:6px; }
+  .auq-root .ch-tags span { font-size:11px; }
+  .auq-root .auq-steps li { padding-left:60px; }
+  .auq-root .ex-bar { display:none; }
+}
+</style>
+</head>
+<body style="margin:0;background:#090E12"><!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NCFX8NJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+<!-- ===== AUQ STUDY: EMBED START (everything inside .auq-root is self-contained) ===== -->
+<div class="auq-root" id="auq-study">
+
+  <header class="auq-hero">
+    <div class="auq-wrap auq-hero-grid">
+      <div>
+        <p class="auq-eyebrow">AUQ Study &middot; 147 software searches &middot; 5 AI engines</p>
+        <h1>Where do AI answers send people <span>for software searches?</span></h1>
+        <p class="auq-hero-sub">Mostly to software companies&rsquo; own websites. Which company&rsquo;s site depends on the search and on the engine: on alternatives searches, 70% of citations went to other software companies and 2% to the product being searched.</p>
+        <p class="auq-hero-meta">November 2026 &middot; Data pulled Oct 31 to Nov 1, 2026 (Claude: Nov 3) &middot; US, English</p>
+        <a class="auq-btn" href="https://auq.io/contact-us/" data-auq-cta="hero">Run this for your category<span class="auq-btn-arrow" aria-hidden="true">&rarr;</span></a>
+      </div>
+      <aside class="auq-notch" aria-label="Study at a glance">
+        <div class="auq-notch-in auq-stats">
+          <p class="auq-stats-head">
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="#00FFF8" stroke-width="1.8"/><path d="M3 10h18M9 10v10" stroke="#00FFF8" stroke-width="1.8"/></svg>
+            The dataset
+          </p>
+          <dl>
+            <div><dt>Software searches</dt><dd>147</dd></div>
+            <div><dt>AI answers</dt><dd>1,911</dd></div>
+            <div><dt>Cited pages labeled</dt><dd>14,922</dd></div>
+            <div><dt>AI engines</dt><dd>5</dd></div>
+          </dl>
+          <p class="auq-stats-foot"><span class="auq-tag auq-tag-g">AI search</span><span class="auq-tag auq-tag-c">November 2026</span></p>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section class="auq-section" aria-labelledby="auq-key-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">Key numbers</p>
+        <h2 class="auq-h2" id="auq-key-h">What we found, in six numbers</h2>
+        <div class="auq-panelviz">
+          <div class="auq-notch"><div class="auq-notch-in auq-pv"><p class="auq-pv-num">70<small>%</small></p><h4>Other companies on alternatives searches</h4><p>Share of citations on &ldquo;[product] alternatives&rdquo; searches that went to other software companies. The product searched: 2%.</p></div></div>
+          <div class="auq-notch"><div class="auq-notch-in auq-pv"><p class="auq-pv-num">91<small>%</small></p><h4>&ldquo;A vs B&rdquo; answers citing a third company</h4><p>Share of answers that cited at least one page from a company that was neither A nor B.</p></div></div>
+          <div class="auq-notch"><div class="auq-notch-in auq-pv"><p class="auq-pv-num">89<small>%</small></p><h4>Integration answers citing docs</h4><p>Share of &ldquo;A B integration&rdquo; answers that cited a docs or help page from one of the two products.</p></div></div>
+          <div class="auq-notch"><div class="auq-notch-in auq-pv"><p class="auq-pv-num">89<small>% vs 0%</small></p><h4>YouTube in AI Overviews vs ChatGPT</h4><p>Share of answers citing at least one YouTube video: Google AI Overviews vs ChatGPT.</p></div></div>
+          <div class="auq-notch"><div class="auq-notch-in auq-pv"><p class="auq-pv-num">19<small>%</small></p><h4>Claude&rsquo;s independent-site share</h4><p>Share of Claude&rsquo;s citations (via the API) that went to independent comparison and review sites, the most of any engine.</p></div></div>
+          <div class="auq-notch"><div class="auq-notch-in auq-pv"><p class="auq-pv-num">466</p><h4>zapier.com citations</h4><p>The second most-cited website after YouTube, almost all on business-app searches.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="auq-section" aria-labelledby="auq-method-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">How we ran it</p>
+        <h2 class="auq-h2" id="auq-method-h">Method and limitations</h2>
+        <p class="auq-lede">We wanted to know which kinds of sites AI answers cite when someone is close to choosing software, and whether that changes by search type and by AI engine.</p>
+        <ul class="auq-method">
+          <li><strong>Searches.</strong> 148 real searches with measurable US search volume (Google Ads data via DataForSEO, at least 20 searches a month), frozen before any AI answers were pulled. 5 software categories (observability, CI/CD, project management, email marketing, help desk) and four kinds of search: &ldquo;best X tools&rdquo; (48), &ldquo;X alternatives&rdquo; (24), &ldquo;A vs B&rdquo; (25) and &ldquo;A B integration&rdquo; (50). One search (&ldquo;bamboo alternatives&rdquo;) was dropped because the engines answered about the plant and 3D printers, leaving 147.</li>
+          <li><strong>Engines and runs.</strong> Google AI Overviews (from the Google results page, desktop), ChatGPT and Gemini (the answer as the consumer app shows it, web search not forced) and Perplexity (through its API, model &ldquo;sonar&rdquo;, web search on). Each search ran 3 times on each: 1,764 answers, Oct 31 to Nov 1, 2026.</li>
+          <li><strong>Claude, added later.</strong> The same 147 searches ran once each through Claude (claude-sonnet-5-5, via the API with web search on) on Nov 3, 2026: 147 answers and 964 citations. Like Perplexity, this is the model called through the API; the claude.ai app may cite differently. With one run, Claude has no stability number. Every &ldquo;all engines&rdquo; figure on this page is the original four engines; Claude is always shown on its own.</li>
+          <li><strong>Prompt and citations.</strong> The prompt was the exact search, nothing added. A citation is a unique page cited in one answer (tracking parameters removed). 28 ChatGPT, 16 Gemini and 7 Claude answers cited nothing; 2 searches showed no AI Overview.</li>
+          <li><strong>Site types.</strong> Assigned by rules (known platforms, review sites, media, software vendors) plus a manual review of every other domain cited twice or more. Vendor pages are split by URL into blog &amp; content, product pages and docs; that split is approximate. Domains cited only once (1.9% of the four engines&rsquo; citations) are left unclassified.</li>
+          <li><strong>Named product and mentions.</strong> A citation is &ldquo;named&rdquo; when it&rsquo;s on a domain owned by a product in the search. For mentions, we matched about 80 product names against the answer text and checked whether each named product&rsquo;s own site was cited in the same answer; that analysis is directional.</li>
+          <li><strong>Limitations.</strong> A short snapshot, and answers vary from run to run. US English only. Perplexity and Claude results come from their APIs, which can differ from the apps. A share of citations is not a share of clicks or traffic, and the data shows what gets cited, not why. Labels are rule-based plus manual review and can contain small errors.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="auq-section" id="best" aria-labelledby="auq-best-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">Search type 1 &middot; &ldquo;Best X tools&rdquo;</p>
+        <h2 class="auq-h2" id="auq-best-h">Software companies write most of the shortlist</h2>
+        <p class="auq-lede">On &ldquo;best X tools&rdquo; searches, <span class="auq-hl">64%</span> of citations were software companies&rsquo; own pages, and <span class="auq-hl">90%</span> of answers cited at least one company&rsquo;s blog post. Third-party sites still show up: <span class="auq-hl">85%</span> of answers cited a review, independent or media site. ChatGPT went to product pages (66% of its citations); Gemini and Perplexity cited roundup posts (65% and 62%), and Perplexity leaned on media (13%, led by Forbes, PCMag, TechRadar).</p>
+        <figure class="ch"><figcaption class="ch-t">Share of citations by site type on &quot;best X tools&quot; searches, per engine</figcaption><ul class="ch-leg"><li><span class="sw" style="background:#3987e5"></span>Vendor blog &amp; content</li><li><span class="sw" style="background:#d95926"></span>Vendor product pages</li><li><span class="sw" style="background:#199e70"></span>Vendor docs</li><li><span class="sw" style="background:#c98500"></span>YouTube</li><li><span class="sw" style="background:#d55181"></span>Reddit</li><li><span class="sw" style="background:#008300"></span>Review sites</li><li><span class="sw" style="background:#9085e9"></span>Independent sites</li><li><span class="sw" style="background:#5d6b74"></span>Everything else</li></ul><div class="ch-row"><div class="ch-l">Google AI Overviews<small>1,123 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="Google AI Overviews: Vendor blog &amp; content 18%, Vendor product pages 8%, Vendor docs 1%, YouTube 36%, Reddit 7%, Review sites 10%, Independent sites 7%, Everything else 14%"><rect x="0.0" y="0" width="180.4" height="28" rx="3" fill="#3987e5"><title>Google AI Overviews · Vendor blog &amp; content: 18.3%</title></rect><rect x="183.4" y="0" width="75.4" height="28" rx="3" fill="#d95926"><title>Google AI Overviews · Vendor product pages: 7.8%</title></rect><rect x="261.8" y="0" width="3.2" height="28" rx="3" fill="#199e70"><title>Google AI Overviews · Vendor docs: 0.6%</title></rect><rect x="268.0" y="0" width="355.0" height="28" rx="3" fill="#c98500"><title>Google AI Overviews · YouTube: 35.8%</title></rect><rect x="626.0" y="0" width="71.8" height="28" rx="3" fill="#d55181"><title>Google AI Overviews · Reddit: 7.5%</title></rect><rect x="700.8" y="0" width="95.0" height="28" rx="3" fill="#008300"><title>Google AI Overviews · Review sites: 9.8%</title></rect><rect x="798.8" y="0" width="62.0" height="28" rx="3" fill="#9085e9"><title>Google AI Overviews · Independent sites: 6.5%</title></rect><rect x="863.8" y="0" width="133.2" height="28" rx="3" fill="#5d6b74"><title>Google AI Overviews · Everything else: 13.6%</title></rect></svg><div class="ch-tags"><span style="left:0.00%;width:18.34%">18%</span><span style="left:26.80%;width:35.80%">36%</span><span style="left:70.08%;width:9.80%">10%</span><span style="left:86.38%;width:13.62%">14%</span></div></div></div><div class="ch-row"><div class="ch-l">ChatGPT<small>1,518 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="ChatGPT: Vendor blog &amp; content 12%, Vendor product pages 66%, Vendor docs 3%, YouTube 0%, Reddit 0%, Review sites 5%, Independent sites 8%, Everything else 6%"><rect x="0.0" y="0" width="114.3" height="28" rx="3" fill="#3987e5"><title>ChatGPT · Vendor blog &amp; content: 11.7%</title></rect><rect x="117.3" y="0" width="659.1" height="28" rx="3" fill="#d95926"><title>ChatGPT · Vendor product pages: 66.2%</title></rect><rect x="779.3" y="0" width="26.0" height="28" rx="3" fill="#199e70"><title>ChatGPT · Vendor docs: 2.9%</title></rect><rect x="808.3" y="0" width="47.7" height="28" rx="3" fill="#008300"><title>ChatGPT · Review sites: 5.1%</title></rect><rect x="859.0" y="0" width="76.7" height="28" rx="3" fill="#9085e9"><title>ChatGPT · Independent sites: 8%</title></rect><rect x="938.7" y="0" width="58.3" height="28" rx="3" fill="#5d6b74"><title>ChatGPT · Everything else: 6.1%</title></rect></svg><div class="ch-tags"><span style="left:0.00%;width:11.73%">12%</span><span style="left:11.73%;width:66.21%">66%</span></div></div></div><div class="ch-row"><div class="ch-l">Gemini<small>1,100 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="Gemini: Vendor blog &amp; content 65%, Vendor product pages 2%, Vendor docs 0%, YouTube 1%, Reddit 0%, Review sites 9%, Independent sites 13%, Everything else 10%"><rect x="0.0" y="0" width="644.3" height="28" rx="3" fill="#3987e5"><title>Gemini · Vendor blog &amp; content: 64.7%</title></rect><rect x="647.3" y="0" width="17.9" height="28" rx="3" fill="#d95926"><title>Gemini · Vendor product pages: 2.1%</title></rect><rect x="668.2" y="0" width="3.4" height="28" rx="3" fill="#c98500"><title>Gemini · YouTube: 0.6%</title></rect><rect x="674.5" y="0" width="0.5" height="28" rx="3" fill="#d55181"><title>Gemini · Reddit: 0.3%</title></rect><rect x="677.3" y="0" width="91.5" height="28" rx="3" fill="#008300"><title>Gemini · Review sites: 9.5%</title></rect><rect x="771.8" y="0" width="127.9" height="28" rx="3" fill="#9085e9"><title>Gemini · Independent sites: 13.1%</title></rect><rect x="902.7" y="0" width="94.3" height="28" rx="3" fill="#5d6b74"><title>Gemini · Everything else: 9.7%</title></rect></svg><div class="ch-tags"><span style="left:0.00%;width:64.73%">65%</span><span style="left:67.73%;width:9.45%">9%</span><span style="left:77.18%;width:13.09%">13%</span><span style="left:90.27%;width:9.73%">10%</span></div></div></div><div class="ch-row"><div class="ch-l">Perplexity<small>1,440 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="Perplexity: Vendor blog &amp; content 62%, Vendor product pages 8%, Vendor docs 1%, YouTube 0%, Reddit 0%, Review sites 12%, Independent sites 3%, Everything else 14%"><rect x="0.0" y="0" width="621.3" height="28" rx="3" fill="#3987e5"><title>Perplexity · Vendor blog &amp; content: 62.4%</title></rect><rect x="624.3" y="0" width="76.2" height="28" rx="3" fill="#d95926"><title>Perplexity · Vendor product pages: 7.9%</title></rect><rect x="703.5" y="0" width="8.1" height="28" rx="3" fill="#199e70"><title>Perplexity · Vendor docs: 1.1%</title></rect><rect x="714.6" y="0" width="114.4" height="28" rx="3" fill="#008300"><title>Perplexity · Review sites: 11.7%</title></rect><rect x="831.9" y="0" width="24.1" height="28" rx="3" fill="#9085e9"><title>Perplexity · Independent sites: 2.7%</title></rect><rect x="859.0" y="0" width="138.0" height="28" rx="3" fill="#5d6b74"><title>Perplexity · Everything else: 14.1%</title></rect></svg><div class="ch-tags"><span style="left:0.00%;width:62.43%">62%</span><span style="left:71.46%;width:11.74%">12%</span><span style="left:85.90%;width:14.10%">14%</span></div></div></div><div class="ch-row"><div class="ch-l">Claude (1 run, API)<small>314 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="Claude (1 run, API): Vendor blog &amp; content 65%, Vendor product pages 3%, Vendor docs 0%, YouTube 0%, Reddit 0%, Review sites 8%, Independent sites 19%, Everything else 5%"><rect x="0.0" y="0" width="646.7" height="28" rx="3" fill="#3987e5"><title>Claude (1 run, API) · Vendor blog &amp; content: 65%</title></rect><rect x="649.7" y="0" width="28.8" height="28" rx="3" fill="#d95926"><title>Claude (1 run, API) · Vendor product pages: 3.2%</title></rect><rect x="681.5" y="0" width="79.8" height="28" rx="3" fill="#008300"><title>Claude (1 run, API) · Review sites: 8.3%</title></rect><rect x="764.3" y="0" width="184.9" height="28" rx="3" fill="#9085e9"><title>Claude (1 run, API) · Independent sites: 18.8%</title></rect><rect x="952.2" y="0" width="44.8" height="28" rx="3" fill="#5d6b74"><title>Claude (1 run, API) · Everything else: 4.8%</title></rect></svg><div class="ch-tags"><span style="left:0.00%;width:64.97%">65%</span><span style="left:68.15%;width:8.28%">8%</span><span style="left:76.43%;width:18.79%">19%</span></div></div></div>
+<p class="ch-cap">ChatGPT cites product pages; Gemini, Perplexity and Claude cite blog roundups; Google AI Overviews mix in YouTube. Across the four original engines, 85% of answers also cited a review, independent or media site.</p></figure>
+        <figure class="ch"><figcaption class="ch-t">“Best” searches: share of products named in the answer whose own website was also cited</figcaption><div class="ch-row"><div class="ch-l">Google AI Overviews<small>6.0 products named per answer</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Google AI Overviews: 9%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="91.0" height="20" rx="3" fill="#3987e5"><title>Google AI Overviews · Google AI Overviews: 9%</title></rect></svg><b>9%</b></div></div></div><div class="ch-row"><div class="ch-l">ChatGPT<small>7.3 products named per answer</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="ChatGPT: 88%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="881.0" height="20" rx="3" fill="#3987e5"><title>ChatGPT · ChatGPT: 88%</title></rect></svg><b>88%</b></div></div></div><div class="ch-row"><div class="ch-l">Gemini<small>6.9 products named per answer</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Gemini: 16%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="160.0" height="20" rx="3" fill="#3987e5"><title>Gemini · Gemini: 16%</title></rect></svg><b>16%</b></div></div></div><div class="ch-row"><div class="ch-l">Perplexity<small>7.7 products named per answer</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Perplexity: 19%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="193.0" height="20" rx="3" fill="#3987e5"><title>Perplexity · Perplexity: 19%</title></rect></svg><b>19%</b></div></div></div><div class="ch-row"><div class="ch-l">Claude (1 run, API)<small>9.8 products named per answer</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Claude (1 run, API): 7%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="66.0" height="20" rx="3" fill="#3987e5"><title>Claude (1 run, API) · Claude (1 run, API): 7%</title></rect></svg><b>7%</b></div></div></div>
+<p class="ch-cap">ChatGPT links most of the products it names. The other engines name products mostly from someone else’s page.</p></figure>
+      </div>
+    </section>
+
+    <section class="auq-section" id="alternatives" aria-labelledby="auq-alt-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">Search type 2 &middot; &ldquo;[Product] alternatives&rdquo;</p>
+        <h2 class="auq-h2" id="auq-alt-h">Other companies write the answer about you</h2>
+        <p class="auq-lede">On alternatives searches, <span class="auq-hl">70%</span> of citations went to other software companies and <span class="auq-hl">2%</span> to the product being searched. <span class="auq-hl">99%</span> of answers cited another company; only 14% cited the product at all. On ChatGPT, other companies were 84% of citations. Google AI Overviews cited a Reddit thread in 73% of these answers, more than on any other search type. The product was named in 96% of these answers&rsquo; text.</p>
+        <figure class="ch"><figcaption class="ch-t">Who gets cited on &quot;[product] alternatives&quot; searches</figcaption><ul class="ch-leg"><li><span class="sw" style="background:#3987e5"></span>Product(s) named in the search</li><li><span class="sw" style="background:#d95926"></span>Another software company</li><li><span class="sw" style="background:#199e70"></span>Not a software company</li></ul><div class="ch-row"><div class="ch-l">All four original engines<small>2,452 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="All four original engines: Product(s) named in the search 2%, Another software company 70%, Not a software company 29%"><rect x="0.0" y="0" width="13.3" height="28" rx="3" fill="#3987e5"><title>All four original engines · Product(s) named in the search: 1.6%</title></rect><rect x="16.3" y="0" width="695.2" height="28" rx="3" fill="#d95926"><title>All four original engines · Another software company: 69.8%</title></rect><rect x="714.5" y="0" width="282.5" height="28" rx="3" fill="#199e70"><title>All four original engines · Not a software company: 28.5%</title></rect></svg><div class="ch-tags"><span style="left:1.63%;width:69.82%">70%</span><span style="left:71.45%;width:28.55%">29%</span></div></div></div><div class="ch-row"><div class="ch-l">   Google AI Overviews<small>459 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="   Google AI Overviews: Product(s) named in the search 3%, Another software company 36%, Not a software company 61%"><rect x="0.0" y="0" width="27.5" height="28" rx="3" fill="#3987e5"><title>   Google AI Overviews · Product(s) named in the search: 3.1%</title></rect><rect x="30.5" y="0" width="360.8" height="28" rx="3" fill="#d95926"><title>   Google AI Overviews · Another software company: 36.4%</title></rect><rect x="394.3" y="0" width="602.7" height="28" rx="3" fill="#199e70"><title>   Google AI Overviews · Not a software company: 60.6%</title></rect></svg><div class="ch-tags"><span style="left:3.05%;width:36.38%">36%</span><span style="left:39.43%;width:60.57%">61%</span></div></div></div><div class="ch-row"><div class="ch-l">   ChatGPT<small>790 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="   ChatGPT: Product(s) named in the search 1%, Another software company 84%, Not a software company 15%"><rect x="0.0" y="0" width="7.1" height="28" rx="3" fill="#3987e5"><title>   ChatGPT · Product(s) named in the search: 1%</title></rect><rect x="10.1" y="0" width="832.4" height="28" rx="3" fill="#d95926"><title>   ChatGPT · Another software company: 83.5%</title></rect><rect x="845.6" y="0" width="151.4" height="28" rx="3" fill="#199e70"><title>   ChatGPT · Not a software company: 15.4%</title></rect></svg><div class="ch-tags"><span style="left:1.01%;width:83.54%">84%</span><span style="left:84.56%;width:15.44%">15%</span></div></div></div><div class="ch-row"><div class="ch-l">   Gemini<small>483 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="   Gemini: Product(s) named in the search 2%, Another software company 71%, Not a software company 27%"><rect x="0.0" y="0" width="15.6" height="28" rx="3" fill="#3987e5"><title>   Gemini · Product(s) named in the search: 1.9%</title></rect><rect x="18.6" y="0" width="709.2" height="28" rx="3" fill="#d95926"><title>   Gemini · Another software company: 71.2%</title></rect><rect x="730.8" y="0" width="266.2" height="28" rx="3" fill="#199e70"><title>   Gemini · Not a software company: 26.9%</title></rect></svg><div class="ch-tags"><span style="left:1.86%;width:71.22%">71%</span><span style="left:73.08%;width:26.92%">27%</span></div></div></div><div class="ch-row"><div class="ch-l">   Perplexity<small>720 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="   Perplexity: Product(s) named in the search 1%, Another software company 75%, Not a software company 24%"><rect x="0.0" y="0" width="9.5" height="28" rx="3" fill="#3987e5"><title>   Perplexity · Product(s) named in the search: 1.3%</title></rect><rect x="12.5" y="0" width="748.4" height="28" rx="3" fill="#d95926"><title>   Perplexity · Another software company: 75.1%</title></rect><rect x="763.9" y="0" width="233.1" height="28" rx="3" fill="#199e70"><title>   Perplexity · Not a software company: 23.6%</title></rect></svg><div class="ch-tags"><span style="left:1.25%;width:75.14%">75%</span><span style="left:76.39%;width:23.61%">24%</span></div></div></div><div class="ch-row"><div class="ch-l">   Claude (1 run, API)<small>181 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="   Claude (1 run, API): Product(s) named in the search 0%, Another software company 76%, Not a software company 24%"><rect x="0.0" y="0" width="759.4" height="28" rx="3" fill="#d95926"><title>   Claude (1 run, API) · Another software company: 76.2%</title></rect><rect x="762.4" y="0" width="234.6" height="28" rx="3" fill="#199e70"><title>   Claude (1 run, API) · Not a software company: 23.8%</title></rect></svg><div class="ch-tags"><span style="left:0.00%;width:76.24%">76%</span><span style="left:76.24%;width:23.76%">24%</span></div></div></div>
+<p class="ch-cap">Across the four original engines, 70% of citations on alternatives searches went to other software companies and 2% to the product being searched.</p></figure>
+      </div>
+    </section>
+
+    <section class="auq-section" id="comparisons" aria-labelledby="auq-vs-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">Search type 3 &middot; &ldquo;A vs B&rdquo;</p>
+        <h2 class="auq-h2" id="auq-vs-h">A third company often frames the matchup</h2>
+        <p class="auq-lede"><span class="auq-hl">37%</span> of comparison citations came from a software company that was neither A nor B, and <span class="auq-hl">91%</span> of answers (259 of 285) cited at least one such page. The engines split: on ChatGPT, 63% of citations came from A and B themselves; on Gemini, 8%.</p>
+        <figure class="ch"><figcaption class="ch-t">Who gets cited on &quot;A vs B&quot; searches</figcaption><ul class="ch-leg"><li><span class="sw" style="background:#3987e5"></span>Product(s) named in the search</li><li><span class="sw" style="background:#d95926"></span>Another software company</li><li><span class="sw" style="background:#199e70"></span>Not a software company</li></ul><div class="ch-row"><div class="ch-l">All four original engines<small>2,278 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="All four original engines: Product(s) named in the search 26%, Another software company 37%, Not a software company 37%"><rect x="0.0" y="0" width="258.6" height="28" rx="3" fill="#3987e5"><title>All four original engines · Product(s) named in the search: 26.2%</title></rect><rect x="261.6" y="0" width="364.4" height="28" rx="3" fill="#d95926"><title>All four original engines · Another software company: 36.7%</title></rect><rect x="629.1" y="0" width="367.9" height="28" rx="3" fill="#199e70"><title>All four original engines · Not a software company: 37.1%</title></rect></svg><div class="ch-tags"><span style="left:0.00%;width:26.16%">26%</span><span style="left:26.16%;width:36.74%">37%</span><span style="left:62.91%;width:37.09%">37%</span></div></div></div><div class="ch-row"><div class="ch-l">   Google AI Overviews<small>734 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="   Google AI Overviews: Product(s) named in the search 12%, Another software company 30%, Not a software company 58%"><rect x="0.0" y="0" width="121.0" height="28" rx="3" fill="#3987e5"><title>   Google AI Overviews · Product(s) named in the search: 12.4%</title></rect><rect x="124.0" y="0" width="292.6" height="28" rx="3" fill="#d95926"><title>   Google AI Overviews · Another software company: 29.6%</title></rect><rect x="419.6" y="0" width="577.4" height="28" rx="3" fill="#199e70"><title>   Google AI Overviews · Not a software company: 58%</title></rect></svg><div class="ch-tags"><span style="left:0.00%;width:12.40%">12%</span><span style="left:12.40%;width:29.56%">30%</span><span style="left:41.96%;width:58.04%">58%</span></div></div></div><div class="ch-row"><div class="ch-l">   ChatGPT<small>336 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="   ChatGPT: Product(s) named in the search 63%, Another software company 19%, Not a software company 19%"><rect x="0.0" y="0" width="622.0" height="28" rx="3" fill="#3987e5"><title>   ChatGPT · Product(s) named in the search: 62.5%</title></rect><rect x="625.0" y="0" width="184.5" height="28" rx="3" fill="#d95926"><title>   ChatGPT · Another software company: 18.8%</title></rect><rect x="812.5" y="0" width="184.5" height="28" rx="3" fill="#199e70"><title>   ChatGPT · Not a software company: 18.8%</title></rect></svg><div class="ch-tags"><span style="left:0.00%;width:62.50%">63%</span><span style="left:62.50%;width:18.75%">19%</span><span style="left:81.25%;width:18.75%">19%</span></div></div></div><div class="ch-row"><div class="ch-l">   Gemini<small>458 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="   Gemini: Product(s) named in the search 8%, Another software company 55%, Not a software company 37%"><rect x="0.0" y="0" width="73.4" height="28" rx="3" fill="#3987e5"><title>   Gemini · Product(s) named in the search: 7.6%</title></rect><rect x="76.4" y="0" width="549.4" height="28" rx="3" fill="#d95926"><title>   Gemini · Another software company: 55.2%</title></rect><rect x="628.8" y="0" width="368.2" height="28" rx="3" fill="#199e70"><title>   Gemini · Not a software company: 37.1%</title></rect></svg><div class="ch-tags"><span style="left:7.64%;width:55.24%">55%</span><span style="left:62.88%;width:37.12%">37%</span></div></div></div><div class="ch-row"><div class="ch-l">   Perplexity<small>750 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="   Perplexity: Product(s) named in the search 35%, Another software company 41%, Not a software company 25%"><rect x="0.0" y="0" width="343.7" height="28" rx="3" fill="#3987e5"><title>   Perplexity · Product(s) named in the search: 34.7%</title></rect><rect x="346.7" y="0" width="402.3" height="28" rx="3" fill="#d95926"><title>   Perplexity · Another software company: 40.5%</title></rect><rect x="752.0" y="0" width="245.0" height="28" rx="3" fill="#199e70"><title>   Perplexity · Not a software company: 24.8%</title></rect></svg><div class="ch-tags"><span style="left:0.00%;width:34.67%">35%</span><span style="left:34.67%;width:40.53%">41%</span><span style="left:75.20%;width:24.80%">25%</span></div></div></div><div class="ch-row"><div class="ch-l">   Claude (1 run, API)<small>130 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="   Claude (1 run, API): Product(s) named in the search 1%, Another software company 46%, Not a software company 53%"><rect x="0.0" y="0" width="4.7" height="28" rx="3" fill="#3987e5"><title>   Claude (1 run, API) · Product(s) named in the search: 0.8%</title></rect><rect x="7.7" y="0" width="458.5" height="28" rx="3" fill="#d95926"><title>   Claude (1 run, API) · Another software company: 46.2%</title></rect><rect x="469.2" y="0" width="527.8" height="28" rx="3" fill="#199e70"><title>   Claude (1 run, API) · Not a software company: 53.1%</title></rect></svg><div class="ch-tags"><span style="left:0.77%;width:46.15%">46%</span><span style="left:46.92%;width:53.08%">53%</span></div></div></div>
+<p class="ch-cap">37% of comparison citations came from a company that was neither A nor B. ChatGPT cited A and B themselves most (63%); Claude, via the API, almost never (1%).</p></figure>
+        <h3 class="auq-kf-title">Companies cited most often on other companies&rsquo; &ldquo;A vs B&rdquo; searches</h3>
+        <div class="auq-table-scroll" tabindex="0" role="region" aria-label="Most-cited third companies on vs searches">
+          <table class="auq-mini"><thead><tr><th scope="col">Company</th><th scope="col" class="auq-num">Citations on vs searches</th></tr></thead><tbody><tr><th scope="row">Zapier <span class="dom">zapier.com</span></th><td class="auq-num">104</td></tr><tr><th scope="row">Octopus Deploy <span class="dom">octopus.com</span></th><td class="auq-num">40</td></tr><tr><th scope="row">Dash0 <span class="dom">dash0.com</span></th><td class="auq-num">35</td></tr><tr><th scope="row">SigNoz <span class="dom">signoz.io</span></th><td class="auq-num">30</td></tr><tr><th scope="row">Mailercloud <span class="dom">mailercloud.com</span></th><td class="auq-num">28</td></tr><tr><th scope="row">Macha <span class="dom">getmacha.com</span></th><td class="auq-num">25</td></tr><tr><th scope="row">New Relic <span class="dom">newrelic.com</span></th><td class="auq-num">22</td></tr><tr><th scope="row">Atatus <span class="dom">atatus.com</span></th><td class="auq-num">15</td></tr></tbody></table>
+        </div>
+      </div>
+    </section>
+
+    <section class="auq-section" id="integrations" aria-labelledby="auq-int-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">Search type 4 &middot; &ldquo;A B integration&rdquo;</p>
+        <h2 class="auq-h2" id="auq-int-h">For integration searches, docs are the answer</h2>
+        <p class="auq-lede"><span class="auq-hl">66%</span> of integration citations came from the named products&rsquo; own sites and <span class="auq-hl">39%</span> were docs and help-center pages (64% on ChatGPT). <span class="auq-hl">89%</span> of answers cited a docs page from one of the two products. Google AI Overviews also cited a YouTube video in 88% of integration answers.</p>
+        <figure class="ch"><figcaption class="ch-t">Vendor docs &amp; help centers as a share of citations</figcaption><div class="ch-row"><div class="ch-l">&quot;Best X tools&quot;<small>5,181 citations</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="&quot;Best X tools&quot;: 1%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="12.9" height="20" rx="3" fill="#199e70"><title>&quot;Best X tools&quot; · &quot;Best X tools&quot;: 1%</title></rect></svg><b>1%</b></div></div></div><div class="ch-row"><div class="ch-l">&quot;X alternatives&quot;<small>2,452 citations</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="&quot;X alternatives&quot;: 1%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="5.3" height="20" rx="3" fill="#199e70"><title>&quot;X alternatives&quot; · &quot;X alternatives&quot;: 1%</title></rect></svg><b>1%</b></div></div></div><div class="ch-row"><div class="ch-l">&quot;A vs B&quot;<small>2,278 citations</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="&quot;A vs B&quot;: 4%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="37.8" height="20" rx="3" fill="#199e70"><title>&quot;A vs B&quot; · &quot;A vs B&quot;: 4%</title></rect></svg><b>4%</b></div></div></div><div class="ch-row"><div class="ch-l">&quot;A B integration&quot;<small>4,047 citations</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="&quot;A B integration&quot;: 39%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="387.2" height="20" rx="3" fill="#199e70"><title>&quot;A B integration&quot; · &quot;A B integration&quot;: 39%</title></rect></svg><b>39%</b></div></div></div><div class="ch-row"><div class="ch-l">Integration · Google AI Overviews<small>1,154 citations</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Integration · Google AI Overviews: 19%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="187.2" height="20" rx="3" fill="#199e70"><title>Integration · Google AI Overviews · Integration · Google AI Overviews: 19%</title></rect></svg><b>19%</b></div></div></div><div class="ch-row"><div class="ch-l">Integration · ChatGPT<small>423 citations</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Integration · ChatGPT: 64%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="638.3" height="20" rx="3" fill="#199e70"><title>Integration · ChatGPT · Integration · ChatGPT: 64%</title></rect></svg><b>64%</b></div></div></div><div class="ch-row"><div class="ch-l">Integration · Gemini<small>973 citations</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Integration · Gemini: 35%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="349.4" height="20" rx="3" fill="#199e70"><title>Integration · Gemini · Integration · Gemini: 35%</title></rect></svg><b>35%</b></div></div></div><div class="ch-row"><div class="ch-l">Integration · Perplexity<small>1,497 citations</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Integration · Perplexity: 49%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="495.0" height="20" rx="3" fill="#199e70"><title>Integration · Perplexity · Integration · Perplexity: 49%</title></rect></svg><b>49%</b></div></div></div><div class="ch-row"><div class="ch-l">Integration · Claude (1 run, API)<small>339 citations</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Integration · Claude (1 run, API): 23%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="227.1" height="20" rx="3" fill="#199e70"><title>Integration · Claude (1 run, API) · Integration · Claude (1 run, API): 23%</title></rect></svg><b>23%</b></div></div></div>
+<p class="ch-cap">Docs and help centers are 1% of citations on “best” searches and 39% on integration searches (four original engines); on ChatGPT, 64%.</p></figure>
+      </div>
+    </section>
+
+    <section class="auq-section" id="engines" aria-labelledby="auq-eng-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">Five engines</p>
+        <h2 class="auq-h2" id="auq-eng-h">Each AI engine reads a different internet</h2>
+        <p class="auq-lede">Google AI Overviews cited YouTube in <span class="auq-hl">89%</span> of answers and Reddit in <span class="auq-hl">45%</span>. ChatGPT and Perplexity cited neither and leaned on software companies&rsquo; own pages (84% and 82% of citations, against 39% for Google). Claude, via the API, cited independent comparison sites more than any engine: <span class="auq-hl">19%</span> of its citations, and at least one in 65% of its answers. 65% of the pages Claude cited had &ldquo;2026&rdquo; in the title, against 22% for ChatGPT; that&rsquo;s a year-stamped title, not proof of a publish date.</p>
+        <figure class="ch"><figcaption class="ch-t">Share of citations by site type, per AI engine (all searches)</figcaption><ul class="ch-leg"><li><span class="sw" style="background:#3987e5"></span>Vendor blog &amp; content</li><li><span class="sw" style="background:#d95926"></span>Vendor product pages</li><li><span class="sw" style="background:#199e70"></span>Vendor docs</li><li><span class="sw" style="background:#c98500"></span>YouTube</li><li><span class="sw" style="background:#d55181"></span>Reddit</li><li><span class="sw" style="background:#008300"></span>Review sites</li><li><span class="sw" style="background:#9085e9"></span>Independent sites</li><li><span class="sw" style="background:#5d6b74"></span>Everything else</li></ul><div class="ch-row"><div class="ch-l">Google AI Overviews<small>3,470 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="Google AI Overviews: Vendor blog &amp; content 22%, Vendor product pages 10%, Vendor docs 7%, YouTube 34%, Reddit 6%, Review sites 5%, Independent sites 5%, Everything else 11%"><rect x="0.0" y="0" width="219.5" height="28" rx="3" fill="#3987e5"><title>Google AI Overviews · Vendor blog &amp; content: 22.2%</title></rect><rect x="222.5" y="0" width="95.8" height="28" rx="3" fill="#d95926"><title>Google AI Overviews · Vendor product pages: 9.9%</title></rect><rect x="321.3" y="0" width="66.7" height="28" rx="3" fill="#199e70"><title>Google AI Overviews · Vendor docs: 7%</title></rect><rect x="391.1" y="0" width="332.2" height="28" rx="3" fill="#c98500"><title>Google AI Overviews · YouTube: 33.5%</title></rect><rect x="726.2" y="0" width="57.5" height="28" rx="3" fill="#d55181"><title>Google AI Overviews · Reddit: 6.1%</title></rect><rect x="786.7" y="0" width="42.2" height="28" rx="3" fill="#008300"><title>Google AI Overviews · Review sites: 4.5%</title></rect><rect x="832.0" y="0" width="51.8" height="28" rx="3" fill="#9085e9"><title>Google AI Overviews · Independent sites: 5.5%</title></rect><rect x="886.7" y="0" width="110.3" height="28" rx="3" fill="#5d6b74"><title>Google AI Overviews · Everything else: 11.3%</title></rect></svg><div class="ch-tags"><span style="left:0.00%;width:22.25%">22%</span><span style="left:22.25%;width:9.88%">10%</span><span style="left:39.11%;width:33.52%">34%</span><span style="left:88.67%;width:11.33%">11%</span></div></div></div><div class="ch-row"><div class="ch-l">ChatGPT<small>3,067 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="ChatGPT: Vendor blog &amp; content 14%, Vendor product pages 58%, Vendor docs 12%, YouTube 0%, Reddit 0%, Review sites 5%, Independent sites 6%, Everything else 5%"><rect x="0.0" y="0" width="138.5" height="28" rx="3" fill="#3987e5"><title>ChatGPT · Vendor blog &amp; content: 14.2%</title></rect><rect x="141.5" y="0" width="577.0" height="28" rx="3" fill="#d95926"><title>ChatGPT · Vendor product pages: 58%</title></rect><rect x="721.6" y="0" width="116.7" height="28" rx="3" fill="#199e70"><title>ChatGPT · Vendor docs: 12%</title></rect><rect x="841.2" y="0" width="42.6" height="28" rx="3" fill="#008300"><title>ChatGPT · Review sites: 4.6%</title></rect><rect x="886.9" y="0" width="61.9" height="28" rx="3" fill="#9085e9"><title>ChatGPT · Independent sites: 6.5%</title></rect><rect x="951.7" y="0" width="45.3" height="28" rx="3" fill="#5d6b74"><title>ChatGPT · Everything else: 4.8%</title></rect></svg><div class="ch-tags"><span style="left:0.00%;width:14.15%">14%</span><span style="left:14.15%;width:58.00%">58%</span><span style="left:72.16%;width:11.97%">12%</span></div></div></div><div class="ch-row"><div class="ch-l">Gemini<small>3,014 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="Gemini: Vendor blog &amp; content 51%, Vendor product pages 8%, Vendor docs 11%, YouTube 1%, Reddit 0%, Review sites 6%, Independent sites 11%, Everything else 12%"><rect x="0.0" y="0" width="505.0" height="28" rx="3" fill="#3987e5"><title>Gemini · Vendor blog &amp; content: 50.8%</title></rect><rect x="508.0" y="0" width="77.6" height="28" rx="3" fill="#d95926"><title>Gemini · Vendor product pages: 8.1%</title></rect><rect x="588.6" y="0" width="109.8" height="28" rx="3" fill="#199e70"><title>Gemini · Vendor docs: 11.3%</title></rect><rect x="701.4" y="0" width="6.3" height="28" rx="3" fill="#c98500"><title>Gemini · YouTube: 0.9%</title></rect><rect x="710.7" y="0" width="0.5" height="28" rx="3" fill="#d55181"><title>Gemini · Reddit: 0.1%</title></rect><rect x="712.0" y="0" width="54.7" height="28" rx="3" fill="#008300"><title>Gemini · Review sites: 5.8%</title></rect><rect x="769.7" y="0" width="109.5" height="28" rx="3" fill="#9085e9"><title>Gemini · Independent sites: 11.2%</title></rect><rect x="882.2" y="0" width="114.8" height="28" rx="3" fill="#5d6b74"><title>Gemini · Everything else: 11.8%</title></rect></svg><div class="ch-tags"><span style="left:0.00%;width:50.80%">51%</span><span style="left:50.80%;width:8.06%">8%</span><span style="left:58.86%;width:11.28%">11%</span><span style="left:76.97%;width:11.25%">11%</span><span style="left:88.22%;width:11.78%">12%</span></div></div></div><div class="ch-row"><div class="ch-l">Perplexity<small>4,407 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="Perplexity: Vendor blog &amp; content 47%, Vendor product pages 17%, Vendor docs 18%, YouTube 0%, Reddit 0%, Review sites 8%, Independent sites 3%, Everything else 8%"><rect x="0.0" y="0" width="468.5" height="28" rx="3" fill="#3987e5"><title>Perplexity · Vendor blog &amp; content: 47.2%</title></rect><rect x="471.5" y="0" width="163.6" height="28" rx="3" fill="#d95926"><title>Perplexity · Vendor product pages: 16.7%</title></rect><rect x="638.1" y="0" width="174.9" height="28" rx="3" fill="#199e70"><title>Perplexity · Vendor docs: 17.8%</title></rect><rect x="816.0" y="0" width="76.6" height="28" rx="3" fill="#008300"><title>Perplexity · Review sites: 8%</title></rect><rect x="895.6" y="0" width="23.3" height="28" rx="3" fill="#9085e9"><title>Perplexity · Independent sites: 2.6%</title></rect><rect x="921.9" y="0" width="75.1" height="28" rx="3" fill="#5d6b74"><title>Perplexity · Everything else: 7.8%</title></rect></svg><div class="ch-tags"><span style="left:0.00%;width:47.15%">47%</span><span style="left:47.15%;width:16.66%">17%</span><span style="left:63.81%;width:17.79%">18%</span></div></div></div><div class="ch-row"><div class="ch-l">Claude (1 run, API)<small>964 citations</small></div>
+<div class="ch-bar"><svg viewBox="0 0 1000 28" preserveAspectRatio="none" role="img" aria-label="Claude (1 run, API): Vendor blog &amp; content 51%, Vendor product pages 8%, Vendor docs 8%, YouTube 0%, Reddit 0%, Review sites 6%, Independent sites 19%, Everything else 8%"><rect x="0.0" y="0" width="507.4" height="28" rx="3" fill="#3987e5"><title>Claude (1 run, API) · Vendor blog &amp; content: 51%</title></rect><rect x="510.4" y="0" width="75.8" height="28" rx="3" fill="#d95926"><title>Claude (1 run, API) · Vendor product pages: 7.9%</title></rect><rect x="589.2" y="0" width="77.9" height="28" rx="3" fill="#199e70"><title>Claude (1 run, API) · Vendor docs: 8.1%</title></rect><rect x="670.1" y="0" width="56.1" height="28" rx="3" fill="#008300"><title>Claude (1 run, API) · Review sites: 5.9%</title></rect><rect x="729.3" y="0" width="187.9" height="28" rx="3" fill="#9085e9"><title>Claude (1 run, API) · Independent sites: 19.1%</title></rect><rect x="920.1" y="0" width="76.9" height="28" rx="3" fill="#5d6b74"><title>Claude (1 run, API) · Everything else: 8%</title></rect></svg><div class="ch-tags"><span style="left:0.00%;width:51.04%">51%</span><span style="left:58.92%;width:8.09%">8%</span><span style="left:72.93%;width:19.09%">19%</span></div></div></div>
+<p class="ch-cap">Google AI Overviews lean on YouTube and Reddit; ChatGPT and Perplexity on software companies’ own pages; Claude cites independent sites more than any other engine (19%).</p></figure>
+        <figure class="ch"><figcaption class="ch-t">Share of answers citing at least one YouTube video or Reddit thread</figcaption><ul class="ch-leg"><li><span class="sw" style="background:#c98500"></span>YouTube</li><li><span class="sw" style="background:#d55181"></span>Reddit</li></ul><div class="ch-row"><div class="ch-l">Google AI Overviews<small>439 answers</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="YouTube: 89%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="890.7" height="20" rx="3" fill="#c98500"><title>Google AI Overviews · YouTube: 89%</title></rect></svg><b>89%</b></div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Reddit: 45%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="451.0" height="20" rx="3" fill="#d55181"><title>Google AI Overviews · Reddit: 45%</title></rect></svg><b>45%</b></div></div></div><div class="ch-row"><div class="ch-l">ChatGPT<small>441 answers</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="YouTube: 0%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="4.0" height="20" rx="3" fill="#c98500"><title>ChatGPT · YouTube: 0%</title></rect></svg><b>0%</b></div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Reddit: 0%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="4.0" height="20" rx="3" fill="#d55181"><title>ChatGPT · Reddit: 0%</title></rect></svg><b>0%</b></div></div></div><div class="ch-row"><div class="ch-l">Gemini<small>441 answers</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="YouTube: 5%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="49.9" height="20" rx="3" fill="#c98500"><title>Gemini · YouTube: 5%</title></rect></svg><b>5%</b></div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Reddit: 1%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="6.8" height="20" rx="3" fill="#d55181"><title>Gemini · Reddit: 1%</title></rect></svg><b>1%</b></div></div></div><div class="ch-row"><div class="ch-l">Perplexity<small>441 answers</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="YouTube: 0%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="4.0" height="20" rx="3" fill="#c98500"><title>Perplexity · YouTube: 0%</title></rect></svg><b>0%</b></div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Reddit: 0%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="4.0" height="20" rx="3" fill="#d55181"><title>Perplexity · Reddit: 0%</title></rect></svg><b>0%</b></div></div></div><div class="ch-row"><div class="ch-l">Claude (1 run, API)<small>147 answers</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="YouTube: 0%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="4.0" height="20" rx="3" fill="#c98500"><title>Claude (1 run, API) · YouTube: 0%</title></rect></svg><b>0%</b></div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Reddit: 0%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="4.0" height="20" rx="3" fill="#d55181"><title>Claude (1 run, API) · Reddit: 0%</title></rect></svg><b>0%</b></div></div></div>
+<p class="ch-cap">89% of Google AI Overview answers cited at least one YouTube video. ChatGPT, Perplexity and Claude never cited YouTube or Reddit.</p></figure>
+        <figure class="ch"><figcaption class="ch-t">Cited domains that showed up in all 3 runs of the same search</figcaption><div class="ch-row"><div class="ch-l">Google AI Overviews<small>1,072 search-domain pairs</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Google AI Overviews: 57%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="570.0" height="20" rx="3" fill="#3987e5"><title>Google AI Overviews · Google AI Overviews: 57%</title></rect></svg><b>57%</b></div></div></div><div class="ch-row"><div class="ch-l">ChatGPT<small>1,249 search-domain pairs</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="ChatGPT: 45%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="450.8" height="20" rx="3" fill="#3987e5"><title>ChatGPT · ChatGPT: 45%</title></rect></svg><b>45%</b></div></div></div><div class="ch-row"><div class="ch-l">Gemini<small>1,530 search-domain pairs</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Gemini: 27%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="265.4" height="20" rx="3" fill="#3987e5"><title>Gemini · Gemini: 27%</title></rect></svg><b>27%</b></div></div></div><div class="ch-row"><div class="ch-l">Perplexity<small>1,213 search-domain pairs</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Perplexity: 77%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="768.3" height="20" rx="3" fill="#3987e5"><title>Perplexity · Perplexity: 77%</title></rect></svg><b>77%</b></div></div></div>
+<p class="ch-cap">Run the same search 3 times: on Perplexity 77% of cited domains came back every time; on Gemini, 27%. Claude ran once, so it has no stability number.</p></figure>
+        <p class="auq-takeaway"><strong>What it means:</strong> there isn&rsquo;t one &ldquo;AI search.&rdquo; Videos and Reddit threads matter for Google, your own site for ChatGPT and Perplexity, and independent comparison sites for Gemini and Claude. And because answers change between identical runs, a single check can mislead.</p>
+      </div>
+    </section>
+
+    <section class="auq-section" id="zapier" aria-labelledby="auq-zap-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">The Zapier pattern</p>
+        <h2 class="auq-h2" id="auq-zap-h">zapier.com is the second most-cited website, and almost none of it is in dev tools</h2>
+        <p class="auq-lede">zapier.com was cited <span class="auq-hl">466</span> times, second only to youtube.com, in 388 of 1,764 answers (22%), and in 31% of alternatives and vs answers. Most citations were blog posts titled almost exactly like the search (about a third were on a URL containing the exact search) and pages for connecting two specific apps. Of the 466, 258 were email marketing, 148 project management, 53 help desk, 5 CI/CD and 2 observability. In dev-tool categories other vendors fill that role: Octopus Deploy, Semaphore, Harness in CI/CD; SigNoz, Dash0, New Relic in observability.</p>
+        <figure class="ch"><figcaption class="ch-t">zapier.com citations by software category (four original engines)</figcaption><div class="ch-row"><div class="ch-l">Email marketing<small>zapier.com citations</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Email marketing: 258"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="1000.0" height="20" rx="3" fill="#3987e5"><title>Email marketing · Email marketing: 258</title></rect></svg><b>258</b></div></div></div><div class="ch-row"><div class="ch-l">Project management<small>zapier.com citations</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Project management: 148"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="573.6" height="20" rx="3" fill="#3987e5"><title>Project management · Project management: 148</title></rect></svg><b>148</b></div></div></div><div class="ch-row"><div class="ch-l">Help desk<small>zapier.com citations</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Help desk: 53"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="205.4" height="20" rx="3" fill="#3987e5"><title>Help desk · Help desk: 53</title></rect></svg><b>53</b></div></div></div><div class="ch-row"><div class="ch-l">CI/CD<small>zapier.com citations</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="CI/CD: 5"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="19.4" height="20" rx="3" fill="#3987e5"><title>CI/CD · CI/CD: 5</title></rect></svg><b>5</b></div></div></div><div class="ch-row"><div class="ch-l">Observability<small>zapier.com citations</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Observability: 2"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="7.8" height="20" rx="3" fill="#3987e5"><title>Observability · Observability: 2</title></rect></svg><b>2</b></div></div></div>
+<p class="ch-cap">Of zapier.com’s 466 citations, 5 were on CI/CD searches and 2 on observability.</p></figure>
+      </div>
+    </section>
+
+    <section class="auq-section" aria-labelledby="auq-md-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">Medium and dev.to</p>
+        <h2 class="auq-h2" id="auq-md-h">Medium and dev.to barely register</h2>
+        <p class="auq-lede">Medium was <span class="auq-hl">0.6%</span> of the four engines&rsquo; citations and dev.to <span class="auq-hl">0.2%</span>; ChatGPT and Perplexity cited no Medium posts at all. Of the 52 Medium and dev.to posts the four original engines cited, 44 were written by individuals and 8 by company accounts. Buyers may trust founders and engineers more than brands, but AI answers mostly cite company-owned sites (69% of the four engines&rsquo; citations).</p>
+        <figure class="ch"><figcaption class="ch-t">Medium and dev.to as a share of citations</figcaption><ul class="ch-leg"><li><span class="sw" style="background:#3987e5"></span>Medium</li><li><span class="sw" style="background:#d95926"></span>dev.to</li></ul><div class="ch-row"><div class="ch-l">Google AI Overviews<small>3,470 citations</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Medium: 0.7%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="149.9" height="20" rx="3" fill="#3987e5"><title>Google AI Overviews · Medium: 0.7%</title></rect></svg><b>0.7%</b></div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="dev.to: 0.3%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="51.9" height="20" rx="3" fill="#d95926"><title>Google AI Overviews · dev.to: 0.3%</title></rect></svg><b>0.3%</b></div></div></div><div class="ch-row"><div class="ch-l">ChatGPT<small>3,067 citations</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Medium: 0%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="4.0" height="20" rx="3" fill="#3987e5"><title>ChatGPT · Medium: 0%</title></rect></svg><b>0%</b></div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="dev.to: 0%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="4.0" height="20" rx="3" fill="#d95926"><title>ChatGPT · dev.to: 0%</title></rect></svg><b>0%</b></div></div></div><div class="ch-row"><div class="ch-l">Gemini<small>3,014 citations</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Medium: 1.8%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="351.7" height="20" rx="3" fill="#3987e5"><title>Gemini · Medium: 1.8%</title></rect></svg><b>1.8%</b></div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="dev.to: 0.4%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="79.6" height="20" rx="3" fill="#d95926"><title>Gemini · dev.to: 0.4%</title></rect></svg><b>0.4%</b></div></div></div><div class="ch-row"><div class="ch-l">Perplexity<small>4,407 citations</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Medium: 0%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="4.0" height="20" rx="3" fill="#3987e5"><title>Perplexity · Medium: 0%</title></rect></svg><b>0%</b></div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="dev.to: 0%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="9.1" height="20" rx="3" fill="#d95926"><title>Perplexity · dev.to: 0%</title></rect></svg><b>0%</b></div></div></div><div class="ch-row"><div class="ch-l">Claude (1 run, API)<small>964 citations</small></div><div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="Medium: 0.8%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="166.0" height="20" rx="3" fill="#3987e5"><title>Claude (1 run, API) · Medium: 0.8%</title></rect></svg><b>0.8%</b></div><div class="ch-bar ch-one"><svg viewBox="0 0 1000 20" preserveAspectRatio="none" role="img" aria-label="dev.to: 0.7%"><rect x="0" y="0" width="1000" height="20" rx="3" fill="rgba(255,255,255,.05)"/><rect x="0" y="0" width="145.2" height="20" rx="3" fill="#d95926"><title>Claude (1 run, API) · dev.to: 0.7%</title></rect></svg><b>0.7%</b></div></div></div>
+<p class="ch-cap">Medium is 0.6% and dev.to 0.2% of the four original engines’ citations. ChatGPT cited neither.</p></figure>
+      </div>
+    </section>
+
+    <section class="auq-section" aria-labelledby="auq-do-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">What to do with it</p>
+        <h2 class="auq-h2" id="auq-do-h">What dev-tool marketing teams should do</h2>
+        <ol class="auq-steps">
+          <li><strong>Search your own name the way buyers do.</strong> Run &ldquo;[your product] alternatives&rdquo; and &ldquo;[you] vs [your main competitor]&rdquo; in each engine your buyers use, a few times each, and note whose pages get cited.</li>
+          <li><strong>Publish the comparison and alternatives pages you&rsquo;d want a buyer to read.</strong> Specific about where you win, honest about where you don&rsquo;t.</li>
+          <li><strong>Make your homepage and pricing page say plainly what you do.</strong> ChatGPT cites product pages directly on &ldquo;best&rdquo; searches.</li>
+          <li><strong>Get onto the roundups and review sites cited for your category.</strong> Most engines name products from someone else&rsquo;s page.</li>
+          <li><strong>Treat integration docs as a buyer-facing page.</strong> Public, both product names, plain-text setup steps.</li>
+          <li><strong>If your buyers use Google, plan for YouTube and Reddit.</strong> Google AI Overviews cited them in most answers; the other engines didn&rsquo;t.</li>
+          <li><strong>Measure AI visibility over repeated runs.</strong> Answers changed between identical runs, especially on Gemini.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="auq-section" aria-labelledby="auq-ex-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">Data explorer</p>
+        <h2 class="auq-h2" id="auq-ex-h">Explore the data</h2>
+        <div class="auq-notch">
+          <div class="auq-notch-in auq-explore-in">
+            <div class="auq-tabs" role="tablist" aria-label="Dataset views">
+              <button class="auq-tab" role="tab" id="auq-tab-share" aria-controls="auq-panel-share" aria-selected="true" data-tab="share">Site-type shares<span class="auq-tab-count">16</span></button>
+              <button class="auq-tab" role="tab" id="auq-tab-dom" aria-controls="auq-panel-dom" aria-selected="false" tabindex="-1" data-tab="dom">Top domains<span class="auq-tab-count">60</span></button>
+            </div>
+            <noscript><p class="auq-lede">Turn on JavaScript to filter and explore the data.</p></noscript>
+            <div role="tabpanel" id="auq-panel-share" aria-labelledby="auq-tab-share">
+              <div class="auq-filters">
+                <div class="auq-field"><label class="auq-label" for="ex-engine">AI engine</label><select class="auq-select" id="ex-engine"></select></div>
+                <div class="auq-field"><label class="auq-label" for="ex-type">Search type</label><select class="auq-select" id="ex-type"></select></div>
+              </div>
+              <p class="auq-count" id="ex-share-count" aria-live="polite"></p>
+              <div class="auq-table-scroll" style="margin-top:12px" tabindex="0" role="region" aria-label="Share of citations by site type">
+                <table class="auq-table" id="ex-share-table"><thead><tr><th scope="col">Site type</th><th scope="col" class="auq-num">Share of citations</th><th scope="col" class="auq-num">Citations</th></tr></thead><tbody></tbody></table>
+              </div>
+            </div>
+            <div role="tabpanel" id="auq-panel-dom" aria-labelledby="auq-tab-dom" class="auq-hidden">
+              <div class="auq-filters">
+                <div class="auq-field"><label class="auq-label" for="ex-dtype">Site type</label><select class="auq-select" id="ex-dtype"></select></div>
+                <div class="auq-field auq-field-wide"><label class="auq-label" for="ex-dq">Search domains</label><input class="auq-input" id="ex-dq" type="search" placeholder="e.g. zapier, docs, g2" autocomplete="off"></div>
+              </div>
+              <p class="auq-count" id="ex-dom-count" aria-live="polite"></p>
+              <div class="auq-table-scroll" style="margin-top:12px" tabindex="0" role="region" aria-label="Top 60 cited domains, scrolls horizontally">
+                <table class="auq-table" id="ex-dom-table"><thead><tr>
+                  <th scope="col"><button class="auq-sort" data-s="domain">Domain<span class="auq-sort-ind"></span></button></th>
+                  <th scope="col">Site type</th>
+                  <th scope="col" class="auq-num"><button class="auq-sort" data-s="all">All<span class="auq-sort-ind"></span></button></th>
+                  <th scope="col" class="auq-num"><button class="auq-sort" data-s="aio">AI Overviews<span class="auq-sort-ind"></span></button></th>
+                  <th scope="col" class="auq-num"><button class="auq-sort" data-s="chatgpt">ChatGPT<span class="auq-sort-ind"></span></button></th>
+                  <th scope="col" class="auq-num"><button class="auq-sort" data-s="gemini">Gemini<span class="auq-sort-ind"></span></button></th>
+                  <th scope="col" class="auq-num"><button class="auq-sort" data-s="perplexity">Perplexity<span class="auq-sort-ind"></span></button></th>
+                  <th scope="col" class="auq-num"><button class="auq-sort" data-s="claude">Claude*<span class="auq-sort-ind"></span></button></th>
+                  <th scope="col" class="auq-num"><button class="auq-sort" data-s="answers">Answers citing<span class="auq-sort-ind"></span></button></th>
+                </tr></thead><tbody></tbody></table>
+                <p class="auq-empty auq-hidden" id="ex-dom-empty">No domains match these filters.</p>
+              </div>
+              <p class="auq-srcnote">Citations per website (subdomains listed separately). &ldquo;All&rdquo; and &ldquo;Answers citing&rdquo; (of 1,764) cover the original four engines. *Claude: 1 run, via the API.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="auq-section" aria-labelledby="auq-dl-h">
+      <div class="auq-wrap">
+        <p class="auq-eyebrow">Download</p>
+        <h2 class="auq-h2" id="auq-dl-h">Download the data</h2>
+        <p class="auq-lede">The site-type share tables (every engine &times; search type) and the top 60 domains, as CSV.</p>
+        <div class="auq-dl">
+          <button type="button" class="auq-btn" data-dl="shares">Site-type shares (CSV)<span class="auq-btn-arrow" aria-hidden="true">&darr;</span></button>
+          <button type="button" class="auq-btn" data-dl="domains">Top 60 domains (CSV)<span class="auq-btn-arrow" aria-hidden="true">&darr;</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="auq-section" aria-labelledby="auq-cta-h">
+      <div class="auq-wrap">
+        <div class="auq-notch">
+          <div class="auq-notch-in auq-cta-in">
+            <div>
+              <p class="auq-eyebrow">Your category</p>
+              <h2 class="auq-h2" id="auq-cta-h">Want to see where AI answers send your buyers?</h2>
+              <p class="auq-lede">We can run this analysis on the searches in your category and show you whose pages get cited when buyers ask about you.</p>
+            </div>
+            <a class="auq-btn" href="https://auq.io/contact-us/" data-auq-cta="after_data">Run this for your category<span class="auq-btn-arrow" aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="auq-footer">
+    <div class="auq-wrap">
+      <a class="auq-logo" href="https://auq.io/" aria-label="AUQ.IO home">
+        <svg width="119" height="31" viewBox="0 0 119 31" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g fill="none" fill-rule="evenodd"><rect fill="#00FFF8" x="14" y="18" width="7" height="7" rx="2"></rect><path d="M21 13.631a1 1 0 1 1-2 0V12a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v8a3 3 0 0 0 2.824 2.995L6 23a1 1 0 0 1 0 2 5 5 0 0 1-5-5v-8a5 5 0 0 1 5-5h10a5 5 0 0 1 5 5v1.631zM6 25a1 1 0 0 1 0-2h4.492a1 1 0 0 1 0 2H6z" fill="#FFF" fill-rule="nonzero"></path><path d="M45.028 25c.19 0 .364-.035.52-.104.468-.19.702-.494.702-.91 0-.19-.035-.364-.104-.52L39.854 8.23c-.19-.537-.572-.823-1.144-.858h-.052c-.555 0-.962.286-1.222.858l-6.188 15.236c-.07.156-.104.33-.104.52 0 .433.243.737.728.91.156.07.32.104.494.104.416 0 .72-.234.91-.702l1.352-3.406h8.086l1.404 3.406c.19.468.494.702.91.702zm-3.198-6.292h-6.344l3.094-7.878 3.25 7.878zM58.704 25c1.993 0 3.462-.472 4.407-1.417.945-.945 1.417-2.414 1.417-4.407V8.464c0-.728-.364-1.092-1.092-1.092-.728 0-1.092.364-1.092 1.092v10.712c0 .953-.113 1.686-.338 2.197-.225.511-.594.88-1.105 1.105-.511.225-1.244.338-2.197.338h-3.12c-.953 0-1.686-.113-2.197-.338a2.088 2.088 0 0 1-1.105-1.105c-.225-.511-.338-1.244-.338-2.197V8.464c0-.728-.364-1.092-1.092-1.092-.728 0-1.092.364-1.092 1.092v10.712c0 1.993.472 3.462 1.417 4.407.945.945 2.414 1.417 4.407 1.417h3.12zm24.284 2.132c.19 0 .399-.095.624-.286.225-.208.338-.433.338-.676a.822.822 0 0 0-.26-.598l-1.612-1.690c1.161-.953 1.742-2.522 1.742-4.706v-5.98c0-1.993-.472-3.462-1.417-4.407-.945-.945-2.414-1.417-4.407-1.417h-3.12c-1.976-.017-3.44.446-4.394 1.391-.953.945-1.43 2.414-1.43 4.407v6.006c0 1.993.472 3.462 1.417 4.407.945.945 2.414 1.417 4.407 1.417h3.12c.936 0 1.716-.095 2.34-.286l1.976 2.106c.243.208.468.312.676.312zm-4.472-4.316h-3.64c-.953 0-1.686-.113-2.197-.338a2.088 2.088 0 0 1-1.105-1.105c-.225-.511-.338-1.244-.338-2.197V13.17c0-.936.113-1.664.338-2.184.225-.52.598-.893 1.118-1.118.52-.225 1.248-.33 2.184-.312h3.12c.936 0 1.664.113 2.184.338.52.225.893.598 1.118 1.118.225.52.338 1.248.338 2.184v5.98c0 .815-.082 1.469-.247 1.963-.165.494-.438.871-.819 1.131l-1.378-1.430c-.26-.225-.485-.338-.676-.338-.225 0-.442.104-.65.312-.208.208-.312.425-.312.65 0 .225.095.433.286.624l.676.728zM89.878 25c.33 0 .576-.091.741-.273.165-.182.247-.438.247-.767v-.65c0-.676-.33-1.014-.988-1.014h-.624c-.33 0-.585.087-.767.26-.182.173-.273.425-.273.754v.65c0 .33.091.585.273.767.182.182.438.273.767.273h.624zm6.968 0c.381 0 .659-.087.832-.26.173-.173.26-.45.26-.832V8.49c0-.381-.087-.659-.26-.832-.173-.173-.45-.26-.832-.26-.381 0-.659.087-.832.26-.173.173-.26.45-.26.832v15.418c0 .381.087.659.26.832.173.173.45.26.832.26zm14.82 0c1.993 0 3.462-.472 4.407-1.417.945-.945 1.417-2.414 1.417-4.407v-5.98c0-1.993-.472-3.462-1.417-4.407-.945-.945-2.414-1.417-4.407-1.417h-3.12c-1.976-.017-3.44.446-4.394 1.391-.953.945-1.43 2.414-1.43 4.407v6.006c0 1.993.472 3.462 1.417 4.407.945.945 2.414 1.417 4.407 1.417h3.12zm0-2.184h-3.12c-.953 0-1.686-.113-2.197-.338a2.088 2.088 0 0 1-1.105-1.105c-.225-.511-.338-1.244-.338-2.197V13.17c0-.936.113-1.664.338-2.184.225-.52.598-.893 1.118-1.118.52-.225 1.248-.33 2.184-.312h3.12c.936 0 1.664.113 2.184.338.52.225.893.598 1.118 1.118.225.52.338 1.248.338 2.184v5.98c0 .953-.113 1.686-.338 2.197-.225.511-.594.88-1.105 1.105-.511.225-1.244.338-2.197.338z" fill="#FFF" fill-rule="nonzero"></path></g></svg>
+      </a>
+      <div class="auq-footer-meta"><a href="https://auq.io/">auq.io</a><a href="https://auq.io/research/">Research</a><span>&copy; AUQ</span></div>
+    </div>
+  </footer>
+
+</div>
+<!-- ===== AUQ STUDY: EMBED END ===== -->
+<script type="application/json" id="auq-study-data">{"engines": [["all", "All four original engines"], ["aio", "Google AI Overviews"], ["chatgpt", "ChatGPT"], ["gemini", "Gemini"], ["perplexity", "Perplexity"], ["claude", "Claude (1 run, API)"]], "types": [["all", "All search types"], ["best", "\"Best\" searches"], ["alternatives_comparisons", "Alternatives & vs searches"], ["integrations", "Integration searches"]], "site_types": [{"code": "vendor_blog", "label": "Vendor blog & content (articles, comparison/alternatives pages, guides)"}, {"code": "vendor_site", "label": "Vendor product & integration pages (homepages, pricing, app listings)"}, {"code": "vendor_docs", "label": "Vendor docs & help centers"}, {"code": "youtube", "label": "YouTube"}, {"code": "reddit", "label": "Reddit"}, {"code": "review_site", "label": "Review & directory sites (G2, Capterra, Gartner reviews...)"}, {"code": "independent_site", "label": "Independent sites (agencies, affiliates, comparison publishers, personal blogs)"}, {"code": "media", "label": "Media / publications"}, {"code": "forums_qa", "label": "Forums & Q&A (Stack Overflow, vendor communities...)"}, {"code": "github", "label": "GitHub"}, {"code": "medium", "label": "Medium"}, {"code": "devto", "label": "dev.to"}, {"code": "other_blog_platform", "label": "Other blogging platforms (Substack, Hashnode, LinkedIn articles...)"}, {"code": "social", "label": "Social (LinkedIn posts, Facebook, X)"}, {"code": "other", "label": "Other (education, government, app stores, off-topic)"}, {"code": "unreviewed", "label": "Unclassified (domains cited only once)"}], "share_by_engine": {"vendor_blog": {"aio": 0.222478386167147, "chatgpt": 0.141506358004565, "gemini": 0.507962840079628, "perplexity": 0.471522577717268, "claude": 0.510373443983403, "all": 0.344963461814014}, "vendor_site": {"aio": 0.0988472622478386, "chatgpt": 0.58004564721226, "gemini": 0.0806237558062376, "perplexity": 0.166553210800998, "claude": 0.0788381742738589, "all": 0.222023212494627}, "vendor_docs": {"aio": 0.0697406340057637, "chatgpt": 0.119660906423215, "gemini": 0.112806901128069, "perplexity": 0.177898797367824, "claude": 0.0809128630705394, "all": 0.124158188852271}, "youtube": {"aio": 0.335158501440922, "chatgpt": 0, "gemini": 0.0092899800928998, "perplexity": 0, "claude": 0, "all": 0.0853274108038401}, "reddit": {"aio": 0.0605187319884726, "chatgpt": 0, "gemini": 0.0013271400132714, "perplexity": 0, "claude": 0, "all": 0.0153317094139562}, "review_site": {"aio": 0.0452449567723343, "chatgpt": 0.045647212259537, "gemini": 0.0577305905773059, "perplexity": 0.079646017699115, "claude": 0.0591286307053942, "all": 0.0588909585900559}, "independent_site": {"aio": 0.0547550432276657, "chatgpt": 0.0648842517117705, "gemini": 0.112475116124751, "perplexity": 0.0263217608350352, "claude": 0.190871369294606, "all": 0.0604671156326121}, "media": {"aio": 0.0112391930835735, "chatgpt": 0.0143462667101402, "gemini": 0.0169210351692104, "perplexity": 0.055593374177445, "claude": 0.0238589211618257, "all": 0.027152887233128}, "forums_qa": {"aio": 0.0363112391930836, "chatgpt": 0.00163025758069775, "gemini": 0.0172528201725282, "perplexity": 0.00272294077603812, "claude": 0.0197095435684647, "all": 0.013970482877203}, "github": {"aio": 0.0100864553314121, "chatgpt": 0.0120639060971634, "gemini": 0.00895819508958195, "perplexity": 0.012026321760835, "claude": 0.016597510373444, "all": 0.0108898122940249}, "medium": {"aio": 0.00749279538904899, "chatgpt": 0, "gemini": 0.0175846051758461, "perplexity": 0, "claude": 0.00829875518672199, "all": 0.00565983665281559}, "devto": {"aio": 0.00259365994236311, "chatgpt": 0, "gemini": 0.0039814200398142, "perplexity": 0.00045382346267302, "claude": 0.00726141078838174, "all": 0.00164780054449061}, "other_blog_platform": {"aio": 0.00518731988472623, "chatgpt": 0.0039126181936746, "gemini": 0.00165892501658925, "perplexity": 0.00068073519400953, "claude": 0.0020746887966805, "all": 0.00272245307350623}, "social": {"aio": 0.0121037463976945, "chatgpt": 0, "gemini": 0, "perplexity": 0, "claude": 0, "all": 0.00300902708124373}, "other": {"aio": 0.0121037463976945, "chatgpt": 0.0019563090968373, "gemini": 0.00298606502986065, "perplexity": 0.00317676423871114, "claude": 0.0020746887966805, "all": 0.00508668863734059}, "unreviewed": {"aio": 0.0161383285302594, "chatgpt": 0.0143462667101402, "gemini": 0.0484406104844061, "perplexity": 0.00340367597004765, "claude": 0, "all": 0.0186989540048718}}, "share_by_engine_total": {"aio": 3470, "chatgpt": 3067, "gemini": 3014, "perplexity": 4407, "claude": 964, "all": 13958}, "share_by_search_type": {"vendor_blog": {"best": 0.385060799073538, "alternatives_comparisons": 0.498097251585624, "integrations": 0.114652829256239}, "vendor_site": {"best": 0.237405906195715, "alternatives_comparisons": 0.154334038054968, "integrations": 0.281443044230294}, "vendor_docs": {"best": 0.0129318664350511, "alternatives_comparisons": 0.0209302325581395, "integrations": 0.387200395354584}, "youtube": {"best": 0.0789422891333719, "alternatives_comparisons": 0.0780126849894292, "integrations": 0.102050901902644}, "reddit": {"best": 0.0167921250723799, "alternatives_comparisons": 0.020507399577167, "integrations": 0.00741289844329133}, "review_site": {"best": 0.0887859486585601, "alternatives_comparisons": 0.0752642706131078, "integrations": 0.00148257968865827}, "independent_site": {"best": 0.072765875313646, "alternatives_comparisons": 0.0813953488372093, "integrations": 0.020261922411663}, "media": {"best": 0.0579038795599305, "alternatives_comparisons": 0.0156448202959831, "integrations": 0.00123548307388189}, "forums_qa": {"best": 0.00501833622852731, "alternatives_comparisons": 0.006553911205074, "integrations": 0.0340993328391401}, "github": {"best": 0.00617641381972592, "alternatives_comparisons": 0.00570824524312896, "integrations": 0.0229799851742031}, "medium": {"best": 0.00270218104613009, "alternatives_comparisons": 0.00782241014799154, "integrations": 0.00691870521373857}, "devto": {"best": 0.00077205172746574, "alternatives_comparisons": 0.00190274841437632, "integrations": 0.00247096614776378}, "other_blog_platform": {"best": 0.00405327156919514, "alternatives_comparisons": 0.00232558139534884, "integrations": 0.00148257968865827}, "social": {"best": 0.00501833622852731, "alternatives_comparisons": 0.00295983086680761, "integrations": 0.000494193229552755}, "other": {"best": 0.00810654313839027, "alternatives_comparisons": 0.00443974630021142, "integrations": 0.00197677291821102}, "unreviewed": {"best": 0.0175641767998456, "alternatives_comparisons": 0.0241014799154334, "integrations": 0.0138374104274771}}, "share_by_search_type_total": {"best": 5181, "alternatives_comparisons": 4730, "integrations": 4047}, "engine_x_type": {"vendor_blog": {"aio|best": 0.183437221727516, "aio|alternatives_comparisons": 0.376362112321878, "aio|integrations": 0.101386481802426, "chatgpt|best": 0.117259552042161, "chatgpt|alternatives_comparisons": 0.206039076376554, "chatgpt|integrations": 0.0567375886524823, "gemini|best": 0.647272727272727, "gemini|alternatives_comparisons": 0.665249734325186, "gemini|integrations": 0.198355601233299, "perplexity|best": 0.624305555555556, "perplexity|alternatives_comparisons": 0.713605442176871, "perplexity|integrations": 0.0868403473613894, "claude|best": 0.64968152866242, "claude|alternatives_comparisons": 0.636655948553055, "claude|integrations": 0.265486725663717}, "vendor_site": {"aio|best": 0.0783615316117542, "aio|alternatives_comparisons": 0.0176026823134954, "aio|integrations": 0.202772963604853, "chatgpt|best": 0.662055335968379, "chatgpt|alternatives_comparisons": 0.58259325044405, "chatgpt|integrations": 0.278959810874705, "gemini|best": 0.0209090909090909, "gemini|alternatives_comparisons": 0.0159404888416578, "gemini|integrations": 0.210688591983556, "perplexity|best": 0.0791666666666667, "perplexity|alternatives_comparisons": 0.0258503401360544, "perplexity|integrations": 0.38877755511022, "claude|best": 0.0318471337579618, "claude|alternatives_comparisons": 0, "claude|integrations": 0.194690265486726}, "vendor_docs": {"aio|best": 0.006233303650935, "aio|alternatives_comparisons": 0.0159262363788768, "aio|integrations": 0.187175043327556, "chatgpt|best": 0.0289855072463768, "chatgpt|alternatives_comparisons": 0.047069271758437, "chatgpt|integrations": 0.638297872340426, "gemini|best": 0, "gemini|alternatives_comparisons": 0, "gemini|integrations": 0.349434737923947, "perplexity|best": 0.0111111111111111, "perplexity|alternatives_comparisons": 0.0183673469387755, "perplexity|integrations": 0.49498997995992, "claude|best": 0, "claude|alternatives_comparisons": 0.00321543408360129, "claude|integrations": 0.227138643067847}, "youtube": {"aio|best": 0.357969723953696, "aio|alternatives_comparisons": 0.308466051969824, "aio|integrations": 0.340554592720971, "chatgpt|best": 0, "chatgpt|alternatives_comparisons": 0, "chatgpt|integrations": 0, "gemini|best": 0.00636363636363636, "gemini|alternatives_comparisons": 0.00106269925611052, "gemini|integrations": 0.0205549845837616, "perplexity|best": 0, "perplexity|alternatives_comparisons": 0, "perplexity|integrations": 0, "claude|best": 0, "claude|alternatives_comparisons": 0, "claude|integrations": 0}, "reddit": {"aio|best": 0.07479964381122, "aio|alternatives_comparisons": 0.0804694048616932, "aio|integrations": 0.0259965337954939, "chatgpt|best": 0, "chatgpt|alternatives_comparisons": 0, "chatgpt|integrations": 0, "gemini|best": 0.00272727272727273, "gemini|alternatives_comparisons": 0.00106269925611052, "gemini|integrations": 0, "perplexity|best": 0, "perplexity|alternatives_comparisons": 0, "perplexity|integrations": 0, "claude|best": 0, "claude|alternatives_comparisons": 0, "claude|integrations": 0}, "review_site": {"aio|best": 0.0979519145146928, "aio|alternatives_comparisons": 0.0360435875943001, "aio|integrations": 0.00346620450606586, "chatgpt|best": 0.0507246376811594, "chatgpt|alternatives_comparisons": 0.0559502664298401, "chatgpt|integrations": 0, "gemini|best": 0.0945454545454545, "gemini|alternatives_comparisons": 0.0722635494155154, "gemini|integrations": 0.00205549845837616, "perplexity|best": 0.117361111111111, "perplexity|alternatives_comparisons": 0.123809523809524, "perplexity|integrations": 0, "claude|best": 0.0828025477707006, "claude|alternatives_comparisons": 0.0932475884244373, "claude|integrations": 0.00589970501474926}, "independent_site": {"aio|best": 0.0650044523597507, "aio|alternatives_comparisons": 0.0829840737636211, "aio|integrations": 0.0155979202772964, "chatgpt|best": 0.0797101449275362, "chatgpt|alternatives_comparisons": 0.0692717584369449, "chatgpt|integrations": 0, "gemini|best": 0.130909090909091, "gemini|alternatives_comparisons": 0.139213602550478, "gemini|integrations": 0.065775950668037, "perplexity|best": 0.0270833333333333, "perplexity|alternatives_comparisons": 0.0523809523809524, "perplexity|integrations": 0, "claude|best": 0.187898089171975, "claude|alternatives_comparisons": 0.228295819935691, "claude|integrations": 0.15929203539823}, "media": {"aio|best": 0.0258236865538736, "aio|alternatives_comparisons": 0.00670578373847443, "aio|integrations": 0.00173310225303293, "chatgpt|best": 0.0270092226613966, "chatgpt|alternatives_comparisons": 0.00266429840142096, "chatgpt|integrations": 0, "gemini|best": 0.0327272727272727, "gemini|alternatives_comparisons": 0.0127523910733262, "gemini|integrations": 0.00308324768756423, "perplexity|best": 0.134722222222222, "perplexity|alternatives_comparisons": 0.0346938775510204, "perplexity|integrations": 0, "claude|best": 0.0414012738853503, "claude|alternatives_comparisons": 0.00643086816720257, "claude|integrations": 0.0235988200589971}, "forums_qa": {"aio|best": 0.0204808548530721, "aio|alternatives_comparisons": 0.0159262363788768, "aio|integrations": 0.072790294627383, "chatgpt|best": 0.000658761528326746, "chatgpt|alternatives_comparisons": 0.00266429840142096, "chatgpt|integrations": 0.00236406619385343, "gemini|best": 0, "gemini|alternatives_comparisons": 0.00318809776833156, "gemini|integrations": 0.0503597122302158, "perplexity|best": 0.00138888888888889, "perplexity|alternatives_comparisons": 0.00408163265306123, "perplexity|integrations": 0.00267201068804275, "claude|best": 0.00318471337579618, "claude|alternatives_comparisons": 0.00964630225080386, "claude|integrations": 0.0442477876106195}, "github": {"aio|best": 0.00356188780053428, "aio|alternatives_comparisons": 0.00167644593461861, "aio|integrations": 0.0251299826689775, "chatgpt|best": 0.0138339920948617, "chatgpt|alternatives_comparisons": 0.00799289520426288, "chatgpt|integrations": 0.016548463356974, "gemini|best": 0.00636363636363636, "gemini|alternatives_comparisons": 0.00212539851222104, "gemini|integrations": 0.0184994861253854, "perplexity|best": 0, "perplexity|alternatives_comparisons": 0.00952380952380953, "perplexity|integrations": 0.0260521042084168, "claude|best": 0, "claude|alternatives_comparisons": 0, "claude|integrations": 0.0471976401179941}, "medium": {"aio|best": 0.00445235975066785, "aio|alternatives_comparisons": 0.0142497904442582, "aio|integrations": 0.00346620450606586, "chatgpt|best": 0, "chatgpt|alternatives_comparisons": 0, "chatgpt|integrations": 0, "gemini|best": 0.00818181818181818, "gemini|alternatives_comparisons": 0.0212539851222104, "gemini|integrations": 0.0246659815005139, "perplexity|best": 0, "perplexity|alternatives_comparisons": 0, "perplexity|integrations": 0, "claude|best": 0, "claude|alternatives_comparisons": 0.00321543408360129, "claude|integrations": 0.0206489675516224}, "devto": {"aio|best": 0.00356188780053428, "aio|alternatives_comparisons": 0.000838222967309304, "aio|integrations": 0.00346620450606586, "chatgpt|best": 0, "chatgpt|alternatives_comparisons": 0, "chatgpt|integrations": 0, "gemini|best": 0, "gemini|alternatives_comparisons": 0.00637619553666312, "gemini|integrations": 0.00616649537512847, "perplexity|best": 0, "perplexity|alternatives_comparisons": 0.00136054421768707, "perplexity|integrations": 0, "claude|best": 0, "claude|alternatives_comparisons": 0.0160771704180064, "claude|integrations": 0.00589970501474926}, "other_blog_platform": {"aio|best": 0.00890471950133571, "aio|alternatives_comparisons": 0.00586756077116513, "aio|integrations": 0.000866551126516464, "chatgpt|best": 0.00658761528326746, "chatgpt|alternatives_comparisons": 0.00088809946714032, "chatgpt|integrations": 0.00236406619385343, "gemini|best": 0.000909090909090909, "gemini|alternatives_comparisons": 0, "gemini|integrations": 0.00411099691675231, "perplexity|best": 0, "perplexity|alternatives_comparisons": 0.00204081632653061, "perplexity|integrations": 0, "claude|best": 0, "claude|alternatives_comparisons": 0.00321543408360129, "claude|integrations": 0.00294985250737463}, "social": {"aio|best": 0.0231522707034728, "aio|alternatives_comparisons": 0.0117351215423303, "aio|integrations": 0.00173310225303293, "chatgpt|best": 0, "chatgpt|alternatives_comparisons": 0, "chatgpt|integrations": 0, "gemini|best": 0, "gemini|alternatives_comparisons": 0, "gemini|integrations": 0, "perplexity|best": 0, "perplexity|alternatives_comparisons": 0, "perplexity|integrations": 0, "claude|best": 0, "claude|alternatives_comparisons": 0, "claude|integrations": 0}, "other": {"aio|best": 0.0320569902048085, "aio|alternatives_comparisons": 0.00251466890192791, "aio|integrations": 0.00259965337954939, "chatgpt|best": 0, "chatgpt|alternatives_comparisons": 0.00532859680284192, "chatgpt|integrations": 0, "gemini|best": 0.00272727272727273, "gemini|alternatives_comparisons": 0.00106269925611052, "gemini|integrations": 0.00513874614594039, "perplexity|best": 0.00208333333333333, "perplexity|alternatives_comparisons": 0.00748299319727891, "perplexity|integrations": 0, "claude|best": 0.00318471337579618, "claude|alternatives_comparisons": 0, "claude|integrations": 0.00294985250737463}, "unreviewed": {"aio|best": 0.0142475512021371, "aio|alternatives_comparisons": 0.0226320201173512, "aio|integrations": 0.011265164644714, "chatgpt|best": 0.0131752305665349, "chatgpt|alternatives_comparisons": 0.019538188277087, "chatgpt|integrations": 0.00472813238770686, "gemini|best": 0.0463636363636364, "gemini|alternatives_comparisons": 0.0584484590860786, "gemini|integrations": 0.0411099691675231, "perplexity|best": 0.00277777777777778, "perplexity|alternatives_comparisons": 0.00680272108843537, "perplexity|integrations": 0.000668002672010688, "claude|best": 0, "claude|alternatives_comparisons": 0, "claude|integrations": 0}}, "engine_x_type_total": {"aio|best": 1123, "aio|alternatives_comparisons": 1193, "aio|integrations": 1154, "chatgpt|best": 1518, "chatgpt|alternatives_comparisons": 1126, "chatgpt|integrations": 423, "gemini|best": 1100, "gemini|alternatives_comparisons": 941, "gemini|integrations": 973, "perplexity|best": 1440, "perplexity|alternatives_comparisons": 1470, "perplexity|integrations": 1497, "claude|best": 314, "claude|alternatives_comparisons": 311, "claude|integrations": 339}, "top_domains": [{"domain": "youtube.com", "site_type": "YouTube", "all": 1175, "aio": 1147, "chatgpt": 0, "gemini": 28, "perplexity": 0, "claude": 0, "answers": 413}, {"domain": "zapier.com", "site_type": "Vendor product & integration pages (homepages, pricing, app listings)", "all": 466, "aio": 118, "chatgpt": 80, "gemini": 91, "perplexity": 177, "claude": 21, "answers": 388}, {"domain": "mailchimp.com", "site_type": "Vendor product & integration pages (homepages, pricing, app listings)", "all": 288, "aio": 47, "chatgpt": 85, "gemini": 39, "perplexity": 117, "claude": 4, "answers": 155}, {"domain": "atlassian.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 219, "aio": 43, "chatgpt": 80, "gemini": 41, "perplexity": 55, "claude": 3, "answers": 176}, {"domain": "asana.com", "site_type": "Vendor product & integration pages (homepages, pricing, app listings)", "all": 218, "aio": 24, "chatgpt": 78, "gemini": 32, "perplexity": 84, "claude": 7, "answers": 133}, {"domain": "intercom.com", "site_type": "Vendor docs & help centers", "all": 216, "aio": 31, "chatgpt": 56, "gemini": 32, "perplexity": 97, "claude": 8, "answers": 92}, {"domain": "reddit.com", "site_type": "Reddit", "all": 214, "aio": 210, "chatgpt": 0, "gemini": 4, "perplexity": 0, "claude": 0, "answers": 201}, {"domain": "support.atlassian.com", "site_type": "Vendor docs & help centers", "all": 196, "aio": 29, "chatgpt": 47, "gemini": 54, "perplexity": 66, "claude": 11, "answers": 117}, {"domain": "zendesk.com", "site_type": "Vendor product & integration pages (homepages, pricing, app listings)", "all": 196, "aio": 31, "chatgpt": 66, "gemini": 25, "perplexity": 74, "claude": 11, "answers": 131}, {"domain": "docs.datadoghq.com", "site_type": "Vendor docs & help centers", "all": 196, "aio": 21, "chatgpt": 21, "gemini": 40, "perplexity": 114, "claude": 15, "answers": 55}, {"domain": "slack.com", "site_type": "Vendor docs & help centers", "all": 167, "aio": 41, "chatgpt": 3, "gemini": 26, "perplexity": 97, "claude": 2, "answers": 92}, {"domain": "g2.com", "site_type": "Review & directory sites (G2, Capterra, Gartner reviews...)", "all": 159, "aio": 45, "chatgpt": 23, "gemini": 9, "perplexity": 82, "claude": 2, "answers": 155}, {"domain": "support.zendesk.com", "site_type": "Vendor docs & help centers", "all": 153, "aio": 25, "chatgpt": 28, "gemini": 27, "perplexity": 73, "claude": 7, "answers": 53}, {"domain": "github.com", "site_type": "GitHub", "all": 140, "aio": 33, "chatgpt": 37, "gemini": 17, "perplexity": 53, "claude": 15, "answers": 101}, {"domain": "servicenow.com", "site_type": "Forums & Q&A (Stack Overflow, vendor communities...)", "all": 134, "aio": 28, "chatgpt": 18, "gemini": 37, "perplexity": 51, "claude": 5, "answers": 47}, {"domain": "docs.gitlab.com", "site_type": "Vendor docs & help centers", "all": 122, "aio": 18, "chatgpt": 25, "gemini": 19, "perplexity": 60, "claude": 0, "answers": 44}, {"domain": "gartner.com", "site_type": "Review & directory sites (G2, Capterra, Gartner reviews...)", "all": 121, "aio": 53, "chatgpt": 6, "gemini": 51, "perplexity": 11, "claude": 0, "answers": 120}, {"domain": "clickup.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 110, "aio": 4, "chatgpt": 61, "gemini": 2, "perplexity": 43, "claude": 2, "answers": 77}, {"domain": "grafana.com", "site_type": "Vendor docs & help centers", "all": 109, "aio": 11, "chatgpt": 49, "gemini": 12, "perplexity": 37, "claude": 3, "answers": 63}, {"domain": "activecampaign.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 103, "aio": 9, "chatgpt": 39, "gemini": 22, "perplexity": 33, "claude": 1, "answers": 79}, {"domain": "learn.microsoft.com", "site_type": "Vendor docs & help centers", "all": 100, "aio": 18, "chatgpt": 17, "gemini": 15, "perplexity": 50, "claude": 4, "answers": 30}, {"domain": "help.asana.com", "site_type": "Vendor docs & help centers", "all": 97, "aio": 12, "chatgpt": 26, "gemini": 22, "perplexity": 37, "claude": 0, "answers": 41}, {"domain": "pcmag.com", "site_type": "Media / publications", "all": 94, "aio": 18, "chatgpt": 0, "gemini": 34, "perplexity": 42, "claude": 0, "answers": 93}, {"domain": "octopus.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 93, "aio": 26, "chatgpt": 7, "gemini": 21, "perplexity": 39, "claude": 0, "answers": 85}, {"domain": "salesforce.com", "site_type": "Vendor product & integration pages (homepages, pricing, app listings)", "all": 89, "aio": 18, "chatgpt": 8, "gemini": 6, "perplexity": 57, "claude": 1, "answers": 82}, {"domain": "freshworks.com", "site_type": "Vendor product & integration pages (homepages, pricing, app listings)", "all": 89, "aio": 6, "chatgpt": 58, "gemini": 1, "perplexity": 24, "claude": 0, "answers": 71}, {"domain": "signoz.io", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 89, "aio": 19, "chatgpt": 29, "gemini": 19, "perplexity": 22, "claude": 7, "answers": 85}, {"domain": "brevo.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 87, "aio": 3, "chatgpt": 43, "gemini": 5, "perplexity": 36, "claude": 4, "answers": 75}, {"domain": "datadoghq.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 87, "aio": 18, "chatgpt": 58, "gemini": 8, "perplexity": 3, "claude": 4, "answers": 72}, {"domain": "forbes.com", "site_type": "Media / publications", "all": 83, "aio": 3, "chatgpt": 0, "gemini": 3, "perplexity": 77, "claude": 1, "answers": 79}, {"domain": "zoho.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 82, "aio": 9, "chatgpt": 38, "gemini": 0, "perplexity": 35, "claude": 0, "answers": 70}, {"domain": "newrelic.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 82, "aio": 7, "chatgpt": 38, "gemini": 16, "perplexity": 21, "claude": 1, "answers": 72}, {"domain": "motadata.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 82, "aio": 3, "chatgpt": 1, "gemini": 37, "perplexity": 41, "claude": 5, "answers": 77}, {"domain": "capterra.com", "site_type": "Review & directory sites (G2, Capterra, Gartner reviews...)", "all": 80, "aio": 0, "chatgpt": 24, "gemini": 9, "perplexity": 47, "claude": 5, "answers": 78}, {"domain": "trello.com", "site_type": "Vendor product & integration pages (homepages, pricing, app listings)", "all": 75, "aio": 9, "chatgpt": 37, "gemini": 13, "perplexity": 16, "claude": 2, "answers": 52}, {"domain": "klaviyo.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 73, "aio": 6, "chatgpt": 32, "gemini": 17, "perplexity": 18, "claude": 1, "answers": 62}, {"domain": "jenkins.io", "site_type": "Vendor docs & help centers", "all": 67, "aio": 4, "chatgpt": 33, "gemini": 5, "perplexity": 25, "claude": 2, "answers": 49}, {"domain": "monday.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 67, "aio": 6, "chatgpt": 38, "gemini": 13, "perplexity": 10, "claude": 6, "answers": 66}, {"domain": "constantcontact.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 65, "aio": 1, "chatgpt": 21, "gemini": 34, "perplexity": 9, "claude": 8, "answers": 62}, {"domain": "learn.g2.com", "site_type": "Review & directory sites (G2, Capterra, Gartner reviews...)", "all": 65, "aio": 5, "chatgpt": 12, "gemini": 24, "perplexity": 24, "claude": 0, "answers": 65}, {"domain": "circleci.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 64, "aio": 5, "chatgpt": 40, "gemini": 4, "perplexity": 15, "claude": 0, "answers": 41}, {"domain": "thedigitalprojectmanager.com", "site_type": "Independent sites (agencies, affiliates, comparison publishers, personal blogs)", "all": 63, "aio": 1, "chatgpt": 15, "gemini": 36, "perplexity": 11, "claude": 13, "answers": 55}, {"domain": "wrike.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 61, "aio": 4, "chatgpt": 25, "gemini": 17, "perplexity": 15, "claude": 0, "answers": 60}, {"domain": "ones.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 59, "aio": 0, "chatgpt": 0, "gemini": 5, "perplexity": 54, "claude": 13, "answers": 33}, {"domain": "netdata.cloud", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 56, "aio": 11, "chatgpt": 7, "gemini": 7, "perplexity": 31, "claude": 2, "answers": 55}, {"domain": "medium.com", "site_type": "Medium", "all": 55, "aio": 11, "chatgpt": 0, "gemini": 44, "perplexity": 0, "claude": 7, "answers": 51}, {"domain": "northflank.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 55, "aio": 2, "chatgpt": 0, "gemini": 32, "perplexity": 21, "claude": 8, "answers": 46}, {"domain": "hubspot.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 55, "aio": 6, "chatgpt": 45, "gemini": 3, "perplexity": 1, "claude": 0, "answers": 53}, {"domain": "ecosystem.hubspot.com", "site_type": "Vendor product & integration pages (homepages, pricing, app listings)", "all": 54, "aio": 16, "chatgpt": 9, "gemini": 5, "perplexity": 24, "claude": 0, "answers": 30}, {"domain": "plugins.jenkins.io", "site_type": "Vendor product & integration pages (homepages, pricing, app listings)", "all": 53, "aio": 4, "chatgpt": 17, "gemini": 9, "perplexity": 23, "claude": 2, "answers": 33}, {"domain": "notion.com", "site_type": "Vendor docs & help centers", "all": 52, "aio": 10, "chatgpt": 25, "gemini": 5, "perplexity": 12, "claude": 1, "answers": 31}, {"domain": "mailercloud.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 51, "aio": 14, "chatgpt": 2, "gemini": 19, "perplexity": 16, "claude": 11, "answers": 51}, {"domain": "mailerlite.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 51, "aio": 9, "chatgpt": 39, "gemini": 0, "perplexity": 3, "claude": 0, "answers": 48}, {"domain": "blog.jetbrains.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 51, "aio": 0, "chatgpt": 16, "gemini": 20, "perplexity": 15, "claude": 3, "answers": 51}, {"domain": "emailtooltester.com", "site_type": "Review & directory sites (G2, Capterra, Gartner reviews...)", "all": 50, "aio": 4, "chatgpt": 7, "gemini": 28, "perplexity": 11, "claude": 6, "answers": 46}, {"domain": "dash0.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 50, "aio": 13, "chatgpt": 0, "gemini": 10, "perplexity": 27, "claude": 2, "answers": 43}, {"domain": "hostinger.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 48, "aio": 2, "chatgpt": 10, "gemini": 0, "perplexity": 36, "claude": 4, "answers": 48}, {"domain": "help.klaviyo.com", "site_type": "Vendor docs & help centers", "all": 47, "aio": 6, "chatgpt": 9, "gemini": 8, "perplexity": 24, "claude": 1, "answers": 14}, {"domain": "manageengine.com", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 46, "aio": 6, "chatgpt": 21, "gemini": 9, "perplexity": 10, "claude": 1, "answers": 43}, {"domain": "semaphore.io", "site_type": "Vendor blog & content (articles, comparison/alternatives pages, guides)", "all": 45, "aio": 4, "chatgpt": 9, "gemini": 11, "perplexity": 21, "claude": 1, "answers": 42}]}</script>
+<script>
+(function () {
+  var root = document.getElementById('auq-study');
+  var S = JSON.parse(document.getElementById('auq-study-data').textContent);
+  function $(s) { return root.querySelector(s); }
+  function pct(v) { return (Math.round(v * 1000) / 10).toFixed(1) + '%'; }
+  function cell(e, t, code) {
+    if (e === 'all' && t === 'all') return [S.share_by_engine[code].all, S.share_by_engine_total.all];
+    if (t === 'all') return [S.share_by_engine[code][e], S.share_by_engine_total[e]];
+    if (e === 'all') return [S.share_by_search_type[code][t], S.share_by_search_type_total[t]];
+    return [S.engine_x_type[code][e + '|' + t], S.engine_x_type_total[e + '|' + t]];
+  }
+  function fill(sel, opts) { sel.innerHTML = opts.map(function (o) { return '<option value="' + o[0] + '">' + o[1] + '</option>'; }).join(''); }
+  var es = $('#ex-engine'), ts = $('#ex-type'); fill(es, S.engines); fill(ts, S.types);
+  function drawShare() {
+    var e = es.value, t = ts.value, total = cell(e, t, S.site_types[0].code)[1];
+    var rows = S.site_types.map(function (s) { var v = cell(e, t, s.code)[0]; return { l: s.label, v: v, n: Math.round(v * total) }; }).sort(function (a, b) { return b.v - a.v; });
+    $('#ex-share-table tbody').innerHTML = rows.map(function (r) {
+      return '<tr><td>' + r.l + '</td><td class="auq-num ex-share"><span class="ex-bar" style="width:' + Math.round(r.v * 160) + 'px"></span><b>' + pct(r.v) + '</b></td><td class="auq-num">' + r.n.toLocaleString('en-US') + '</td></tr>';
+    }).join('');
+    $('#ex-share-count').textContent = total.toLocaleString('en-US') + ' citations in this view';
+  }
+  es.addEventListener('change', drawShare); ts.addEventListener('change', drawShare); drawShare();
+
+  var dt = $('#ex-dtype'), dq = $('#ex-dq'), sortKey = 'all', sortDir = -1;
+  var types = Array.from(new Set(S.top_domains.map(function (d) { return d.site_type; }))).sort();
+  fill(dt, [['', 'All site types']].concat(types.map(function (x) { return [x, x]; })));
+  function drawDom() {
+    var q = dq.value.trim().toLowerCase(), ty = dt.value;
+    var rows = S.top_domains.filter(function (d) { return (!ty || d.site_type === ty) && (!q || d.domain.indexOf(q) > -1); });
+    rows.sort(function (a, b) { var x = a[sortKey], y = b[sortKey]; return (x > y ? 1 : x < y ? -1 : 0) * sortDir; });
+    $('#ex-dom-table tbody').innerHTML = rows.map(function (d) {
+      return '<tr><td>' + d.domain + '</td><td>' + d.site_type + '</td>' + ['all', 'aio', 'chatgpt', 'gemini', 'perplexity', 'claude', 'answers'].map(function (k) { return '<td class="auq-num">' + d[k] + '</td>'; }).join('') + '</tr>';
+    }).join('');
+    $('#ex-dom-empty').classList.toggle('auq-hidden', rows.length > 0);
+    $('#ex-dom-count').textContent = rows.length + ' of ' + S.top_domains.length + ' domains';
+  }
+  dt.addEventListener('change', drawDom); dq.addEventListener('input', drawDom);
+  root.querySelectorAll('#ex-dom-table .auq-sort').forEach(function (b) {
+    b.addEventListener('click', function () { var k = b.getAttribute('data-s'); sortDir = sortKey === k ? -sortDir : (k === 'domain' ? 1 : -1); sortKey = k; drawDom(); });
+  });
+  drawDom();
+
+  root.querySelectorAll('.auq-tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      root.querySelectorAll('.auq-tab').forEach(function (t) {
+        var on = t === tab; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')).classList.toggle('auq-hidden', !on);
+      });
+    });
+  });
+
+  function csv(rows) { return rows.map(function (r) { return r.map(function (v) { v = String(v); return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }).join(','); }).join('\n'); }
+  function save(name, text) { var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type: 'text/csv' })); a.download = name; document.body.appendChild(a); a.click(); a.remove(); }
+  root.querySelectorAll('[data-dl]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      if (b.getAttribute('data-dl') === 'shares') {
+        var out = [['engine', 'search_type', 'site_type', 'share_of_citations', 'citations', 'total_citations']];
+        S.engines.forEach(function (e) { S.types.forEach(function (t) { S.site_types.forEach(function (s) {
+          var c = cell(e[0], t[0], s.code); out.push([e[1], t[1], s.label, c[0].toFixed(4), Math.round(c[0] * c[1]), c[1]]);
+        }); }); });
+        save('auq-study2-site-type-shares.csv', csv(out));
+      } else {
+        var keys = ['domain', 'site_type', 'all', 'aio', 'chatgpt', 'gemini', 'perplexity', 'claude', 'answers'];
+        save('auq-study2-top-domains.csv', csv([['domain', 'site_type', 'citations_four_engines', 'google_ai_overviews', 'chatgpt', 'gemini', 'perplexity', 'claude_1run_api', 'answers_citing_four_engines']].concat(S.top_domains.map(function (d) { return keys.map(function (k) { return d[k]; }); }))));
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
