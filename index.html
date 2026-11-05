@@ -44,7 +44,7 @@ a{color:var(--cyan-2)}
 .nav-logo{justify-self:start; display:inline-flex; color:#fff}
 .nav-mid{justify-self:center; display:flex; align-items:center; gap:34px}
 .nav-mid a{color:rgba(255,255,255,.82); text-decoration:none; font-family:var(--sans); font-size:15px; letter-spacing:.2px; white-space:nowrap}
-.nav-mid a:hover{color:var(--cyan)}
+.nav-mid a:hover,.nav-mid a[aria-current="page"]{color:var(--cyan)}
 .nav-cta{justify-self:end}
 
 /* ---- Button (orange trapezoid) ---- */
@@ -101,7 +101,9 @@ a{color:var(--cyan-2)}
     </a>
     <div class="nav-mid">
       <a href="https://auq.io/geo-llm-optimization/">AUQ GEO</a>
-      <a href="https://auq.io/geo-analytics/">GEO Analytics</a>
+      <a href="https://auq.io/technical-thought-leadership/">Expert Content</a>
+      <a href="https://auq.io/research/" aria-current="page">Research</a>
+      <a href="https://auq.io/audits/">Audits</a>
       <a href="https://auq.io/pricing/">Pricing</a>
       <a href="https://auq.io/team/">Our Team</a>
     </div>
